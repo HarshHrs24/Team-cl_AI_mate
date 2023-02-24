@@ -1,0 +1,15 @@
+streamlit_lottie==0.0.2
+streamlit==1.3.0
+requests==2.24.0
+Pillow==8.4.0
+protobuf~=3.19.0
+watchdog==2.1.8
+seaborn
+pandas
+numpy
+prophet
+matplotlib
+plotly
+
+
+#Run this file with - pip3 install -r requirements.txt

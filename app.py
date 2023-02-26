@@ -253,11 +253,12 @@ with st.container():
 
 
 # Description
+# Description
 with st.container():
     st.write("---")
     cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_city = st.selectbox('Select a city for prediction', cities)
-    path="content/{}.csv".format(selected_city)
+    selected_2 = st.selectbox('Select a city for prediction', cities)
+    path="content/{}.csv".format(selected_2)
 
     df = pd.read_csv(path)
     df = prepare(df)

@@ -224,8 +224,8 @@ with st.container():
             cities,
             name='City Data',
             tooltip=folium.GeoJsonTooltip(
-                fields=['city', 'heat index', 'Temperature(°f)'],
-                aliases=['City', 'heat index', 'Temperature(°f)'],
+                fields=['city', 'heat index', 'Temperature(°F)'],
+                aliases=['City', 'heat index', 'Temperature(°F)'],
                 localize=True
             )
         ).add_to(m)

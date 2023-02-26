@@ -10,7 +10,9 @@ numpy
 prophet
 matplotlib
 plotly
+streamlit_folium
 folium
+geopandas
 smtplib
 
 

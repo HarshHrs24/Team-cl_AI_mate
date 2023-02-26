@@ -201,7 +201,7 @@ with st.container():
 
     # Add a search bar to the map
     search = Search(
-        layer=geojson,
+        layer=choropleth,
         geom_type='Polygon',
         placeholder='Search for a city',
         collapsed=False,

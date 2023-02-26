@@ -252,12 +252,12 @@ with st.container():
         st.image(image2)
 
 
-# Description
+
 # Description
 with st.container():
     st.write("---")
     cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_2 = st.selectbox('Select a city for prediction', cities)
+    selected_2 = st.selectbox('Select a city for prediction', cities,key=id("text1"))
     path="content/{}.csv".format(selected_2)
 
     df = pd.read_csv(path)
@@ -273,7 +273,6 @@ with st.container():
     st.write("Solar Radiation : {}".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
     st.write("UV Index : {}".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
     st.write("Condition : {}".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
-    
 
 
 # ---- CONTACT ----

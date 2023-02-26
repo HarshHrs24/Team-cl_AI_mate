@@ -200,20 +200,18 @@ with st.container():
     )
 
     # Add a search bar to the map
-    # search = Search(
-    #     layer=geojson,
-    #     geom_type='Polygon',
-    #     placeholder='Search for a city',
-    #     collapsed=False,
-    #     search_label='city'
-    # ).add_to(m)
+    search = Search(
+        layer=geojson,
+        geom_type='Polygon',
+        placeholder='Search for a city',
+        collapsed=False,
+        search_label='city'
+    ).add_to(m)
 
 
     # Display the map
     st_map = folium_static(m, width=700, height=450)
-    state_name = ''
-    if st_map['last_active_drawing']:
-        state_name = st_map['last_active_drawing']['properties']['city']
+
     
 
 

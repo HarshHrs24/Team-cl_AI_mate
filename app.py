@@ -133,9 +133,6 @@ with st.spinner('Loading Model Into Memory....'):
 forecast = load_prediction(donut_theta)
 
 
-st.subheader('Predicted Data')
-st.write(forecast.tail())
-
 st.header("Graph")
 fig1 = plot_plotly(m, forecast)
 st.plotly_chart(fig1)

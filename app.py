@@ -162,11 +162,11 @@ with st.container():
     df_ni['datetime'] = pd.to_datetime(df_ni['datetime'])
     df_wa['datetime'] = pd.to_datetime(df_wa['datetime'])
 
-    df_ad = df_ad.resample('d').max()
-    df_ka = df_ka.resample('d').max()
-    df_kh = df_kh.resample('d').max()
-    df_ni = df_ni.resample('d').max()
-    df_wa = df_wa.resample('d').max()
+    # df_ad = df_ad.resample('d').max()
+    # df_ka = df_ka.resample('d').max()
+    # df_kh = df_kh.resample('d').max()
+    # df_ni = df_ni.resample('d').max()
+    # df_wa = df_wa.resample('d').max()
 
     df_ad['date'] = df_ad['datetime'].dt.date
     df_ka['date'] = df_ka['datetime'].dt.date
@@ -181,7 +181,7 @@ with st.container():
     df_wa.set_index('date', inplace=True)
 
     # Select the temperature value for a particular date and store it in a variable
-    temp_value = df_ad.loc[d, 'temp']
+    temp_value = df_ad.loc[d, 'temp'].resample('d').max()
     st.write(temp_value)
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],

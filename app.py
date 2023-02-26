@@ -221,18 +221,11 @@ with st.container():
     heat_index_ni = df_ni.loc[d, 'heat_index']
     heat_index_wa = df_wa.loc[d, 'heat_index']
 
-    # temp_ad = df_ad.loc[d, 'temp']
-    # temp_ka = df_ka.loc[d, 'temp']
-    # temp_kh = df_kh.loc[d, 'temp']
-    # temp_ni = df_ni.loc[d, 'temp']
-    # temp_wa = df_wa.loc[d, 'temp']
-
-    # st.write(df_ad.head())
 
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
         'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
-        'Temperature': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
+        'Temperature(°C)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
         'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
         'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
     }
@@ -257,8 +250,8 @@ with st.container():
         cities,
         name='City Data',
         tooltip=folium.GeoJsonTooltip(
-            fields=['city', 'heat index', 'Temperature'],
-            aliases=['City', 'heat index', 'Temperature'],
+            fields=['city', 'heat index', 'Temperature(°C)'],
+            aliases=['City', 'heat index', 'Temperature(°C)'],
             localize=True
         )
     ).add_to(m)

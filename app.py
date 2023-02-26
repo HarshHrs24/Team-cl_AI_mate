@@ -119,8 +119,18 @@ def load_prediction(city):
   path="winner/winner_{}_prediction.csv".format(city)
   df = pd.read_csv(path)
   return df
+def load_model(city):
+  path="winner/winner_{}_model.json".format(city)
+  with open(path, 'r') as fin:
+    m = model_from_json(fin.read())  # Load model
+  return m
+
+with st.spinner('Loading Model Into Memory....'):
+  m= load_model(donut_theta)
 
 
+
+future = m.make_future_dataframe(periods = 365)
 forecast = load_prediction(donut_theta)
 
 

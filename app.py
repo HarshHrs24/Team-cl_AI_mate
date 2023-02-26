@@ -157,13 +157,14 @@ def prepare(df):
 
 with st.container():
 
+
+    col1, col2, col3, col4, col5 = st.columns(5)
     st.write("---")
     st.subheader("Choose a date")
     d = st.date_input(
     "",
     datetime.date(2019, 7, 6))
     st.header("Map")
-    col1, col2, col3, col4, col5 = st.columns(5)
 
     with col2:
         # Load the CSV file into a pandas DataFrame

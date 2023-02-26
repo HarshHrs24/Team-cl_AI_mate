@@ -36,14 +36,7 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-def heat_index(df):
-    df['datetime'] =  pd.to_datetime(df['datetime'], format='%Y%m%d %H:%M:%S')
-    T=(df['temp']*9/5)+32  
-    df['temp']=T
-    R=df['humidity']
-    hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
-    df['heat_index'] = hi
-    return df
+
 
 
 local_css("style/style.css")
@@ -154,6 +147,11 @@ def prepare(df):
    df = df.reset_index()
    df['date'] = df['datetime'].dt.date
    df.set_index('date', inplace=True)
+   T=(df['temp']*9/5)+32  
+   df['temp']=T
+   R=df['humidity']
+   hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
+   df['heat_index'] = hi
    return df
 
 
@@ -179,19 +177,11 @@ with st.container():
     df_ni = prepare(df_ni)
     df_wa = prepare(df_wa)
 
-
     temp_ad = df_ad.loc[d, 'temp']
     temp_ka = df_ka.loc[d, 'temp']
     temp_kh = df_kh.loc[d, 'temp']
     temp_ni = df_ni.loc[d, 'temp']
     temp_wa = df_wa.loc[d, 'temp']
-
-
-    df_ad=heat_index(df_ad)
-    df_ka=heat_index(df_ka)
-    df_kh=heat_index(df_kh)
-    df_ni=heat_index(df_ni)
-    df_wa=heat_index(df_wa)
     # Select the temperature and heat index value for a particular date and store it in a variable
 
     heat_index_ad = df_ad.loc[d, 'heat_index']

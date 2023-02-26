@@ -255,16 +255,23 @@ with st.container():
 # Description
 with st.container():
     st.write("---")
-    st.write("Temperature :")
-    st.write("Humidity :")
-    st.write("Preciptation :")
-    st.write("Wind speed :")
-    st.write("Cloud cover :")
-    st.write("Solar Radiation :")
-    st.write("UV Index :")
-    st.write("Condition :")
+    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+    selected_city = st.selectbox('Select a city for prediction', cities)
+    path="content/{}.csv".format(selected_city)
 
-    st.markdown("<p style='color: blue; font-size: 20px;'><b>This is some bold blue text.</b></p>", unsafe_allow_html=True)
+    df = pd.read_csv(path)
+    df = prepare(df)
+
+    df.loc[d, 'heat_index']
+    
+    st.write("Temperature : {}".format(df.loc[d, 'temp']), unsafe_allow_html=True)
+    st.write("Humidity : {}".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
+    st.write("Preciptation : {}".format(df.loc[d, 'precip']), unsafe_allow_html=True)
+    st.write("Wind speed : {}".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
+    st.write("Cloud cover : {}".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
+    st.write("Solar Radiation : {}".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
+    st.write("UV Index : {}".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
+    st.write("Condition : {}".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
     
 
 

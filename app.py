@@ -145,6 +145,7 @@ with st.container():
     d = st.date_input(
     "Choose a date",
     datetime.date(2019, 7, 6))
+    st.write('Your birthday is:', d)
     st.write("---")
     st.header("Map")
     cities = {

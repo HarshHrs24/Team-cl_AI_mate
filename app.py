@@ -183,15 +183,15 @@ with st.container():
     m = folium.Map(location=[17.9774221, 79.52881], zoom_start=5)
 
     # Create a GeoJson layer for the city data
-    geojson = folium.GeoJson(
-        cities,
-        name='City Data',
-        tooltip=folium.GeoJsonTooltip(
-            fields=['city', 'country', 'population'],
-            aliases=['City', 'Country', 'Population'],
-            localize=True
-        )
-    ).add_to(m)
+    # geojson = folium.GeoJson(
+    #     cities,
+    #     name='City Data',
+    #     tooltip=folium.GeoJsonTooltip(
+    #         fields=['city', 'country', 'population'],
+    #         aliases=['City', 'Country', 'Population'],
+    #         localize=True
+    #     )
+    # ).add_to(m)
 
     # Add a search bar to the map
     search = Search(

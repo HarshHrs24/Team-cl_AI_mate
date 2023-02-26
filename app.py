@@ -238,8 +238,8 @@ with st.container():
 
 
     with right_column:
-        image = Image.open('images\hic1.jpeg')
-        image2 = Image.open('images\hic2.jpeg')
+        image = Image.open('images/hic1.jpeg')
+        image2 = Image.open('images/hic2.jpeg')
         st.image(image)
         st.image(image2)
 

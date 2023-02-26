@@ -235,19 +235,6 @@ with st.container():
     ).add_to(m)
 
     folium_static(m)
-    st.markdown(
-    """
-    <style>
-    .centered {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 # ---- CONTACT ----

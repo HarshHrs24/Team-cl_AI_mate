@@ -134,9 +134,9 @@ with st.container():
     
     st.set_option('deprecation.showfileUploaderEncoding', False)
     st.title("Our Model")
-
+    
     cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_city = st.selectbox('Select a city for prediction', cities)
+    selected_city = st.selectbox('Select a city for prediction', cities,key=id("text_input"))
 
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(city):

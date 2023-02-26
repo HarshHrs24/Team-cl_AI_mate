@@ -255,6 +255,17 @@ with st.container():
 # Description
 with st.container():
     st.write("---")
+    st.write("Temperature :")
+    st.write("Humidity :")
+    st.write("Preciptation :")
+    st.write("Wind speed :")
+    st.write("Cloud cover :")
+    st.write("Solar Radiation :")
+    st.write("UV Index :")
+    st.write("Condition :")
+
+    st.markdown("<p style='color: blue; font-size: 20px;'><b>This is some bold blue text.</b></p>", unsafe_allow_html=True)
+    
 
 
 # ---- CONTACT ----

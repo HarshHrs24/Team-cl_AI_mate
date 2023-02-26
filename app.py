@@ -202,16 +202,16 @@ with st.container():
         search_label='city'
     ).add_to(m)
 
-    # Add a marker cluster to the map
-    mc = MarkerCluster().add_to(m)
+    # # Add a marker cluster to the map
+    # mc = MarkerCluster().add_to(m)
 
-    # Add markers for each city to the marker cluster
-    for _, r in cities.iterrows():
-        folium.Marker(
-            location=[r.geometry.y, r.geometry.x],
-            tooltip=f"{r.city}, {r.country}",
-            icon=folium.Icon(icon="cloud")
-        ).add_to(mc)
+    # # Add markers for each city to the marker cluster
+    # for _, r in cities.iterrows():
+    #     folium.Marker(
+    #         location=[r.geometry.y, r.geometry.x],
+    #         tooltip=f"{r.city}, {r.country}",
+    #         icon=folium.Icon(icon="cloud")
+    #     ).add_to(mc)
 
 
 

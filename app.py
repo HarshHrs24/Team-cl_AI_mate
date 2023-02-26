@@ -103,6 +103,46 @@ d = st.date_input(
 datetime.date(2019, 7, 6))
 st.header("Map")
 
+
+
+
+# Description
+with st.container():
+    st.write("---")
+   
+# ---- PROJECTS ----
+with st.container():
+    st.write("---")
+  
+    
+    st.set_option('deprecation.showfileUploaderEncoding', False)
+    st.title("Our Model")
+
+    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+    selected_city = st.selectbox('Select a city for prediction', cities)
+
+    @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
+    def load_prediction(city):
+        path="winner/winner_{}_prediction.csv".format(city)
+        df = pd.read_csv(path)
+        return df
+    
+    def load_model(city):
+        path="winner/winner_{}_model.json".format(city)
+        with open(path, 'r') as fin:
+            m = model_from_json(fin.read())  # Load model
+        return m
+
+    with st.spinner('Loading Model Into Memory....'):
+        m= load_model(selected_city)
+
+    forecast = load_prediction(selected_city)
+
+
+    st.header("Graph")
+    fig1 = plot_plotly(m, forecast)
+    st.plotly_chart(fig1)
+
 with st.container():
 
     left_column, middle_column, right_column = st.columns(3)
@@ -187,44 +227,6 @@ with st.container():
         image2 = Image.open('images/hic2.jpeg')
         st.image(image)
         st.image(image2)
-
-
-# Description
-with st.container():
-    st.write("---")
-   
-# ---- PROJECTS ----
-with st.container():
-    st.write("---")
-  
-    
-    st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.title("Our Model")
-
-    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_city = st.selectbox('Select a city for prediction', cities)
-
-    @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
-    def load_prediction(city):
-        path="winner/winner_{}_prediction.csv".format(city)
-        df = pd.read_csv(path)
-        return df
-    
-    def load_model(city):
-        path="winner/winner_{}_model.json".format(city)
-        with open(path, 'r') as fin:
-            m = model_from_json(fin.read())  # Load model
-        return m
-
-    with st.spinner('Loading Model Into Memory....'):
-        m= load_model(selected_city)
-
-    forecast = load_prediction(selected_city)
-
-
-    st.header("Graph")
-    fig1 = plot_plotly(m, forecast)
-    st.plotly_chart(fig1)
 
 # ---- WHAT I DO ----
 with st.container():

@@ -106,14 +106,9 @@ with st.container():
         st.write(
             """
             The problem statemeint asks you to build a solution to predict two environmental factors in the Tier-2 cities of the Indian state of Telangana: 
-
-
             1. Heat Wave Occurrences: Heat waves are prolonged periods of excessively high temperatures, which can have severe impacts on public health and local ecosystems. The task is to develop a solution that can predict when heat waves will occur in the Tier-2 cities of Telangana, to make people aware of the future occurrence of the Heat wave. 
-
  
-
             2. Air Quality Index (AQI): AQI is a measure of the air quality in a given location. It takes into account various pollutants in the air and provides a single numerical value that represents the overall air quality. The goal is to predict the AQI in the Tier-2 cities of Telangana to help residents and local authorities make informed decisions about air quality and health. 
-
   
             The solution should be able to accurately predict both heat wave occurrences and AQI for the time frame January 2023 - December 2023 on a monthly basis, which can help to mitigate their impacts on public health and the environment. 
             """
@@ -123,20 +118,20 @@ with st.container():
         st_lottie(lottie_coding, height=300, key="coding")
 
 
+st.write("---")
 
+
+st.set_option('deprecation.showfileUploaderEncoding', False)
+st.title("Our Model")
+
+cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+selected_city = st.selectbox('Select a city for prediction', cities)
 
 
    
 # ---- PROJECTS ----
 with st.container():
-    st.write("---")
-  
-    
-    st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.title("Our Model")
-    
-    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_city = st.selectbox('Select a city for prediction', cities,key=id("text_input"))
+
 
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(city):
@@ -262,15 +257,20 @@ with st.container():
     df = pd.read_csv(path)
     df = prepare(df)
 
-    
-    st.write("Temperature : {}".format(df.loc[d, 'temp']), unsafe_allow_html=True)
-    st.write("Humidity : {}".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
-    st.write("Preciptation : {}".format(df.loc[d, 'precip']), unsafe_allow_html=True)
-    st.write("Wind speed : {}".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
-    st.write("Cloud cover : {}".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
-    st.write("Solar Radiation : {}".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
-    st.write("UV Index : {}".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
-    st.write("Condition : {}".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+    left_column, middle_column, right_column = st.columns(3)
+    with left_column:
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Temperature : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
+    with right_column:
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Cloud cover : {}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Solar Radiation : {}</p>".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>UV Index : {}</p>".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Condition : {}</p>".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+
+
+
 
 
 # ---- CONTACT ----
@@ -300,17 +300,14 @@ with st.container():
     """
     <style>
        
-
          /* Adjust the width of the form elements */
         .stTextInput {
             width: 50%;
-
         }
         
         .stTextArea {
             width: 20%;
         }
-
         /* Style the submit button */
         .stButton button {
             background-color: #45a049;
@@ -320,7 +317,6 @@ with st.container():
             border-radius: 5px;
             width: 10%;
         }
-
         /* Style the success message */
         .stSuccess {
             color: #0072C6;
@@ -331,8 +327,3 @@ with st.container():
     """,
     unsafe_allow_html=True
 )
-
-
-
-
-

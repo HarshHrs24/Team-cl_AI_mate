@@ -183,28 +183,27 @@ with st.container():
     m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
 
     # Create a GeoJson layer for the city data
-    geojson = folium.GeoJson(
-        cities,
-        name='City Data',
-        tooltip=folium.GeoJsonTooltip(
-            fields=['city', 'country', 'population'],
-            aliases=['City', 'Country', 'Population'],
-            localize=True
-        )
-    ).add_to(m)
+    choropleth = folium.Choropleth(
+        geo_data='data/us-state-boundaries.geojson',
+        columns=('State Name', 'State Total Reports Quarter'),
+        key_on='feature.properties.D_N',
+        line_opacity=0.8,
+        highlight=True
+    )
+    choropleth.geojson.add_to(m)
 
     # Add a search bar to the map
-    search = Search(
-        layer=geojson,
-        geom_type='Polygon',
-        placeholder='Search for a city',
-        collapsed=False,
-        search_label='city'
-    ).add_to(m)
+    # search = Search(
+    #     layer=geojson,
+    #     geom_type='Polygon',
+    #     placeholder='Search for a city',
+    #     collapsed=False,
+    #     search_label='city'
+    # ).add_to(m)
 
 
     # Display the map
-    folium_static(m)
+    st_map = st_folium(map, width=700, height=450)
 
 
 # ---- CONTACT ----

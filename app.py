@@ -36,6 +36,15 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+def heat_index(df):
+    df['datetime'] =  pd.to_datetime(df['datetime'], format='%Y%m%d %H:%M:%S')
+    T=(df['temp']*9/5)+32  
+    df['temp']=T
+    R=df['humidity']
+    hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
+    df['heat_index'] = hi
+    return df
+
 
 local_css("style/style.css")
 
@@ -192,7 +201,20 @@ with st.container():
     df_ni.set_index('date', inplace=True)
     df_wa.set_index('date', inplace=True)
 
-    # Select the temperature value for a particular date and store it in a variable
+
+    df_ad=heat_index(df_ad)
+    df_ka=heat_index(df_ka)
+    df_kh=heat_index(df_kh)
+    df_ni=heat_index(df_ni)
+    df_wa=heat_index(df_wa)
+    # Select the temperature and heat index value for a particular date and store it in a variable
+
+    heat_index_ad = df_ad.loc[d, 'heat_index']
+    heat_index_ka = df_ka.loc[d, 'heat_index']
+    heat_index_kh = df_kh.loc[d, 'heat_index']
+    heat_index_ni = df_ni.loc[d, 'heat_index']
+    heat_index_wa = df_wa.loc[d, 'heat_index']
+
     temp_ad = df_ad.loc[d, 'temp']
     temp_ka = df_ka.loc[d, 'temp']
     temp_kh = df_kh.loc[d, 'temp']
@@ -201,7 +223,7 @@ with st.container():
 
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
-        'country': ['India', 'India', 'India', 'India', 'India'],
+        'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
         'Temperature': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
         'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
         'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
@@ -227,8 +249,8 @@ with st.container():
         cities,
         name='City Data',
         tooltip=folium.GeoJsonTooltip(
-            fields=['city', 'country', 'Temperature'],
-            aliases=['City', 'Country', 'Temperature'],
+            fields=['city', 'heat index', 'Temperature'],
+            aliases=['City', 'heat index', 'Temperature'],
             localize=True
         )
     ).add_to(m)

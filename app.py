@@ -156,114 +156,87 @@ def prepare(df):
 
 
 with st.container():
-
-
     st.write("---")
-    col1, col2, col3, col4, col5 = st.columns(5)
+    st.subheader("Choose a date")
+    d = st.date_input(
+    "",
+    datetime.date(2019, 7, 6))
+    st.header("Map")
+    # Load the CSV file into a pandas DataFrame
 
 
-    with col2:
-        st.subheader("Choose a date")
-        d = st.date_input(
-        "",
-        datetime.date(2019, 7, 6))
-        st.header("Map")
-        # Load the CSV file into a pandas DataFrame
+    df_ad = pd.read_csv('content/Adilabad.csv')
+    df_ka = pd.read_csv('content/Karimnagar.csv')
+    df_kh = pd.read_csv('content/Khammam.csv')
+    df_ni = pd.read_csv('content/Nizamabad.csv')
+    df_wa = pd.read_csv('content/Adilabad.csv')
+
+    df_ad = prepare(df_ad)
+    df_ka = prepare(df_ka)
+    df_kh = prepare(df_kh)
+    df_ni = prepare(df_ni)
+    df_wa = prepare(df_wa)
+
+    temp_ad = df_ad.loc[d, 'temp']
+    temp_ka = df_ka.loc[d, 'temp']
+    temp_kh = df_kh.loc[d, 'temp']
+    temp_ni = df_ni.loc[d, 'temp']
+    temp_wa = df_wa.loc[d, 'temp']
+    # Select the temperature and heat index value for a particular date and store it in a variable
+
+    heat_index_ad = df_ad.loc[d, 'heat_index']
+    heat_index_ka = df_ka.loc[d, 'heat_index']
+    heat_index_kh = df_kh.loc[d, 'heat_index']
+    heat_index_ni = df_ni.loc[d, 'heat_index']
+    heat_index_wa = df_wa.loc[d, 'heat_index']
 
 
-        df_ad = pd.read_csv('content/Adilabad.csv')
-        df_ka = pd.read_csv('content/Karimnagar.csv')
-        df_kh = pd.read_csv('content/Khammam.csv')
-        df_ni = pd.read_csv('content/Nizamabad.csv')
-        df_wa = pd.read_csv('content/Adilabad.csv')
+    cities = {
+        'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
+        'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
+        'Temperature(°f)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
+        'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
+        'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
+    }
 
-        df_ad = prepare(df_ad)
-        df_ka = prepare(df_ka)
-        df_kh = prepare(df_kh)
-        df_ni = prepare(df_ni)
-        df_wa = prepare(df_wa)
+    # Convert the city data to a GeoDataFrame
+    geometry = [Point(xy) for xy in zip(cities['longitude'], cities['latitude'])]
+    cities_gdf = gpd.GeoDataFrame(cities, geometry=geometry, crs='EPSG:4326')
 
-        temp_ad = df_ad.loc[d, 'temp']
-        temp_ka = df_ka.loc[d, 'temp']
-        temp_kh = df_kh.loc[d, 'temp']
-        temp_ni = df_ni.loc[d, 'temp']
-        temp_wa = df_wa.loc[d, 'temp']
-        # Select the temperature and heat index value for a particular date and store it in a variable
-
-        heat_index_ad = df_ad.loc[d, 'heat_index']
-        heat_index_ka = df_ka.loc[d, 'heat_index']
-        heat_index_kh = df_kh.loc[d, 'heat_index']
-        heat_index_ni = df_ni.loc[d, 'heat_index']
-        heat_index_wa = df_wa.loc[d, 'heat_index']
-
-
-        cities = {
-            'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
-            'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
-            'Temperature(°f)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
-            'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
-            'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
-        }
-
-        # Convert the city data to a GeoDataFrame
-        geometry = [Point(xy) for xy in zip(cities['longitude'], cities['latitude'])]
-        cities_gdf = gpd.GeoDataFrame(cities, geometry=geometry, crs='EPSG:4326')
-
-        # Save the GeoDataFrame to a GeoJSON file
-        cities_gdf.to_file('cities.geojson', driver='GeoJSON')
+    # Save the GeoDataFrame to a GeoJSON file
+    cities_gdf.to_file('cities.geojson', driver='GeoJSON')
 
 
 
-        # Load the city data
-        cities = gpd.read_file("cities.geojson")
+    # Load the city data
+    cities = gpd.read_file("cities.geojson")
 
-        # Create a folium map centered on the India
-        m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
+    # Create a folium map centered on the India
+    m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
 
-        # Create a GeoJson layer for the city data
-        geojson = folium.GeoJson(
-            cities,
-            name='City Data',
-            tooltip=folium.GeoJsonTooltip(
-                fields=['city', 'heat index', 'Temperature(°f)'],
-                aliases=['City', 'heat index', 'Temperature(°f)'],
-                localize=True
-            )
-        ).add_to(m)
-
-        # Add a search bar to the map
-        search = Search(
-            layer=geojson,
-            geom_type='Point',
-            placeholder='Search for a city',
-            collapsed=False,
-            search_label='city'
-        ).add_to(m)
-
-        folium_static(m)
-
-with st.container():
-    left_column, right_column = st.columns(2)
-    with left_column:
-        image = Image.open('images\heat_index_chart.png')
-        st.image(image)
-
-    with right_column:
-        st.write(
-            """
-            The problem statemeint asks you to build a solution to predict two environmental factors in the Tier-2 cities of the Indian state of Telangana: 
-
-
-            1. Heat Wave Occurrences: Heat waves are prolonged periods of excessively high temperatures, which can have severe impacts on public health and local ecosystems. The task is to develop a solution that can predict when heat waves will occur in the Tier-2 cities of Telangana, to make people aware of the future occurrence of the Heat wave. 
-
- 
-
-            2. Air Quality Index (AQI): AQI is a measure of the air quality in a given location. It takes into account various pollutants in the air and provides a single numerical value that represents the overall air quality. The goal is to predict the AQI in the Tier-2 cities of Telangana to help residents and local authorities make informed decisions about air quality and health. 
-
-  
-            The solution should be able to accurately predict both heat wave occurrences and AQI for the time frame January 2023 - December 2023 on a monthly basis, which can help to mitigate their impacts on public health and the environment. 
-            """
+    # Create a GeoJson layer for the city data
+    geojson = folium.GeoJson(
+        cities,
+        name='City Data',
+        tooltip=folium.GeoJsonTooltip(
+            fields=['city', 'heat index', 'Temperature(°f)'],
+            aliases=['City', 'heat index', 'Temperature(°f)'],
+            localize=True
         )
+    ).add_to(m)
+
+    # Add a search bar to the map
+    search = Search(
+        layer=geojson,
+        geom_type='Point',
+        placeholder='Search for a city',
+        collapsed=False,
+        search_label='city'
+    ).add_to(m)
+
+    folium_static(m)
+
+
 # ---- CONTACT ----
 with st.container():
     st.write("---")

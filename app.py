@@ -50,12 +50,12 @@ st.sidebar.header('Team cl_AI_mate')
 st.sidebar.subheader('What you want to Predict?')
 time_hist_color = st.sidebar.selectbox('Choose:', ('AQI', 'Heat wave')) 
 
-st.sidebar.subheader('Choose a city:')
-donut_theta = st.sidebar.selectbox('Select data', ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'))
+# st.sidebar.subheader('Choose a city:')
+# donut_theta = st.sidebar.selectbox('Select data', ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'))
 
-st.sidebar.subheader('Line chart parameters')
-plot_data = st.sidebar.multiselect('Select data', ['temperature', 'humidity'], ['temperature', 'humidity'])
-plot_height = st.sidebar.slider('Specify plot height', 200, 500, 250)
+# st.sidebar.subheader('Line chart parameters')
+# plot_data = st.sidebar.multiselect('Select data', ['temperature', 'humidity'], ['temperature', 'humidity'])
+# plot_height = st.sidebar.slider('Specify plot height', 200, 500, 250)
 
 st.sidebar.markdown('''
 ---
@@ -128,9 +128,9 @@ def load_model(city):
   return m
 
 with st.spinner('Loading Model Into Memory....'):
-  m= load_model(donut_theta)
+  m= load_model(selected_city)
 
-forecast = load_prediction(donut_theta)
+forecast = load_prediction(selected_city)
 
 
 st.header("Graph")

@@ -144,7 +144,7 @@ st.plotly_chart(fig1)
 with st.container():
     start_time = st.slider(
     "When do you start?",
-    value=datetime(2020, 1, 1, 9, 30),
+    value=datetime(2012, 1, 1, 00, 00),
     format="MM/DD/YY - hh:mm")
     st.write("Start time:", start_time)
     st.write("---")

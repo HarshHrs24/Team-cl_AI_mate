@@ -217,7 +217,11 @@ with st.container():
        
 
          /* Adjust the width of the form elements */
+        .stTextInput {
+            width: 50%;
 
+        }
+        
         .stTextArea {
             width: 20%;
         }

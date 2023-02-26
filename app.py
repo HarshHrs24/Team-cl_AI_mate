@@ -162,6 +162,12 @@ with st.container():
     df_ni['datetime'] = pd.to_datetime(df_ni['datetime'])
     df_wa['datetime'] = pd.to_datetime(df_wa['datetime'])
 
+    df_ad = df_ad.resample('d').max()
+    df_ka = df_ka.resample('d').max()
+    df_kh = df_kh.resample('d').max()
+    df_ni = df_ni.resample('d').max()
+    df_wa = df_wa.resample('d').max()
+
     df_ad['date'] = df_ad['datetime'].dt.date
     df_ka['date'] = df_ka['datetime'].dt.date
     df_kh['date'] = df_kh['datetime'].dt.date

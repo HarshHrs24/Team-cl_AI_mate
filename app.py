@@ -184,7 +184,7 @@ with st.container():
 
     # Create a GeoJson layer for the city data
     choropleth = folium.Choropleth(
-        geo_data='data/us-state-boundaries.geojson',
+        geo_data='cities.geojson',
         columns=('State Name', 'State Total Reports Quarter'),
         key_on='feature.properties.D_N',
         line_opacity=0.8,

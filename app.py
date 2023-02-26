@@ -152,8 +152,9 @@ st.plotly_chart(fig1)
 
 with st.container():
     st.write("---")
+    st.subheader("Choose a date")
     d = st.date_input(
-    "Choose a date",
+    "",
     datetime.date(2019, 7, 6))
     st.header("Map")
     # Load the CSV file into a pandas DataFrame

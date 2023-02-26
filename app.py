@@ -201,27 +201,33 @@ with st.container():
     df_ni.set_index('date', inplace=True)
     df_wa.set_index('date', inplace=True)
 
-
-    # df_ad=heat_index(df_ad)
-    # df_ka=heat_index(df_ka)
-    # df_kh=heat_index(df_kh)
-    # df_ni=heat_index(df_ni)
-    # df_wa=heat_index(df_wa)
-    # Select the temperature and heat index value for a particular date and store it in a variable
-
-    # heat_index_ad = df_ad.loc[d, 'heat_index']
-    # heat_index_ka = df_ka.loc[d, 'heat_index']
-    # heat_index_kh = df_kh.loc[d, 'heat_index']
-    # heat_index_ni = df_ni.loc[d, 'heat_index']
-    # heat_index_wa = df_wa.loc[d, 'heat_index']
-
     temp_ad = df_ad.loc[d, 'temp']
     temp_ka = df_ka.loc[d, 'temp']
     temp_kh = df_kh.loc[d, 'temp']
     temp_ni = df_ni.loc[d, 'temp']
     temp_wa = df_wa.loc[d, 'temp']
 
-    st.write(df_ad.head())
+
+    df_ad=heat_index(df_ad)
+    df_ka=heat_index(df_ka)
+    df_kh=heat_index(df_kh)
+    df_ni=heat_index(df_ni)
+    df_wa=heat_index(df_wa)
+    # Select the temperature and heat index value for a particular date and store it in a variable
+
+    heat_index_ad = df_ad.loc[d, 'heat_index']
+    heat_index_ka = df_ka.loc[d, 'heat_index']
+    heat_index_kh = df_kh.loc[d, 'heat_index']
+    heat_index_ni = df_ni.loc[d, 'heat_index']
+    heat_index_wa = df_wa.loc[d, 'heat_index']
+
+    # temp_ad = df_ad.loc[d, 'temp']
+    # temp_ka = df_ka.loc[d, 'temp']
+    # temp_kh = df_kh.loc[d, 'temp']
+    # temp_ni = df_ni.loc[d, 'temp']
+    # temp_wa = df_wa.loc[d, 'temp']
+
+    # st.write(df_ad.head())
 
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],

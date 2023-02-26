@@ -180,7 +180,7 @@ with st.container():
     cities = gpd.read_file("cities.geojson")
 
     # Create a folium map centered on the India
-    m = folium.Map(location=[17.9774221, 79.52881], zoom_start=5)
+    m = folium.Map(location=[17.9774221, 79.52881], zoom_start=7)
 
     # Create a GeoJson layer for the city data
     geojson = folium.GeoJson(
@@ -201,18 +201,6 @@ with st.container():
         collapsed=False,
         search_label='city'
     ).add_to(m)
-
-    # # Add a marker cluster to the map
-    # mc = MarkerCluster().add_to(m)
-
-    # # Add markers for each city to the marker cluster
-    # for _, r in cities.iterrows():
-    #     folium.Marker(
-    #         location=[r.geometry.y, r.geometry.x],
-    #         tooltip=f"{r.city}, {r.country}",
-    #         icon=folium.Icon(icon="cloud")
-    #     ).add_to(mc)
-
 
 
     # Display the map

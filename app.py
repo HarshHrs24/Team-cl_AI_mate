@@ -148,6 +148,31 @@ with st.container():
     st.write('Your birthday is:', d)
     st.write("---")
     st.header("Map")
+    # Load the CSV file into a pandas DataFrame
+    df_ad = pd.read_csv('content/Adilabad.csv')
+    df_ka = pd.read_csv('content/Karimnagar.csv')
+    df_kh = pd.read_csv('content/Khammam.csv')
+    df_ni = pd.read_csv('content/Nizamabad.csv')
+    df_wa = pd.read_csv('content/Adilabad.csv')
+
+    # Convert the datetime column to a pandas datetime format
+    df_ad['datetime'] = pd.to_datetime(df_ad['datetime'])
+    df_ka['datetime'] = pd.to_datetime(df_ka['datetime'])
+    df_kh['datetime'] = pd.to_datetime(df_kh['datetime'])
+    df_ni['datetime'] = pd.to_datetime(df_ni['datetime'])
+    df_wa['datetime'] = pd.to_datetime(df_wa['datetime'])
+
+
+    # Set the datetime column as the DataFrame's index
+    df_ad.set_index('datetime', inplace=True)
+    df_ka.set_index('datetime', inplace=True)
+    df_kh.set_index('datetime', inplace=True)
+    df_ni.set_index('datetime', inplace=True)
+    df_wa.set_index('datetime', inplace=True)
+
+    # Select the temperature value for a particular date and store it in a variable
+    temp_value = df_ad.loc[d, 'temp']
+    st.write(temp_value)
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
         'country': ['India', 'India', 'India', 'India', 'India'],

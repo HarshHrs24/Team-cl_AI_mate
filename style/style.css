@@ -3,7 +3,7 @@
 
 
 input[type=message], input[type=email], input[type=text], textarea {
-  width: 50%; /* Full width */
+  width: 100%; /* Full width */
   padding: 12px; /* Some padding */ 
   border: 1px solid #ccc; /* Gray border */
   border-radius: 4px; /* Rounded borders */
@@ -15,12 +15,12 @@ input[type=message], input[type=email], input[type=text], textarea {
 
 /* Style the submit button with a specific background color etc */
 button[type=submit] {
-  background-color: #45a049;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
-  width: 10%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* When moving the mouse over the submit button, add a darker green color */

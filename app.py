@@ -145,7 +145,7 @@ with st.container():
     start_time = st.slider(
     "When do you start?",
     value=datetime(2012, 1, 1),
-    format="DD/MM/YY")
+    format="MM/DD/YY")
     st.write("Start time:", start_time)
     st.write("---")
     st.header("Map")

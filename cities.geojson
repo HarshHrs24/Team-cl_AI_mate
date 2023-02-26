@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "city": "Adilabad", "country": "India", "population": 883305, "latitude": 19.6625054, "longitude": 78.4953182 }, "geometry": { "type": "Point", "coordinates": [ 78.4953182, 19.6625054 ] } },
+{ "type": "Feature", "properties": { "city": "Nizamabad", "country": "India", "population": 8537673, "latitude": 18.6804717, "longitude": 78.0606503 }, "geometry": { "type": "Point", "coordinates": [ 78.0606503, 18.6804717 ] } },
+{ "type": "Feature", "properties": { "city": "Karimnagar", "country": "India", "population": 3979576, "latitude": 18.4348833, "longitude": 79.0981286 }, "geometry": { "type": "Point", "coordinates": [ 79.0981286, 18.4348833 ] } },
+{ "type": "Feature", "properties": { "city": "Khammam", "country": "India", "population": 2693976, "latitude": 17.2484683, "longitude": 80.006904 }, "geometry": { "type": "Point", "coordinates": [ 80.006904, 17.2484683 ] } },
+{ "type": "Feature", "properties": { "city": "Warangal", "country": "India", "population": 2345678, "latitude": 17.9774221, "longitude": 79.52881 }, "geometry": { "type": "Point", "coordinates": [ 79.52881, 17.9774221 ] } }
+]
+}

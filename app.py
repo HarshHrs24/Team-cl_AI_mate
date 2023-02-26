@@ -230,17 +230,18 @@ with st.container():
 
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(city):
-    path="winner/winner_{}_prediction.csv".format(city)
-    df = pd.read_csv(path)
-    return df
+        path="winner/winner_{}_prediction.csv".format(city)
+        df = pd.read_csv(path)
+        return df
+    
     def load_model(city):
-    path="winner/winner_{}_model.json".format(city)
-    with open(path, 'r') as fin:
-        m = model_from_json(fin.read())  # Load model
-    return m
+        path="winner/winner_{}_model.json".format(city)
+        with open(path, 'r') as fin:
+            m = model_from_json(fin.read())  # Load model
+        return m
 
     with st.spinner('Loading Model Into Memory....'):
-    m= load_model(selected_city)
+        m= load_model(selected_city)
 
     forecast = load_prediction(selected_city)
 

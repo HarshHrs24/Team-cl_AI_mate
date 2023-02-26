@@ -142,11 +142,10 @@ st.plotly_chart(fig1)
 
 
 with st.container():
-    start_time = st.slider(
-    "When do you start?",
-    value=datetime(2012, 1, 1),
-    format="MM/DD/YY")
-    st.write("Start time:", start_time)
+    d = st.date_input(
+    "enter date",
+    datetime.date(2019, 7, 6))
+    st.write('____', d)
     st.write("---")
     st.header("Map")
     cities = {

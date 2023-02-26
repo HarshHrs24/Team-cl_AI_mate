@@ -256,7 +256,7 @@ with st.container():
 # Description
 with st.container():
     st.write("---")
-    st.tile("Description)
+    st.header("Description")
     path="content/{}.csv".format(selected_city)
 
     df = pd.read_csv(path)

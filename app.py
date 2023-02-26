@@ -156,10 +156,11 @@ st.subheader("Choose a date")
 d = st.date_input(
 "",
 datetime.date(2019, 7, 6))
+st.header("Map")
 
 with st.container():
 
-    st.header("Map")
+    
     # Load the CSV file into a pandas DataFrame
 
 

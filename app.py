@@ -264,13 +264,24 @@ with st.container():
 
     
     st.write("Temperature : {}".format(df.loc[d, 'temp']), unsafe_allow_html=True)
-    st.write("Humidity : {}".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
-    st.write("Preciptation : {}".format(df.loc[d, 'precip']), unsafe_allow_html=True)
-    st.write("Wind speed : {}".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
-    st.write("Cloud cover : {}".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
-    st.write("Solar Radiation : {}".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
-    st.write("UV Index : {}".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
-    st.write("Condition : {}".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Temperature : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Cloud cover : {}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Solar Radiation : {}</p>".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>UV Index : {}</p>".format(df.loc[d, 'uvradiation']), unsafe_allow_html=True)
+    st.write("<p style='color: blue; font-size: 20px;'>Condition : {}</p>".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+
+
+    # st.write("Humidity : {}".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
+    # st.write("Preciptation : {}".format(df.loc[d, 'precip']), unsafe_allow_html=True)
+    # st.write("Wind speed : {}".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
+    # st.write("Cloud cover : {}".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
+    # st.write("Solar Radiation : {}".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
+    # st.write("UV Index : {}".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
+    # st.write("Condition : {}".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+
 
 
 # ---- CONTACT ----

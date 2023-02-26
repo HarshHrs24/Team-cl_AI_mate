@@ -123,20 +123,20 @@ with st.container():
         st_lottie(lottie_coding, height=300, key="coding")
 
 
+st.write("---")
 
+
+st.set_option('deprecation.showfileUploaderEncoding', False)
+st.title("Our Model")
+
+cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+selected_city = st.selectbox('Select a city for prediction', cities)
 
 
    
 # ---- PROJECTS ----
 with st.container():
-    st.write("---")
-  
-    
-    st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.title("Our Model")
-    
-    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_city = st.selectbox('Select a city for prediction', cities,key=id("text_input"))
+
 
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(city):
@@ -256,9 +256,7 @@ with st.container():
 # Description
 with st.container():
     st.write("---")
-    cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-    selected_2 = st.selectbox('Select a city for prediction', cities,key=id("text1"))
-    path="content/{}.csv".format(selected_2)
+    path="content/{}.csv".format(selected_city)
 
     df = pd.read_csv(path)
     df = prepare(df)

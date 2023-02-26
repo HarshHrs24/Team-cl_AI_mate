@@ -96,12 +96,7 @@ def prepare(df):
    df['heat_index'] = hi
    return df
 
-st.write("---")
-st.subheader("Choose a date")
-d = st.date_input(
-"",
-datetime.date(2019, 7, 6))
-st.header("Map")
+
 
 
 
@@ -143,6 +138,12 @@ with st.container():
     fig1 = plot_plotly(m, forecast)
     st.plotly_chart(fig1)
 
+st.write("---")
+st.subheader("Choose a date")
+d = st.date_input(
+"",
+datetime.date(2019, 7, 6))
+st.header("Map")
 with st.container():
 
     left_column, middle_column, right_column = st.columns(3)

@@ -12,7 +12,7 @@ from streamlit_lottie import st_lottie
 from PIL import Image
 import folium
 from folium.plugins import Search, MarkerCluster
-from streamlit_folium import st_folium
+from streamlit_folium import folium_static
 import pandas as pd
 import geopandas as gpd
 import smtplib
@@ -203,7 +203,7 @@ with st.container():
 
 
     # Display the map
-    st_map = st_folium(m,width=10000, height=10000)
+    st_map = folium_static(m, width=700, height=450)
 
 
 # ---- CONTACT ----

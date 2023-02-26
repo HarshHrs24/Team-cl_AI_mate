@@ -211,6 +211,10 @@ with st.container():
 
     # Display the map
     st_map = folium_static(m, width=700, height=450)
+    state_name = ''
+    if st_map['last_active_drawing']:
+        state_name = st_map['last_active_drawing']['properties']['city']
+    
 
 
 # ---- CONTACT ----

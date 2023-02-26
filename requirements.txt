@@ -9,6 +9,7 @@ pandas
 numpy
 prophet
 matplotlib
+sklearn
 plotly
 streamlit_folium
 folium

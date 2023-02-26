@@ -115,19 +115,13 @@ cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
 selected_city = st.selectbox('Select a city for prediction', cities)
 
 @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
-def load_model(city):
-  path='json/{}_model.json'.format(city)
-  with open(path, 'r') as fin:
-    m = model_from_json(fin.read())  # Load model
-  return m
-
-with st.spinner('Loading Model Into Memory....'):
-  m= load_model(donut_theta)
+def load_prediction(city):
+  path="winner/winner_{}_prediction.csv".format(city)
+  df = pd.read_csv(path)
+  return df
 
 
-
-future = m.make_future_dataframe(periods = 365)
-forecast = m.predict(future)
+forecast = load_prediction(donut_theta)
 
 
 st.subheader('Predicted Data')

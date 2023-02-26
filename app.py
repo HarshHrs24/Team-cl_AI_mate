@@ -143,9 +143,8 @@ st.plotly_chart(fig1)
 
 with st.container():
     d = st.date_input(
-    "When\'s your birthday",
+    "Choose a date",
     datetime.date(2019, 7, 6))
-    st.write('Your birthday is:', d)
     st.write("---")
     st.header("Map")
     cities = {

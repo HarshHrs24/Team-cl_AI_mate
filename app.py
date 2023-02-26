@@ -195,7 +195,7 @@ with st.container():
 
     # Add a search bar to the map
     search = Search(
-        layer=geojson,
+        # layer=geojson,
         geom_type='Point',
         placeholder='Search for a city',
         collapsed=False,

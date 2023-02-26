@@ -192,6 +192,13 @@ with st.container():
     )
     choropleth.geojson.add_to(m)
 
+
+        
+
+    choropleth.geojson.add_child(
+        folium.features.GeoJsonTooltip(['city', 'country', 'population'], labels=False)
+    )
+
     # Add a search bar to the map
     # search = Search(
     #     layer=geojson,

@@ -20,7 +20,7 @@ import datetime
 from shapely.geometry import Point
 
 
-# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
+
 st.set_page_config(page_title="Team cl_AI_mate", page_icon=":tada:", layout="wide")
 
 

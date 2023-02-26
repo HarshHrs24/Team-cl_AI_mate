@@ -203,7 +203,7 @@ with st.container():
 
 
     # Display the map
-    st_map = st_folium(m)
+    st_map = st_folium(m,width=10000, height=10000)
 
 
 # ---- CONTACT ----

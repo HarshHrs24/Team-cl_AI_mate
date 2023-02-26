@@ -264,15 +264,15 @@ with st.container():
 
     left_column, middle_column, right_column = st.columns(3)
     with left_column:
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Temperature : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Temperature : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
     with right_column:
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Cloud cover : {}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Solar Radiation : {}</p>".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>UV Index : {}</p>".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
-        st.write("<p style='color: #FF69B4; font-size: 20px;'>Condition : {}</p>".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Cloud cover : {}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Solar Radiation : {}</p>".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>UV Index : {}</p>".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Condition : {}</p>".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
 
 
 

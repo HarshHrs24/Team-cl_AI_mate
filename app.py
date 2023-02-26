@@ -147,7 +147,14 @@ st.header("Graph")
 fig1 = plot_plotly(m, forecast)
 st.plotly_chart(fig1)
 
-
+def prepare(df):
+   df['datetime'] = pd.to_datetime(df['datetime'])
+   df.set_index('datetime', inplace=True)
+   df = df.resample('d').max()
+   df = df.reset_index()
+   df['date'] = df['datetime'].dt.date
+   df.set_index('date', inplace=True)
+   return df
 
 
 with st.container():
@@ -158,48 +165,56 @@ with st.container():
     datetime.date(2019, 7, 6))
     st.header("Map")
     # Load the CSV file into a pandas DataFrame
+
+
     df_ad = pd.read_csv('content/Adilabad.csv')
     df_ka = pd.read_csv('content/Karimnagar.csv')
     df_kh = pd.read_csv('content/Khammam.csv')
     df_ni = pd.read_csv('content/Nizamabad.csv')
     df_wa = pd.read_csv('content/Adilabad.csv')
 
-    # Convert the datetime column to a pandas datetime format
-    df_ad['datetime'] = pd.to_datetime(df_ad['datetime'])
-    df_ka['datetime'] = pd.to_datetime(df_ka['datetime'])
-    df_kh['datetime'] = pd.to_datetime(df_kh['datetime'])
-    df_ni['datetime'] = pd.to_datetime(df_ni['datetime'])
-    df_wa['datetime'] = pd.to_datetime(df_wa['datetime'])
+    df_ad = prepare(df_ad)
+    df_ka = prepare(df_ka)
+    df_kh = prepare(df_kh)
+    df_ni = prepare(df_ni)
+    df_wa = prepare(df_wa)
 
-    df_ka.set_index('datetime', inplace=True)
-    df_ad.set_index('datetime', inplace=True)
-    df_kh.set_index('datetime', inplace=True)
-    df_ni.set_index('datetime', inplace=True)
-    df_wa.set_index('datetime', inplace=True)
+    # # Convert the datetime column to a pandas datetime format
+    # df_ad['datetime'] = pd.to_datetime(df_ad['datetime'])
+    # df_ka['datetime'] = pd.to_datetime(df_ka['datetime'])
+    # df_kh['datetime'] = pd.to_datetime(df_kh['datetime'])
+    # df_ni['datetime'] = pd.to_datetime(df_ni['datetime'])
+    # df_wa['datetime'] = pd.to_datetime(df_wa['datetime'])
 
-    df_ad = df_ad.resample('d').max()
-    df_ka = df_ka.resample('d').max()
-    df_kh = df_kh.resample('d').max()
-    df_ni = df_ni.resample('d').max()
-    df_wa = df_wa.resample('d').max()
+    # df_ka.set_index('datetime', inplace=True)
+    # df_ad.set_index('datetime', inplace=True)
+    # df_kh.set_index('datetime', inplace=True)
+    # df_ni.set_index('datetime', inplace=True)
+    # df_wa.set_index('datetime', inplace=True)
 
-    df_ad = df_ad.reset_index()
-    df_ka = df_ka.reset_index()
-    df_kh = df_kh.reset_index()
-    df_ni = df_ni.reset_index()
-    df_wa = df_wa.reset_index()
+    # df_ad = df_ad.resample('d').max()
+    # df_ka = df_ka.resample('d').max()
+    # df_kh = df_kh.resample('d').max()
+    # df_ni = df_ni.resample('d').max()
+    # df_wa = df_wa.resample('d').max()
 
-    df_ad['date'] = df_ad['datetime'].dt.date
-    df_ka['date'] = df_ka['datetime'].dt.date
-    df_kh['date'] = df_kh['datetime'].dt.date
-    df_ni['date'] = df_ni['datetime'].dt.date
-    df_wa['date'] = df_wa['datetime'].dt.date
-    # Set the datetime column as the DataFrame's index
-    df_ka.set_index('date', inplace=True)
-    df_ad.set_index('date', inplace=True)
-    df_kh.set_index('date', inplace=True)
-    df_ni.set_index('date', inplace=True)
-    df_wa.set_index('date', inplace=True)
+    # df_ad = df_ad.reset_index()
+    # df_ka = df_ka.reset_index()
+    # df_kh = df_kh.reset_index()
+    # df_ni = df_ni.reset_index()
+    # df_wa = df_wa.reset_index()
+
+    # df_ad['date'] = df_ad['datetime'].dt.date
+    # df_ka['date'] = df_ka['datetime'].dt.date
+    # df_kh['date'] = df_kh['datetime'].dt.date
+    # df_ni['date'] = df_ni['datetime'].dt.date
+    # df_wa['date'] = df_wa['datetime'].dt.date
+    # # Set the datetime column as the DataFrame's index
+    # df_ka.set_index('date', inplace=True)
+    # df_ad.set_index('date', inplace=True)
+    # df_kh.set_index('date', inplace=True)
+    # df_ni.set_index('date', inplace=True)
+    # df_wa.set_index('date', inplace=True)
 
     temp_ad = df_ad.loc[d, 'temp']
     temp_ka = df_ka.loc[d, 'temp']

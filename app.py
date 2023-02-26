@@ -159,20 +159,20 @@ st.plotly_chart(fig1)
 with st.container():
     st.write("---")
     st.header("Map")
-    # cities = {
-    #     'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
-    #     'country': ['India', 'India', 'India', 'India', 'India'],
-    #     'population': [883305, 8537673, 3979576, 2693976, 2345678],
-    #     'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
-    #     'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
-    # }
+    cities = {
+        'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
+        'country': ['India', 'India', 'India', 'India', 'India'],
+        'population': [883305, 8537673, 3979576, 2693976, 2345678],
+        'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
+        'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
+    }
 
-    # # Convert the city data to a GeoDataFrame
-    # geometry = [Point(xy) for xy in zip(cities['longitude'], cities['latitude'])]
-    # cities_gdf = gpd.GeoDataFrame(cities, geometry=geometry, crs='EPSG:4326')
+    # Convert the city data to a GeoDataFrame
+    geometry = [Point(xy) for xy in zip(cities['longitude'], cities['latitude'])]
+    cities_gdf = gpd.GeoDataFrame(cities, geometry=geometry, crs='EPSG:4326')
 
     # Save the GeoDataFrame to a GeoJSON file
-    # cities_gdf.to_file('cities.geojson', driver='GeoJSON')
+    cities_gdf.to_file('cities.geojson', driver='GeoJSON')
 
 
 
@@ -180,39 +180,43 @@ with st.container():
     cities = gpd.read_file("cities.geojson")
 
     # Create a folium map centered on the India
-    m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
+    m = folium.Map(location=[17.9774221, 79.52881], zoom_start=5)
 
     # Create a GeoJson layer for the city data
-    choropleth = folium.Choropleth(
-        geo_data='cities.geojson',
-        # columns=('State Name', 'State Total Reports Quarter'),
-        key_on='feature.properties.city',
-        line_opacity=0.8,
-        highlight=True
-    )
-    choropleth.geojson.add_to(m)
-
-
-        
-
-    choropleth.geojson.add_child(
-        folium.features.GeoJsonTooltip(['city', 'country', 'population'], labels=False)
-    )
+    geojson = folium.GeoJson(
+        cities,
+        name='City Data',
+        tooltip=folium.GeoJsonTooltip(
+            fields=['city', 'country', 'population'],
+            aliases=['City', 'Country', 'Population'],
+            localize=True
+        )
+    ).add_to(m)
 
     # Add a search bar to the map
     search = Search(
-        layer=choropleth,
+        layer=geojson,
         geom_type='Polygon',
         placeholder='Search for a city',
         collapsed=False,
         search_label='city'
     ).add_to(m)
 
+    # # Add a marker cluster to the map
+    # mc = MarkerCluster().add_to(m)
+
+    # # Add markers for each city to the marker cluster
+    # for _, r in cities.iterrows():
+    #     folium.Marker(
+    #         location=[r.geometry.y, r.geometry.x],
+    #         tooltip=f"{r.city}, {r.country}",
+    #         icon=folium.Icon(icon="cloud")
+    #     ).add_to(mc)
+
+
 
     # Display the map
-    st_map = folium_static(m, width=700, height=450)
-
-    
+    folium_static(m)
 
 
 # ---- CONTACT ----

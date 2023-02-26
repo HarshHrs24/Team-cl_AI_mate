@@ -16,7 +16,7 @@ from streamlit_folium import folium_static
 import pandas as pd
 import geopandas as gpd
 import smtplib
-from datetime import datetime
+import datetime
 from shapely.geometry import Point
 
 
@@ -143,9 +143,9 @@ st.plotly_chart(fig1)
 
 with st.container():
     d = st.date_input(
-    "enter date",
+    "When\'s your birthday",
     datetime.date(2019, 7, 6))
-    st.write('____', d)
+    st.write('Your birthday is:', d)
     st.write("---")
     st.header("Map")
     cities = {

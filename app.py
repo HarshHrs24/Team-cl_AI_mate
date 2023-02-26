@@ -256,12 +256,12 @@ with st.container():
 # Description
 with st.container():
     st.write("---")
+    st.tile("Description)
     path="content/{}.csv".format(selected_city)
 
     df = pd.read_csv(path)
     df = prepare(df)
 
-    df.loc[d, 'heat_index']
     
     st.write("Temperature : {}".format(df.loc[d, 'temp']), unsafe_allow_html=True)
     st.write("Humidity : {}".format(df.loc[d, 'humidity']), unsafe_allow_html=True)

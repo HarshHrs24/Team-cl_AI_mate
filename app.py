@@ -174,21 +174,27 @@ with st.container():
     df_ni = df_ni.resample('d').max()
     df_wa = df_wa.resample('d').max()
 
-    # df_ad['date'] = df_ad['datetime'].dt.date
-    # df_ka['date'] = df_ka['datetime'].dt.date
-    # df_kh['date'] = df_kh['datetime'].dt.date
-    # df_ni['date'] = df_ni['datetime'].dt.date
-    # df_wa['date'] = df_wa['datetime'].dt.date
-    # # Set the datetime column as the DataFrame's index
-    # df_ka.set_index('date', inplace=True)
-    # df_ad.set_index('date', inplace=True)
-    # df_kh.set_index('date', inplace=True)
-    # df_ni.set_index('date', inplace=True)
-    # df_wa.set_index('date', inplace=True)
+    df_ad = df_ad.reset_index()
+    df_ka = df_ka.reset_index()
+    df_kh = df_kh.reset_index()
+    df_ni = df_ni.reset_index()
+    df_wa = df_wa.reset_index()
+
+    df_ad['date'] = df_ad['datetime'].dt.date
+    df_ka['date'] = df_ka['datetime'].dt.date
+    df_kh['date'] = df_kh['datetime'].dt.date
+    df_ni['date'] = df_ni['datetime'].dt.date
+    df_wa['date'] = df_wa['datetime'].dt.date
+    # Set the datetime column as the DataFrame's index
+    df_ka.set_index('date', inplace=True)
+    df_ad.set_index('date', inplace=True)
+    df_kh.set_index('date', inplace=True)
+    df_ni.set_index('date', inplace=True)
+    df_wa.set_index('date', inplace=True)
 
     # Select the temperature value for a particular date and store it in a variable
-    # temp_value = df_ad.loc[d, 'temp']
-    st.write(df_ad.head())
+    temp_value = df_ad.loc[d, 'temp']
+    st.write(temp_value)
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
         'country': ['India', 'India', 'India', 'India', 'India'],

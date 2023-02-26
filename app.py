@@ -187,8 +187,8 @@ with st.container():
     # df_wa.set_index('date', inplace=True)
 
     # Select the temperature value for a particular date and store it in a variable
-    temp_value = df_ad.loc[d, 'temp']
-    st.write(temp_value)
+    # temp_value = df_ad.loc[d, 'temp']
+    st.write(df_ad.head())
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
         'country': ['India', 'India', 'India', 'India', 'India'],

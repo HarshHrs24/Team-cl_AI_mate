@@ -221,6 +221,8 @@ with st.container():
     temp_ni = df_ni.loc[d, 'temp']
     temp_wa = df_wa.loc[d, 'temp']
 
+    st.write(df_ad.head())
+
     cities = {
         'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
         'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],

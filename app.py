@@ -16,7 +16,7 @@ from streamlit_folium import folium_static
 import pandas as pd
 import geopandas as gpd
 import smtplib
-
+from datetime import datetime
 from shapely.geometry import Point
 
 
@@ -139,7 +139,14 @@ fig1 = plot_plotly(m, forecast)
 st.plotly_chart(fig1)
 
 
+
+
 with st.container():
+    start_time = st.slider(
+    "When do you start?",
+    value=datetime(2020, 1, 1, 9, 30),
+    format="MM/DD/YY - hh:mm")
+    st.write("Start time:", start_time)
     st.write("---")
     st.header("Map")
     cities = {

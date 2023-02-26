@@ -128,9 +128,6 @@ def load_model(city):
 with st.spinner('Loading Model Into Memory....'):
   m= load_model(donut_theta)
 
-
-
-future = m.make_future_dataframe(periods = 365)
 forecast = load_prediction(donut_theta)
 
 
@@ -142,24 +139,6 @@ fig1 = plot_plotly(m, forecast)
 st.plotly_chart(fig1)
 
 
-# st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
-# with st.container():
-#     image_column, text_column = st.columns((1, 2))
-#     with image_column:
-#         st.image(img_contact_form)
-#     with text_column:
-#         st.subheader("How To Add A Contact Form To Your Streamlit App")
-#         st.write(
-#             """
-#             Want to add a contact form to your Streamlit website?
-#             In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
-#             """
-#         )
-#         st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
-
-# Map
-
-# Define some sample city data
 with st.container():
     st.write("---")
     st.header("Map")
@@ -206,20 +185,6 @@ with st.container():
         search_label='city'
     ).add_to(m)
 
-    # # Add a marker cluster to the map
-    # mc = MarkerCluster().add_to(m)
-
-    # # Add markers for each city to the marker cluster
-    # for _, r in cities.iterrows():
-    #     folium.Marker(
-    #         location=[r.geometry.y, r.geometry.x],
-    #         tooltip=f"{r.city}, {r.country}",
-    #         icon=folium.Icon(icon="cloud")
-    #     ).add_to(mc)
-
-
-
-    # Display the map
     folium_static(m)
 
 

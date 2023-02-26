@@ -190,13 +190,13 @@ def train_model(city):
               min_row = i + 1  
 
   #winner model
-  if min_adilabad_row==1:
+  if min_row==1:
     shutil.copy(one_prediction_model_name, winner_prediction_model_name)
     shutil.copy(one_prediction_file_name, winner_prediction_file_name) 
-  elif min_adilabad_row==2:
+  elif min_row==2:
     shutil.copy(two_prediction_model_name, winner_prediction_model_name)
     shutil.copy(two_prediction_file_name, winner_prediction_file_name)
-  elif min_adilabad_row==3:
+  elif min_row==3:
     shutil.copy(three_prediction_model_name, winner_prediction_model_name)
     shutil.copy(three_prediction_file_name, winner_prediction_file_name)
   else:

@@ -199,7 +199,7 @@ with st.container():
         cities = {
             'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
             'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
-            'Temperature(°f)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
+            'Temperature(°F)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
             'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
             'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
         }

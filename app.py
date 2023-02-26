@@ -239,7 +239,7 @@ with st.container():
             search_label='city'
         ).add_to(m)
 
-        folium_static(m)
+        folium_static(m, width=500, height=500)
     
     with middle_column:
        st.write("                 ")

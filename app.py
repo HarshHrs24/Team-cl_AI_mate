@@ -191,6 +191,8 @@ fig1.update_layout(
     plot_bgcolor='#7FFFD4',  # set the background color
     paper_bgcolor='#F8F8F8', # set the background color of the plot area
 )
+
+st.plotly_chart(fig1)
     
 # Heat wave timeline
 st.header(" Major Heat wave occurrences in the year 2023")

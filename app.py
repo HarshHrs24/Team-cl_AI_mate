@@ -199,7 +199,7 @@ items = [
     {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
 ]
 
-gto_timeline = timeline(items, groups=[], options={}, height="300px")
+gto_timeline = timeline(items, options={}, height="300px")
 st.subheader("Selected item")
 st.write(gto_timeline)
 

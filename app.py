@@ -255,7 +255,7 @@ with st.container():
 
 # Description
 def info(title, text):
-    with  st.expander(f"**{title}**"):
+    with  st.expander(f"{title}"):
         st.write(text)
 
 st.write("---")

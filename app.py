@@ -188,41 +188,41 @@ with st.container():
     fig1 = plot_plotly(m, forecast)
     st.plotly_chart(fig1)
     
-# # Heat wave timeline
-# st.header(" Major Heat wave occurrences in the year 2023")
-# items = [
-#     {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
-#     {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},
-#     {"id": 3, "content": "2023-10-18", "start": "2023-05-18"},
-#     {"id": 4, "content": "2023-10-16", "start": "2023-06-16"},
-#     {"id": 5, "content": "2023-10-25", "start": "2023-07-25"},
-#     {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
-# ]
-
-# timeline = st_timeline(items, groups=[], options={}, height="300px")
-# st.subheader("Selected item")
-# st.write(timeline)
-
-events = [
-    {
-        "start": "2022-01-01",
-        "title": "Event 1",
-        "description": "This is event 1"
-    },
-    {
-        "start": "2022-02-01",
-        "title": "Event 2",
-        "description": "This is event 2"
-    },
-    {
-        "start": "2022-03-01",
-        "title": "Event 3",
-        "description": "This is event 3"
-    }
+# Heat wave timeline
+st.header(" Major Heat wave occurrences in the year 2023")
+items = [
+    {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
+    {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},
+    {"id": 3, "content": "2023-10-18", "start": "2023-05-18"},
+    {"id": 4, "content": "2023-10-16", "start": "2023-06-16"},
+    {"id": 5, "content": "2023-10-25", "start": "2023-07-25"},
+    {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
 ]
 
-# Display the timeline
-timeline(events)
+gto_timeline = timeline(items, groups=[], options={}, height="300px")
+st.subheader("Selected item")
+st.write(gto_timeline)
+
+# events = [
+#     {
+#         "start": "2022-01-01",
+#         "title": "Event 1",
+#         "description": "This is event 1"
+#     },
+#     {
+#         "start": "2022-02-01",
+#         "title": "Event 2",
+#         "description": "This is event 2"
+#     },
+#     {
+#         "start": "2022-03-01",
+#         "title": "Event 3",
+#         "description": "This is event 3"
+#     }
+# ]
+
+# # Display the timeline
+# timeline(events)
 
 # Define start and end dates
 start_date = datetime.date(2023, 1, 1)

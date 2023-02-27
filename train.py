@@ -56,7 +56,7 @@ def train_m(train):
 
 def heatwave_train_model(city):
   #declaration 
-  CSV="content/{}.csv".format(city)
+  CSV="content/Heat wave/{}.csv".format(city)
   one_prediction_model_name="versioning/one/Heat wave/1_{}_model.json".format(city)
   one_prediction_file_name="versioning/one/Heat wave/1_{}_prediction.csv".format(city)
 

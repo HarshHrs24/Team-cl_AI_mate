@@ -15,7 +15,6 @@ plotly
 streamlit_folium
 folium
 geopandas
-base64
 # smtplib
 
 

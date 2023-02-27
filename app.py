@@ -44,13 +44,21 @@ def local_css(file_name):
 local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+
+
+
 
 
 st.sidebar.header('Team cl_AI_mate')
 
 st.sidebar.subheader('What you want to Predict?')
 selected_model = st.sidebar.selectbox('Choose:', ('Heat wave', 'AQI')) 
+
+
+if selected_model:
+    lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+else:
+   lottie_coding = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_dXP5CGL9ik.json")
 
 # st.sidebar.subheader('Choose a city:')
 # donut_theta = st.sidebar.selectbox('Select data', ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'))

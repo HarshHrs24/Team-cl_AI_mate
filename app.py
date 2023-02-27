@@ -198,7 +198,7 @@ with st.container():
 
         cities = {
             'city': ['Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'],
-            'heat index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
+            'Heat Index': [heat_index_ad, heat_index_ka, heat_index_kh, heat_index_ni, heat_index_wa],
             'Temperature(°F)': [temp_ad, temp_ka, temp_kh, temp_ni, temp_wa],
             'latitude': [19.6625054 , 18.6804717 , 18.4348833 , 17.2484683 , 17.9774221],
             'longitude': [78.4953182 , 78.0606503 , 79.0981286 , 80.006904 , 79.52881]
@@ -224,8 +224,8 @@ with st.container():
             cities,
             name='City Data',
             tooltip=folium.GeoJsonTooltip(
-                fields=['city', 'heat index', 'Temperature(°F)'],
-                aliases=['City', 'heat index', 'Temperature(°F)'],
+                fields=['city', 'Heat Index', 'Temperature(°F)'],
+                aliases=['City', 'Heat Index', 'Temperature(°F)'],
                 localize=True
             )
         ).add_to(m)
@@ -259,7 +259,7 @@ def info(title, text):
         st.write(text)
 
 st.write("---")
-info("Description", "It will give the details of relevant parameters in reference to respective date.")
+info("Description", "It will give the details of relevant parameters in reference to respective date and selected city.")
 
 with st.container():
     path="content/{}.csv".format(selected_city)
@@ -269,7 +269,7 @@ with st.container():
 
     left_column, middle_column, right_column = st.columns(3)
     with left_column:
-        st.write("<p style='color: #FF1493; font-size: 20px;'>Temperature : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
+        st.write("<p style='color: #FF1493; font-size: 20px;'>Temperature(°F) : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
         st.write("<p style='color: #FF1493; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
         st.write("<p style='color: #FF1493; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
         st.write("<p style='color: #FF1493; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)

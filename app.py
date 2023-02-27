@@ -63,14 +63,17 @@ st.sidebar.markdown('''
 Created with ❤️ by [Team cl_AI_mate](https://github.com/Shivansh1203/Team-Cl_AI_mate).
 ''')
                     
-def embed_pdf(pdf_file):
-    with open(pdf_file, "rb") as f:
-        data = f.read()
-    b64 = base64.b64encode(data).decode("utf-8")
-    pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
-    return pdf_display
-pdf_display = embed_pdf("json/Solution Architecture(Team cl_AI_mate).pdf")
-
+# def embed_pdf(pdf_file):
+#     with open(pdf_file, "rb") as f:
+#         data = f.read()
+#     b64 = base64.b64encode(data).decode("utf-8")
+#     pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
+#     return pdf_display
+# pdf_display = embed_pdf("json/Solution Architecture(Team cl_AI_mate).pdf")
+with open('Architecture.pdf', "rb") as f:
+    data = f.read()
+b64 = base64.b64encode(data).decode("utf-8")
+pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
 st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
 
 

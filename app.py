@@ -19,7 +19,7 @@ import smtplib
 import datetime
 from shapely.geometry import Point
 import base64
-from streamlit_timeline import st_timeline
+# from streamlit_timeline import st_timeline
 
 
 
@@ -188,18 +188,18 @@ with st.container():
     fig1 = plot_plotly(m, forecast)
     st.plotly_chart(fig1)
     
-# Heat wave timeline
-st.header(" Major Heat wave occurrences in the year 2023")
-items = [
-    {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
-    {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},
-    {"id": 3, "content": "2023-10-18", "start": "2023-05-18"},
-    {"id": 4, "content": "2023-10-16", "start": "2023-06-16"},
-    {"id": 5, "content": "2023-10-25", "start": "2023-07-25"},
-    {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
-]
+# # Heat wave timeline
+# st.header(" Major Heat wave occurrences in the year 2023")
+# items = [
+#     {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
+#     {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},
+#     {"id": 3, "content": "2023-10-18", "start": "2023-05-18"},
+#     {"id": 4, "content": "2023-10-16", "start": "2023-06-16"},
+#     {"id": 5, "content": "2023-10-25", "start": "2023-07-25"},
+#     {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
+# ]
 
-timeline = st_timeline(items, groups=[], options={}, height="300px")
+# timeline = st_timeline(items, groups=[], options={}, height="300px")
 # st.subheader("Selected item")
 # st.write(timeline)
 

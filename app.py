@@ -180,9 +180,13 @@ with st.container():
 
 st.write("---")
 st.subheader("Choose a date")
+min_date = datetime.date(2012, 1, 1)
+max_date = datetime.date(2022, 12, 1)
 d = st.date_input(
 "",
-datetime.date(2019, 7, 6))
+datetime.date(2019, 7, 6),
+min_value=min_date,
+max_value=max_date)
 st.header("Map")
 with st.container():
 

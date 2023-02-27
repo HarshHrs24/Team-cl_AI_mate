@@ -15,7 +15,7 @@ plotly
 streamlit_folium
 folium
 geopandas
-fitz
+PyMuPDF
 # smtplib
 
 

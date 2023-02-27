@@ -406,10 +406,10 @@ with st.container():
             st.write("<p style='color: #00C957; font-size: 20px;'>Nitrogen dioxide</p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Ozone</p>", unsafe_allow_html=True)
         with middle_column1:
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'co']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'no']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'no2']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'o3']), unsafe_allow_html=True) 
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'co']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'no']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'no2']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'o3']), unsafe_allow_html=True) 
         with middle_column:   
             st.write("                 ")   
         with right_column:
@@ -418,10 +418,10 @@ with st.container():
             st.write("<p style='color: #00C957; font-size: 20px;'>Coarse particle matter</p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Ammonia</p>", unsafe_allow_html=True)
         with middle_column2:
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'so2']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'pm2_5']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'pm10']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 10px;'> : {}  μg/m</p><sup>3</sup>".format(df.loc[d, 'nh3']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'so2']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'pm2_5']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'pm10']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'nh3']), unsafe_allow_html=True)
     
 
 

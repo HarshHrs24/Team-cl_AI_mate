@@ -45,7 +45,9 @@ local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
 
+lottie_coding_1 = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
 
+lottie_coding_2 = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_dXP5CGL9ik.json")
 
 
 
@@ -55,10 +57,8 @@ st.sidebar.subheader('What you want to Predict?')
 selected_model = st.sidebar.selectbox('Choose:', ('Heat wave', 'AQI')) 
 
 
-if selected_model:
-    lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
-else:
-   lottie_coding = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_dXP5CGL9ik.json")
+
+
 
 # st.sidebar.subheader('Choose a city:')
 # donut_theta = st.sidebar.selectbox('Select data', ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal'))
@@ -156,7 +156,10 @@ with st.container():
         )
 
     with right_column:
-        st_lottie(lottie_coding, height=300, key="coding")
+        if selected_model=='Heat wave':
+              st_lottie(lottie_coding_1, height=300, key="coding")
+        else:
+              st_lottie(lottie_coding_2, height=300, key="coding")
 
 
 st.write("---")

@@ -165,7 +165,7 @@ heatwave_train_model('Warangal')
 
 def aqi_train_model(city):
   #declaration 
-  CSV="{}.csv".format(city)
+  CSV="content/AQI/{}.csv".format(city)
   one_prediction_model_name="versioning/one/AQI/1_{}_model.json".format(city)
   one_prediction_file_name="versioning/one/AQI/1_{}_prediction.csv".format(city)
 

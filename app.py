@@ -101,7 +101,8 @@ with st.container():
         st.write("[Learn More >](https://github.com/HarshHrs24/Team-cl_AI_mate)")
 
     with right_column:
-        image = Image.open('images/hw2.jpg')
+        i='images/{}_hw2.jpg'.format(selected_model)
+        image = Image.open(i)
         st.image(image)
        
 

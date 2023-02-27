@@ -9,7 +9,6 @@ pandas
 numpy
 prophet
 matplotlib
-sklearn
 scikit-learn
 plotly
 streamlit_folium

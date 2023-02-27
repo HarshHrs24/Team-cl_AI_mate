@@ -20,7 +20,7 @@ import datetime
 from shapely.geometry import Point
 import base64
 from streamlit_timeline import st_timeline
-
+import plotly.graph_objects as go
 
 
 st.set_page_config(page_title="Team cl_AI_mate", page_icon=":tada:", layout="wide")
@@ -184,9 +184,13 @@ with st.container():
     forecast = load_prediction(selected_model,selected_city)
 
 
-    st.header("Graph")
-    fig1 = plot_plotly(m, forecast)
-    st.plotly_chart(fig1)
+st.header("Graph")
+fig1 = plot_plotly(m, forecast)
+
+fig1.update_layout(
+    plot_bgcolor='#7FFFD4',  # set the background color
+    paper_bgcolor='#F8F8F8', # set the background color of the plot area
+)
     
 # Heat wave timeline
 st.header(" Major Heat wave occurrences in the year 2023")

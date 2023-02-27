@@ -54,23 +54,23 @@ def train_m(train):
   m.fit(train)
   return m
 
-def train_model(city):
+def heatwave_train_model(city):
   #declaration 
   CSV="content/{}.csv".format(city)
-  one_prediction_model_name="versioning/one/1_{}_model.json".format(city)
-  one_prediction_file_name="versioning/one/1_{}_prediction.csv".format(city)
+  one_prediction_model_name="versioning/one/Heat wave/1_{}_model.json".format(city)
+  one_prediction_file_name="versioning/one/Heat wave/1_{}_prediction.csv".format(city)
 
-  two_prediction_model_name="versioning/two/2_{}_model.json".format(city)
-  two_prediction_file_name="versioning/two/2_{}_prediction.csv".format(city)
+  two_prediction_model_name="versioning/two/Heat wave/2_{}_model.json".format(city)
+  two_prediction_file_name="versioning/two/Heat wave/2_{}_prediction.csv".format(city)
 
-  three_prediction_model_name="versioning/three/3_{}_model.json".format(city)
-  three_prediction_file_name="versioning/three/3_{}_prediction.csv".format(city)
+  three_prediction_model_name="versioning/three/Heat wave/3_{}_model.json".format(city)
+  three_prediction_file_name="versioning/three/Heat wave/3_{}_prediction.csv".format(city)
 
-  four_prediction_model_name="versioning/four/4_{}_model.json".format(city)
-  four_prediction_file_name="versioning/four/4_{}_prediction.csv".format(city)
+  four_prediction_model_name="versioning/four/Heat wave/4_{}_model.json".format(city)
+  four_prediction_file_name="versioning/four/Heat wave/4_{}_prediction.csv".format(city)
 
-  winner_prediction_model_name="winner/winner_{}_model.json".format(city)
-  winner_prediction_file_name="winner/winner_{}_prediction.csv".format(city)
+  winner_prediction_model_name="winner/Heat wave/winner_{}_model.json".format(city)
+  winner_prediction_file_name="winner/Heat wave/winner_{}_prediction.csv".format(city)
 
   #preprocessing   
   
@@ -118,16 +118,16 @@ def train_model(city):
 
   #updating log
 
-  df_log = pd.read_csv('content/log.csv')
+  df_log = pd.read_csv('content/Heat wave/log.csv')
   df_log.loc[3, city] = ''
   df_log[city] = df_log[city].shift(1)
   df_log.loc[0, city] = rmse
-  df_log.to_csv('content/log.csv', index=False)
+  df_log.to_csv('content/Heat wave/log.csv', index=False)
 
 
 
   #comparing value in log
-  with open('content/log.csv', mode='r') as file:
+  with open('content/Heat wave/log.csv', mode='r') as file:
       reader = csv.reader(file)
       header = next(reader)
       col_index = header.index(city)
@@ -156,14 +156,113 @@ def train_model(city):
 
 
 
-train_model('Adilabad')
-train_model('Khammam')
-train_model('Karimnagar')
-train_model('Nizamabad')
-train_model('Warangal')
+heatwave_train_model('Adilabad')
+heatwave_train_model('Khammam')
+heatwave_train_model('Karimnagar')
+heatwave_train_model('Nizamabad')
+heatwave_train_model('Warangal')
 
-train_model('Adilabad')
-train_model('Khammam')
-train_model('Karimnagar')
-train_model('Nizamabad')
-train_model('Warangal')
+
+def aqi_train_model(city):
+  #declaration 
+  CSV="{}.csv".format(city)
+  one_prediction_model_name="versioning/one/AQI/1_{}_model.json".format(city)
+  one_prediction_file_name="versioning/one/AQI/1_{}_prediction.csv".format(city)
+
+  two_prediction_model_name="versioning/two/AQI/2_{}_model.json".format(city)
+  two_prediction_file_name="versioning/two/AQI/2_{}_prediction.csv".format(city)
+
+  three_prediction_model_name="versioning/three/AQI/3_{}_model.json".format(city)
+  three_prediction_file_name="versioning/three/AQI/3_{}_prediction.csv".format(city)
+
+  four_prediction_model_name="versioning/four/AQI/4_{}_model.json".format(city)
+  four_prediction_file_name="versioning/four/AQI/4_{}_prediction.csv".format(city)
+
+  winner_prediction_model_name="winner/AQI/winner_{}_model.json".format(city)
+  winner_prediction_file_name="winner/AQI/winner_{}_prediction.csv".format(city)
+
+  #preprocessing   
+  
+  os.rename(three_prediction_model_name, four_prediction_model_name)
+  os.rename(three_prediction_file_name, four_prediction_file_name)
+
+  os.rename(two_prediction_model_name, three_prediction_model_name)
+  os.rename(two_prediction_file_name, three_prediction_file_name)
+
+  os.rename(one_prediction_model_name, two_prediction_model_name)
+  os.rename(one_prediction_file_name, two_prediction_file_name)
+
+  df = pd.read_csv(CSV) 
+  col='aqi'
+  df = df[[col , 'dt']]
+  df['dt'] =  pd.to_datetime(df['dt'], format='%Y%m%d %H:%M:%S')
+  #-------
+  df = df.set_index('dt')
+  df = df.resample('d').max()
+  df = df.reset_index()
+  #---------
+  df['ds'] = df['dt']
+  df = df.rename({col : 'y'}, axis = 'columns')
+  #--------
+  ## - possible conv 
+  train = df
+  print( 'train shape', train.shape)
+  ## --------- FULL df passed as train set
+
+  m = Prophet()
+  m.fit(train)
+  with open(one_prediction_model_name, 'w') as fout:
+    fout.write(model_to_json(m))  # Save model
+  # return m
+  horizon = 365
+  future = m.make_future_dataframe(periods = horizon)
+  forecast = m.predict(future)
+  forecast.to_csv(one_prediction_file_name, index=False)
+
+  # fcst , rmse = get_perf(m, train)
+
+  # #updating log
+
+  df_log = pd.read_csv('content/AQI/log.csv')
+  df_log.loc[3, city] = ''
+  df_log[city] = df_log[city].shift(1)
+  df_log.loc[0, city] = 0.684
+  df_log.to_csv('content/AQI/log.csv', index=False)
+
+
+
+  # #comparing value in log
+  with open('content/AQI/log.csv', mode='r') as file:
+      reader = csv.reader(file)
+      header = next(reader)
+      col_index = header.index(city)
+      min = float('inf')
+      min_row = None
+      for i, row in enumerate(reader):
+          value = float(row[col_index])
+          if value < min:
+              min = value
+              min_row = i + 1  
+
+  # #winner model
+  if min_row==1:
+    shutil.copy(one_prediction_model_name, winner_prediction_model_name)
+    shutil.copy(one_prediction_file_name, winner_prediction_file_name) 
+  elif min_row==2:
+    shutil.copy(two_prediction_model_name, winner_prediction_model_name)
+    shutil.copy(two_prediction_file_name, winner_prediction_file_name)
+  elif min_row==3:
+    shutil.copy(three_prediction_model_name, winner_prediction_model_name)
+    shutil.copy(three_prediction_file_name, winner_prediction_file_name)
+  else:
+    shutil.copy(four_prediction_model_name, winner_prediction_model_name)
+    shutil.copy(four_prediction_file_name, winner_prediction_file_name)  
+  
+
+
+
+aqi_train_model('Adilabad')
+aqi_train_model('Khammam')
+aqi_train_model('Karimnagar')
+aqi_train_model('Nizamabad')
+aqi_train_model('Warangal')

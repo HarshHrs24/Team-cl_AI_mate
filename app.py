@@ -114,11 +114,11 @@ def heatwave_prepare(df):
    df['heat_index'] = hi
    return df
 def aqi_prepare(df):
-   df['datetime'] = pd.to_datetime(df['datetime'])
-   df.set_index('datetime', inplace=True)
+   df['dt'] = pd.to_datetime(df['dt'])
+   df.set_index('dt', inplace=True)
    df = df.resample('d').max()
    df = df.reset_index()
-   df['date'] = df['datetime'].dt.date
+   df['date'] = df['dt'].dt.date
    df.set_index('date', inplace=True)
    return df
 

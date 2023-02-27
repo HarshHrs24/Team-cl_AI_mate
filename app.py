@@ -84,6 +84,7 @@ with st.container():
     left_column, right_column = st.columns(2)
     with left_column:
         st.title("Team cl_AI_mate")
+        name="{} Prediction".format(selected_model)
         st.title("Heat wave Prediction")
         st.write(
             "Telangana Tier-2 cities - Alidabad, Nizamabad, Karimnagar, Khammam and Warangal."

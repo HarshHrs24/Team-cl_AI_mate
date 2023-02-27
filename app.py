@@ -18,7 +18,7 @@ import geopandas as gpd
 import smtplib
 import datetime
 from shapely.geometry import Point
-import base64
+import fitz
 
 
 
@@ -63,15 +63,17 @@ st.sidebar.markdown('''
 Created with ❤️ by [Team cl_AI_mate](https://github.com/Shivansh1203/Team-Cl_AI_mate).
 ''')
                     
-def embed_pdf():
-    with open("json/Solution Architecture(Team cl_AI_mate).pdf", "rb") as f:
-        data = f.read()
-    b64 = base64.b64encode(data).decode("utf-8")
-    pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
-    return pdf_display
-pdf_display = embed_pdf()
+def embed_pdf(pdf_file):
+    with fitz.open(pdf_file) as doc:
+        page = doc.load_page(0)  # Load the first page of the PDF
+        pix = page.get_pixmap()
+        img = pix.to_pil_image()
+        st.sidebar.image(img, caption=pdf_file, use_column_width=True)
 
-st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
+pdf_file = "example.pdf"
+embed_pdf(pdf_file)
+
+
 # ---- HEADER SECTION ----
 with st.container():
     left_column, right_column = st.columns(2)

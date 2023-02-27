@@ -15,6 +15,7 @@ plotly
 streamlit_folium
 folium
 geopandas
+fitz
 # smtplib
 
 

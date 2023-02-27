@@ -237,7 +237,8 @@ selected_date = st.date_input(
     value=datetime.date(2023, 1, 1),
     min_value=start_date,
     max_value=end_date,
-    key="date_input"
+    key="date_input",
+    width="100px"
 )
 
 # Display selected date

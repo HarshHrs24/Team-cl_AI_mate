@@ -60,7 +60,7 @@ time_hist_color = st.sidebar.selectbox('Choose:', ('AQI', 'Heat wave'))
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ by [Team cl_AI_mate](https://github.com/Shivansh1203/Team-Cl_AI_mate).
+Created with ❤️ by [Team cl_AI_mate](https://github.com/HarshHrs24/Team-cl_AI_mate).
 ''')
                     
 # def embed_pdf(pdf_file):
@@ -86,7 +86,7 @@ with st.container():
         st.write(
             "Telangana Tier-2 cities - Alidabad, Nizamabad, Karimnagar, Khammam and Warangal."
         )
-        st.write("[Learn More >](https://github.com/Shivansh1203/Team-Cl_AI_mate)")
+        st.write("[Learn More >](https://github.com/HarshHrs24/Team-cl_AI_mate)")
 
     with right_column:
         image = Image.open('images/hw2.jpg')

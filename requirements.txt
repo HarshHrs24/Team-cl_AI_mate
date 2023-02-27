@@ -16,6 +16,7 @@ folium
 geopandas
 PyMuPDF
 streamlit-vis-timeline
+streamlit-timeline
 # smtplib
 
 

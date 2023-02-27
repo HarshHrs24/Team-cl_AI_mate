@@ -19,7 +19,7 @@ import smtplib
 import datetime
 from shapely.geometry import Point
 import base64
-# from streamlit_timeline import st_timeline
+from streamlit_timeline import timeline
 
 
 
@@ -202,6 +202,27 @@ with st.container():
 # timeline = st_timeline(items, groups=[], options={}, height="300px")
 # st.subheader("Selected item")
 # st.write(timeline)
+
+events = [
+    {
+        "start": "2022-01-01",
+        "title": "Event 1",
+        "description": "This is event 1"
+    },
+    {
+        "start": "2022-02-01",
+        "title": "Event 2",
+        "description": "This is event 2"
+    },
+    {
+        "start": "2022-03-01",
+        "title": "Event 3",
+        "description": "This is event 3"
+    }
+]
+
+# Display the timeline
+timeline(events)
 
 # Define start and end dates
 start_date = datetime.date(2023, 1, 1)

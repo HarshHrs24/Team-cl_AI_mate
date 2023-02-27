@@ -272,7 +272,6 @@ with st.container():
         st.write("<p style='color: #00C957; font-size: 20px;'>Temperature(°F) : {}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
         st.write("<p style='color: #00C957; font-size: 20px;'>Humidity : {}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
         st.write("<p style='color: #00C957; font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
-        st.write("<p style='color: #00C957 font-size: 20px;'>Preciptation : {}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
         st.write("<p style='color: #00C957; font-size: 20px;'>Wind speed : {}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
     with right_column:
         st.write("<p style='color: #00C957; font-size: 20px;'>Cloud cover : {}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)

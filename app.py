@@ -399,7 +399,7 @@ with st.container():
     else:
         df = pd.read_csv(path)
         df = aqi_prepare(df)
-        left_column, middle_column1, middle_column, right_column, middle_column2 = st.columns(5)
+        left_column, middle_column1, right_column, middle_column2 = st.columns(4)
         with left_column:
             st.write("<p style='color: #00C957; font-size: 20px;'>Carbon monoxide</p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Nitrogen monoxide</p>", unsafe_allow_html=True)
@@ -409,9 +409,7 @@ with st.container():
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'co']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'no']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'no2']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'o3']), unsafe_allow_html=True) 
-        with middle_column:   
-            st.write("                 ")   
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'o3']), unsafe_allow_html=True)   
         with right_column:
             st.write("<p style='color: #00C957; font-size: 20px;'>Sulphure dioxide</p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Fine particles matter</p>", unsafe_allow_html=True)

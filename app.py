@@ -70,7 +70,7 @@ def embed_pdf(pdf_file):
         img = pix.to_pil_image()
         st.sidebar.image(img, caption=pdf_file, use_column_width=True)
 
-pdf_file = "example.pdf"
+pdf_file = "json/Solution Architecture(Team cl_AI_mate).pdf"
 embed_pdf(pdf_file)
 
 

@@ -67,7 +67,8 @@ def embed_pdf(pdf_file):
     with fitz.open(pdf_file) as doc:
         page = doc.load_page(0)  # Load the first page of the PDF
         pix = page.get_pixmap()
-        img = pix.to_image()
+        img_bytes = pix.tobytes()
+        img = Image.frombytes("RGB", [pix.width, pix.height], img_bytes)
         st.sidebar.image(img, caption=pdf_file, use_column_width=True)
 
 pdf_file = "json/Solution Architecture(Team cl_AI_mate).pdf"

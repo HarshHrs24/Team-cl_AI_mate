@@ -70,7 +70,6 @@ def embed_pdf(pdf_file):
     pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
     return pdf_display
 pdf_display = embed_pdf("json/Solution Architecture(Team cl_AI_mate).pdf")
-st.markdown(pdf_display, unsafe_allow_html=True)
 
 st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
 # ---- HEADER SECTION ----

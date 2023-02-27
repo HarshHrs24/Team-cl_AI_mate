@@ -61,6 +61,7 @@ time_hist_color = st.sidebar.selectbox('Choose:', ('AQI', 'Heat wave'))
 st.sidebar.markdown('''
 ---
 Created with ❤️ by [Team cl_AI_mate](https://github.com/HarshHrs24/Team-cl_AI_mate).
+
 ''')
                     
 # def embed_pdf(pdf_file):
@@ -70,6 +71,7 @@ Created with ❤️ by [Team cl_AI_mate](https://github.com/HarshHrs24/Team-cl_A
 #     pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
 #     return pdf_display
 # pdf_display = embed_pdf("json/Solution Architecture(Team cl_AI_mate).pdf")
+
 with open('Architecture.pdf', "rb") as f:
     data = f.read()
 b64 = base64.b64encode(data).decode("utf-8")

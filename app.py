@@ -254,9 +254,14 @@ with st.container():
 
 
 # Description
+def info(title, text):
+    with  st.expander(f"**{title}**"):
+        st.write(text)
+
+st.write("---")
+info("Description", "It will give the details of relevant parameters in reference to respective date.")
+
 with st.container():
-    st.write("---")
-    st.header("Description")
     path="content/{}.csv".format(selected_city)
 
     df = pd.read_csv(path)

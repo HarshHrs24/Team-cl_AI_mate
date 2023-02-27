@@ -219,11 +219,12 @@ events = [
         "description": "This is event 3"
     }
 ]
-if selected_event:
-    st.write(f"You selected the event '{selected_event['title']}'")
+
+
 
 
 selected_event = st_timeline(events, height=500, start_zoom=1, end_zoom=5)
+st.write(f"You selected the event '{selected_event['title']}'")
 
 # Define start and end dates
 start_date = datetime.date(2023, 1, 1)

@@ -531,9 +531,36 @@ with st.container():
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'pm2_5']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'pm10']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'nh3']), unsafe_allow_html=True)
-    
+            
+            
+        
+# Polar plot
 
+c1, c2 = st.columns(2)
 
+    with c1:
+
+        """### Temperature trend over the decade"""
+        file_ = open("images/fin_3_temp.gif", "rb")
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        file_.close()
+
+        st.markdown(
+            f'<img src="data:image/gif;base64,{data_url}" width="100%" alt="temp gif">',
+            unsafe_allow_html=True,
+        )
+
+    with c2:
+        """### Humidity trend over the decade"""
+        file_1 = open("images/fin_4_hum.gif", "rb")
+        contents1 = file_1.read()
+        data_url1 = base64.b64encode(contents1).decode("utf-8")
+        file_1.close()
+        st.markdown(
+            f'<img src="data:image/gif;base64,{data_url1}" width="100%" alt="hum gif">',
+            unsafe_allow_html=True,
+        )
 
 
 

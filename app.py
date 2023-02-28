@@ -538,7 +538,7 @@ with st.container():
 
 c1, c2 = st.columns(2)
 
-    with c1:
+with c1:
 
         """### Temperature trend over the decade"""
         file_ = open("images/fin_3_temp.gif", "rb")
@@ -551,7 +551,7 @@ c1, c2 = st.columns(2)
             unsafe_allow_html=True,
         )
 
-    with c2:
+with c2:
         """### Humidity trend over the decade"""
         file_1 = open("images/fin_4_hum.gif", "rb")
         contents1 = file_1.read()
@@ -566,62 +566,62 @@ c1, c2 = st.columns(2)
 
 # ---- CONTACT ----
 with st.container():
-    st.write("---")
-    st.header("Get In Touch With Us")
-    st.write("##")
+        st.write("---")
+        st.header("Get In Touch With Us")
+        st.write("##")
 
- 
-    def send_email(name, email, message):
+    
+def send_email(name, email, message):
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login("teamclAImate2023@gmail.com", "balzsvjxdmgtsuts")
         msg = f"Subject: New message from {name}\n\n{name} ({email}) sent the following message:\n\n{message}"
         server.sendmail("teamclAImate2023@gmail.com", "teamclAImate2023@gmail.com", msg)
         st.success("Thank you for contacting us.")
+            
+        name = st.text_input("Name")
+        email = st.text_input("Email")
+        message = st.text_area("Message")
+
+        if st.button("Send"):
+            send_email(name, email, message)
+
         
-    name = st.text_input("Name")
-    email = st.text_input("Email")
-    message = st.text_area("Message")
-
-    if st.button("Send"):
-        send_email(name, email, message)
-
-    
-    st.markdown(
-    """
-    <style>
-       
-
-         /* Adjust the width of the form elements */
-        .stTextInput {
-            width: 50%;
-
-        }
+        st.markdown(
+        """
+        <style>
         
-        .stTextArea {
-            width: 20%;
-        }
 
-        /* Style the submit button */
-        .stButton button {
-            background-color: #45a049;
-            color: #FFFFFF;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 5px;
-            width: 10%;
-        }
+            /* Adjust the width of the form elements */
+            .stTextInput {
+                width: 50%;
 
-        /* Style the success message */
-        .stSuccess {
-            color: #0072C6;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+            }
+            
+            .stTextArea {
+                width: 20%;
+            }
+
+            /* Style the submit button */
+            .stButton button {
+                background-color: #45a049;
+                color: #FFFFFF;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 5px;
+                width: 10%;
+            }
+
+            /* Style the success message */
+            .stSuccess {
+                color: #0072C6;
+                font-weight: bold;
+                margin-top: 20px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 

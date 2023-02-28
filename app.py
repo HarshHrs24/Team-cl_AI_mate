@@ -301,6 +301,8 @@ with st.container():
             key="date_input"
         )
 
+# Display value for selected date
+st.write("You selected:", selected_date.strftime("%B %d, %Y"))
 
 st.write("---")
 with st.container():
@@ -334,8 +336,7 @@ with st.container():
 
 
 
-# Display selected date
-st.write("You selected:", selected_date.strftime("%B %d, %Y"))
+
 
 
 st.write("---")
@@ -494,10 +495,14 @@ with st.container():
 
 
     with right_column:
-        image = Image.open('images/hic1.jpeg')
-        image2 = Image.open('images/hic2.jpeg')
-        st.image(image)
-        st.image(image2)
+        if selected_model=='Heat wave':
+            image = Image.open('images/hic1.jpeg')
+            image2 = Image.open('images/hic2.jpeg')
+            st.image(image)
+            st.image(image2)
+        else:
+            image = Image.open('images/AQI_ref.jpeg')
+            st.image(image)
 
 
 

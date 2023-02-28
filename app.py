@@ -280,7 +280,7 @@ st.write(timeline)
 
 with st.container():
     st.write("")
-    c1, c2, c3,c4,c5= st.columns(5)
+    c1, c2, c3,c4= st.columns(4)
     with c1:
         # Define start and end dates
         start_date = datetime.date(2023, 1, 1)

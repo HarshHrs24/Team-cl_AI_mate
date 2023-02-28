@@ -542,9 +542,10 @@ st.write(
     """
 )
 
-c1, c2 = st.columns(2)
+
 
 with st.container():
+    c1, c2 = st.columns(2)
     with c1:
 
             """### Temperature trend over the decade"""

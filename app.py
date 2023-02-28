@@ -652,12 +652,12 @@ html_code = '<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd
 
 # Display the PDF file in the Streamlit app
 st.markdown('''
-<iframe src="https://docs.google.com/document/d/1IMeudRtaJsiF0CPDO4nku2Up8OYyR4unJ5kO-ddt3Gc/edit"
+<iframe src="https://www.craft.do/s/mX4qtlVHBtGieR"
 frameborder="0"
 marginheight="0"
 marginwidth="0"
-width="100%"
-height="100%"
+width="700px"
+height="200px"
 scrolling="auto"
 >''', unsafe_allow_html=True)
 

@@ -279,7 +279,7 @@ st.subheader("Selected item")
 st.write(timeline)
 
 with st.container():
-    st.write("Choose a date for the year 2023")
+    st.write("")
     c1, c2, c3,c4,c5= st.columns(5)
     with c1:
         # Define start and end dates
@@ -289,7 +289,7 @@ with st.container():
         
         # Create date input
         selected_date = st.date_input(
-            "",
+            "Choose a date for the year 2023",
             value=datetime.date(2023, 1, 1),
             min_value=start_date,
             max_value=end_date,

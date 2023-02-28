@@ -651,15 +651,15 @@ pdf_path = "https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/vi
 html_code = '<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/view?usp=share_link" width="800px" height="1000px" frameborder="0"></iframe>'
 
 # Display the PDF file in the Streamlit app
-st.markdown('''
-<iframe src="https://www.craft.do/s/mX4qtlVHBtGieR"
-frameborder="0"
-marginheight="0"
-marginwidth="0"
-width="700px"
-height="1300px"
-scrolling="auto"
->''', unsafe_allow_html=True)
+# st.markdown('''
+# <iframe src="https://www.craft.do/s/mX4qtlVHBtGieR"
+# frameborder="0"
+# marginheight="0"
+# marginwidth="0"
+# width="700px"
+# height="1300px"
+# scrolling="auto"
+# >''', unsafe_allow_html=True)
 
 
 

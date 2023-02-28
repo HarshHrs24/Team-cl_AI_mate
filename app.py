@@ -274,7 +274,12 @@ items = [
     {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
 ]
 
-timeline = st_timeline(items, groups=[], options={}, height="300px")
+options = {
+    "min": "2023-01-01",
+    "max": "2023-12-31"
+}
+
+timeline = st_timeline(items, groups=[], options=options, height="300px")
 st.subheader("Selected item")
 st.write(timeline)
 

@@ -144,7 +144,7 @@ def line_plot_plotly(m, forecast):
         y=past,
         mode='lines',
         name='Actual',
-        line=dict(color='light grey')
+        line=dict(color='red')
     )
     trace2 = go.Scatter(
         x=timeline,

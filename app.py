@@ -652,7 +652,7 @@ html_code = '<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd
 
 # Display the PDF file in the Streamlit app
 st.markdown('''
-<iframe src="https://harshsonithehrs24.netlify.app/"
+<iframe src="https://docs.google.com/document/d/1IMeudRtaJsiF0CPDO4nku2Up8OYyR4unJ5kO-ddt3Gc/edit"
 frameborder="0"
 marginheight="0"
 marginwidth="0"

@@ -652,7 +652,7 @@ html_code = '<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd
 
 # Display the PDF file in the Streamlit app
 st.markdown('''
-<iframe src="https://share.streamlit.io/giswqs/streamlit-geospatial/app.py"
+<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/view?usp=share_link"
 frameborder="0"
 marginheight="0"
 marginwidth="0"

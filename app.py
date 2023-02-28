@@ -236,7 +236,7 @@ with st.container():
         m= load_model(selected_model,selected_city)
 
     forecast = load_prediction(selected_model,selected_city)
-path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)   
+path="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)   
 
 st.write(path)
 st.write(forecast.head())

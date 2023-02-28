@@ -651,7 +651,16 @@ pdf_path = "https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/vi
 html_code = '<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/view?usp=share_link" width="800px" height="1000px" frameborder="0"></iframe>'
 
 # Display the PDF file in the Streamlit app
-st.markdown('<iframe src="https://drive.google.com/file/d/1-_vLO6ieU0mpwhZukKpTd19qIGM-6hpS/view?usp=share_link" width="800px" height="1000px" frameborder="0"></iframe>', unsafe_allow_html=True)
+st.markdown('''
+<iframe src="https://share.streamlit.io/giswqs/streamlit-geospatial/app.py"
+frameborder="0"
+marginheight="0"
+marginwidth="0"
+width="100%"
+height="100%"
+scrolling="auto"
+>''', unsafe_allow_html=True)
+
 
 
 

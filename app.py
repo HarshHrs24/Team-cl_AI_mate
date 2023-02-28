@@ -222,8 +222,9 @@ with st.container():
 
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(selected_model,city):
-        path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-        df = pd.read_csv(path)
+        # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+        # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+        df = pd.read_csv("winner/AQI/winner_Adilabad_prediction.csv")
         return df
     
     def load_model(selected_model,city):

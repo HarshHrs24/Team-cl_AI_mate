@@ -151,7 +151,7 @@ def line_plot_plotly(m, forecast):
         y=future,
         mode='lines',
         name='Predicted',
-        line=dict(color='#90EE90')
+        line=dict(color='#FF7F50')
     )
 
     data = [trace1, trace2]

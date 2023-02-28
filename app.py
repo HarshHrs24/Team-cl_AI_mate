@@ -537,7 +537,7 @@ with st.container():
 # Polar plot
 
 st.write(
-    """"
+    """
 
     """
 )

@@ -334,8 +334,8 @@ st.write("You selected:", selected_date.strftime("%B %d, %Y"))
 
 
 st.write("---")
-st.subheader("Choose a date")
-
+st.header("Map")
+st.write("")
 if selected_model=='Heat wave':
     min_date = datetime.date(2012, 1, 1)
     max_date = datetime.date(2022, 12, 1)
@@ -343,11 +343,10 @@ else:
     min_date = datetime.date(2020, 12, 2)
     max_date = datetime.date(2022, 12, 1)
 d = st.date_input(
-"",
+"Choose a date",
 datetime.date(2021, 7, 6),
 min_value=min_date,
 max_value=max_date)
-st.header("Map")
 with st.container():
 
     left_column, middle_column, right_column = st.columns(3)

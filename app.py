@@ -263,7 +263,8 @@ else:
 st.plotly_chart(fig1)
     
 # Heat wave timeline
-st.header(" Major Heat wave occurrences in the year 2023")
+timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
+st.header(timeine_title)
 items = [
     {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
     {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},

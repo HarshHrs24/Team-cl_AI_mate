@@ -242,6 +242,11 @@ agree = st.checkbox('Line graph')
 
 if agree:
     fig1 = line_plot_plotly(m, forecast)
+
+    fig1.update_layout(
+        plot_bgcolor='#7FFFD4',  # set the background color
+        paper_bgcolor='#F8F8F8', # set the background color of the plot area
+    )
     
 
 else:

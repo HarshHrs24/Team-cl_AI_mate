@@ -342,6 +342,7 @@ if selected_model=='Heat wave':
 else:
     min_date = datetime.date(2020, 12, 2)
     max_date = datetime.date(2022, 12, 1)
+
 d = st.date_input(
 "Choose a date",
 datetime.date(2021, 7, 6),

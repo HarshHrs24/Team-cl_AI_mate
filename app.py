@@ -241,7 +241,7 @@ st.header("Graph")
 agree = st.checkbox('Line graph')
 
 if agree:
-    fig1 = plot_plotly(m, forecast)
+    fig1 = line_plot_plotly(m, forecast)
     
 
 else:

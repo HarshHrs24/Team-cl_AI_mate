@@ -278,20 +278,55 @@ timeline = st_timeline(items, groups=[], options={}, height="300px")
 st.subheader("Selected item")
 st.write(timeline)
 
+with st.container():
+    c1, c2, c3,c4,c5, c6, c7 = st.columns(2)
+    with c1:
+        # Define start and end dates
+        start_date = datetime.date(2023, 1, 1)
+        end_date = datetime.date(2023, 12, 31)
 
-# Define start and end dates
-start_date = datetime.date(2023, 1, 1)
-end_date = datetime.date(2023, 12, 31)
+        
+        # Create date input
+        selected_date = st.date_input(
+            "Choose a date for the year 2023",
+            value=datetime.date(2023, 1, 1),
+            min_value=start_date,
+            max_value=end_date,
+            key="date_input"
+        )
 
 
-# Create date input
-selected_date = st.date_input(
-    "Choose a date for the year 2023",
-    value=datetime.date(2023, 1, 1),
-    min_value=start_date,
-    max_value=end_date,
-    key="date_input"
-)
+st.write("---")
+with st.container():
+    c1, c2 = st.columns(2)
+    with c1:
+
+            """### Temperature trend over the decade"""
+            gif1="images/{}_temp.gif".format(selected_city)
+            file_ = open(gif1, "rb")
+            contents = file_.read()
+            data_url = base64.b64encode(contents).decode("utf-8")
+            file_.close()
+
+            st.markdown(
+                f'<img src="data:image/gif;base64,{data_url}" width="100%" alt="temp gif">',
+                unsafe_allow_html=True,
+            )
+
+    with c2:
+            """### Humidity trend over the decade"""
+            gif2="images/{}_hum.gif".format(selected_city)
+            file_1 = open(gif2, "rb")
+            contents1 = file_1.read()
+            data_url1 = base64.b64encode(contents1).decode("utf-8")
+            file_1.close()
+            st.markdown(
+                f'<img src="data:image/gif;base64,{data_url1}" width="100%" alt="hum gif">',
+                unsafe_allow_html=True,
+            )
+
+
+
 
 # Display selected date
 st.write("You selected:", selected_date.strftime("%B %d, %Y"))
@@ -543,34 +578,6 @@ st.write(
 )
 
 
-
-with st.container():
-    c1, c2 = st.columns(2)
-    with c1:
-
-            """### Temperature trend over the decade"""
-            gif1="images/{}_temp.gif".format(selected_city)
-            file_ = open(gif1, "rb")
-            contents = file_.read()
-            data_url = base64.b64encode(contents).decode("utf-8")
-            file_.close()
-
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" width="100%" alt="temp gif">',
-                unsafe_allow_html=True,
-            )
-
-    with c2:
-            """### Humidity trend over the decade"""
-            gif2="images/{}_hum.gif".format(selected_city)
-            file_1 = open(gif2, "rb")
-            contents1 = file_1.read()
-            data_url1 = base64.b64encode(contents1).decode("utf-8")
-            file_1.close()
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url1}" width="100%" alt="hum gif">',
-                unsafe_allow_html=True,
-            )
 
 
 

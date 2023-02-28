@@ -492,8 +492,7 @@ with st.container():
         
     with middle_column:
         st.write("                 ")
-
-
+        
     with right_column:
         if selected_model=='Heat wave':
             image = Image.open('images/hic1.jpeg')

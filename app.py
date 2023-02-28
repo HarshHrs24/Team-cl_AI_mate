@@ -549,7 +549,8 @@ with st.container():
     with c1:
 
             """### Temperature trend over the decade"""
-            file_ = open("images/fin_3_temp.gif", "rb")
+            gif1="images/{}_temp.gif".format(selected_city)
+            file_ = open(gif1, "rb")
             contents = file_.read()
             data_url = base64.b64encode(contents).decode("utf-8")
             file_.close()
@@ -561,7 +562,8 @@ with st.container():
 
     with c2:
             """### Humidity trend over the decade"""
-            file_1 = open("images/fin_4_hum.gif", "rb")
+            gif2="images/{}_hum.gif".format(selected_city)
+            file_1 = open(gif2, "rb")
             contents1 = file_1.read()
             data_url1 = base64.b64encode(contents1).decode("utf-8")
             file_1.close()

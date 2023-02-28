@@ -279,7 +279,7 @@ st.subheader("Selected item")
 st.write(timeline)
 
 with st.container():
-    c1, c2, c3,c4,c5, c6, c7 = st.columns(2)
+    c1, c2, c3,c4,c5, c6, c7 = st.columns(7)
     with c1:
         # Define start and end dates
         start_date = datetime.date(2023, 1, 1)

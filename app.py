@@ -352,7 +352,7 @@ with st.container():
             file_.close()
 
             st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" width="200%" alt="poln gif">',
+                f'<img src="data:image/gif;base64,{data_url}" width="300%" alt="poln gif">',
                 unsafe_allow_html=True,
                 )
             # c2.markdown(

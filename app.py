@@ -357,37 +357,6 @@ with st.container():
                 f'<img src="data:image/gif;base64,{data_url}" width="300%" alt="poln gif">',
                 unsafe_allow_html=True,
                 )
-            # c2.markdown(
-            # """
-            # <style>
-            
-            #     /* Adjust the width of the form elements */
-            #     .stTextInput {
-            #         width: 50%;
-            #     }
-                
-            #     .stTextArea {
-            #         width: 20%;
-            #     }
-            #     /* Style the submit button */
-            #     .stButton button {
-            #         background-color: #45a049;
-            #         color: #FFFFFF;
-            #         font-weight: bold;
-            #         padding: 10px;
-            #         border-radius: 5px;
-            #         width: 10%;
-            #     }
-            #     /* Style the success message */
-            #     .stSuccess {
-            #         color: #0072C6;
-            #         font-weight: bold;
-            #         margin-top: 20px;
-            #     }
-            # </style>
-            # """,
-            #     unsafe_allow_html=True,
-            # )
 
 
 
@@ -396,12 +365,30 @@ with st.container():
 st.write("---")
 st.header("Map")
 st.write("")
+retrain_log_path="retrain/{}/{}_retrain_log.csv".format(selected_model,selected_city)
+df = pd.read_csv(retrain_log_path)
+
+
+# Unix timestamp in seconds
+unix_timestamp = df['last updated date'].iloc[-1]
+
+# Convert Unix timestamp to datetime object
+date_time = datetime.datetime.fromtimestamp(unix_timestamp)
+
+# Format datetime object as a string
+year_string = int(date_time.strftime("%Y"))
+month_string = int(date_time.strftime("%m"))
+date_string = int(date_time.strftime("%d"))
+
+# Print the formatted date string
+
+
 if selected_model=='Heat wave':
     min_date = datetime.date(2012, 1, 1)
-    max_date = datetime.date(2022, 12, 1)
+    max_date = datetime.date(year_string, month_string, date_string )
 else:
     min_date = datetime.date(2020, 12, 2)
-    max_date = datetime.date(2022, 12, 1)
+    max_date = datetime.date(year_string, month_string, date_string )
 
 d = st.date_input(
 "Choose a date",

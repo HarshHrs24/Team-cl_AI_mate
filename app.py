@@ -283,7 +283,7 @@ df = df[df["occurence of heat wave"] == "yes"]
 # Convert the dataframe to a list of dictionaries
 items = []
 for index, row in df.iterrows():
-    item = {"id": index+1, "content": str(row["heat_index"]), "start": row["date"]}
+    item = {"id": index+1, "content": str(row["heat_index"]), "start": str(row["date"])}
     items.append(item)
 st.write(items)
 # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

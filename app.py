@@ -81,11 +81,11 @@ Created with ❤️ by [Team cl_AI_mate](https://github.com/HarshHrs24/Team-cl_A
 #     return pdf_display
 # pdf_display = embed_pdf("json/Solution Architecture(Team cl_AI_mate).pdf")
 
-with open('Architecture.pdf', "rb") as f:
-    data = f.read()
-b64 = base64.b64encode(data).decode("utf-8")
-pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
-st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
+# with open('Architecture.pdf', "rb") as f:
+#     data = f.read()
+# b64 = base64.b64encode(data).decode("utf-8")
+# pdf_display = f'<embed src="data:application/pdf;base64,{b64}" width="300" height="600" type="application/pdf">'
+# st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
 
 
 # ---- HEADER SECTION ----
@@ -309,41 +309,54 @@ with st.container():
 # Display value for selected date
 st.write("You selected:", selected_date.strftime("%B %d, %Y"))
 
+#Polar Plots
 st.write("---")
 with st.container():
-    c1, c2 = st.columns(2)
-    with c1:
+    if selected_model=='Heat wave':
+        c1, c2 = st.columns(2)
+        with c1:
 
-            """### Temperature trend over the decade"""
-            gif1="images/{}_temp.gif".format(selected_city)
-            file_ = open(gif1, "rb")
-            contents = file_.read()
-            data_url = base64.b64encode(contents).decode("utf-8")
-            file_.close()
+                """### Temperature trend over the decade"""
+                gif1="images/Heat wave/{}_temp.gif".format(selected_city)
+                file_ = open(gif1, "rb")
+                contents = file_.read()
+                data_url = base64.b64encode(contents).decode("utf-8")
+                file_.close()
 
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" width="100%" alt="temp gif">',
-                unsafe_allow_html=True,
+                st.markdown(
+                    f'<img src="data:image/gif;base64,{data_url}" width="100%" alt="temp gif">',
+                    unsafe_allow_html=True,
+                )
+
+        with c2:
+                """### Humidity trend over the decade"""
+                gif2="images/Heat wave/{}_hum.gif".format(selected_city)
+                file_1 = open(gif2, "rb")
+                contents1 = file_1.read()
+                data_url1 = base64.b64encode(contents1).decode("utf-8")
+                file_1.close()
+                st.markdown(
+                    f'<img src="data:image/gif;base64,{data_url1}" width="100%" alt="hum gif">',
+                    unsafe_allow_html=True,
+                )
+
+    else:
+         """### Pollution trend over the decade"""
+         gif1="images/AQI/{}_poln.gif".format(selected_city)
+         file_ = open(gif1, "rb")
+         contents = file_.read()
+         data_url = base64.b64encode(contents).decode("utf-8")
+         file_.close()
+
+         st.markdown(
+            f'<img src="data:image/gif;base64,{data_url}" width="50%" alt="poln gif">',
+            unsafe_allow_html=True,
             )
 
-    with c2:
-            """### Humidity trend over the decade"""
-            gif2="images/{}_hum.gif".format(selected_city)
-            file_1 = open(gif2, "rb")
-            contents1 = file_1.read()
-            data_url1 = base64.b64encode(contents1).decode("utf-8")
-            file_1.close()
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url1}" width="100%" alt="hum gif">',
-                unsafe_allow_html=True,
-            )
 
 
 
-
-
-
-
+# Map
 st.write("---")
 st.header("Map")
 st.write("")

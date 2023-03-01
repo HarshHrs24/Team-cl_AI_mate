@@ -97,17 +97,21 @@ def weekly_update(city,model):
           data = response.json()
           w = pd.DataFrame()
           # for i in range(10):
-          for i in data['list']:
-              # df = df.append({'A': i , 'B' :i, 'C' :i, 'D' :i, 'E' :i, 'F' :i, 'G' :i, 'H' :i}, ignore_index=True)
-              w = w.append({'aqi': i['main']['aqi'] ,
-              'CO' :i['components']['co'],
-                'no2' :i['components']['no2'],
-                'o3' :i['components']['o3'],
-                  'so2' :i['components']['so2'],
-                  'pm2_5' :i['components']['pm2_5'],
-                    'nh3' :i['components']['nh3'],
-                    'dt' :dt.datetime.fromtimestamp(i['dt'])},
-                      ignore_index=True)
+          if(response.status_code==200):
+            for i in data['list']:
+                # df = df.append({'A': i , 'B' :i, 'C' :i, 'D' :i, 'E' :i, 'F' :i, 'G' :i, 'H' :i}, ignore_index=True)
+                w = w.append({'aqi': i['main']['aqi'] ,
+                'CO' :i['components']['co'],
+                  'no2' :i['components']['no2'],
+                  'o3' :i['components']['o3'],
+                    'so2' :i['components']['so2'],
+                    'pm2_5' :i['components']['pm2_5'],
+                      'nh3' :i['components']['nh3'],
+                      'dt' :dt.datetime.fromtimestamp(i['dt'])},
+                        ignore_index=True)
+          else:
+             print("sleep")
+             time.sleep(5)
               
           data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
           df_new = pd.read_csv(data_path)
@@ -122,19 +126,26 @@ def weekly_update(city,model):
           while(end>=start):
               url=f"http://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={start}&appid=9ce9f54d7dd8da5535e273da3e9f1a72"
               response = requests.get(url)
-              data = response.json()
-              # for i in range(10):
-              for d in data['data']:
-                  # Extract the values from each dictionary and append to the DataFrame
-                  w = w.append({
-                      'datetime': dt.datetime.fromtimestamp(d['dt']),
-                      'temp': d['temp'],
-                      'humidity': d['humidity'],
-                      'windspeed': d['wind_speed'],
-                      'cloudcover': d['clouds'],
-                      'conditions': d['weather'][0]['description'],
-                  }, ignore_index=True)
-              start=start+60*60
+              if(response.status_code==200):
+                data = response.json()
+
+
+                # for i in range(10):
+                for d in data['data']:
+                    # Extract the values from each dictionary and append to the DataFrame
+                    w = w.append({
+                        'datetime': dt.datetime.fromtimestamp(d['dt']),
+                        'temp': d['temp'],
+                        'humidity': d['humidity'],
+                        'windspeed': d['wind_speed'],
+                        'cloudcover': d['clouds'],
+                        'conditions': d['weather'][0]['description'],
+                    }, ignore_index=True)
+                start=start+60*60
+              else:
+                 print("sleep")
+                 time.sleep(5)
+                 start=start+60*60
           # w=w[['datetime','temp','humidity','windspeed','cloudcover','conditions']]
           data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
           df_new = pd.read_csv(data_path)

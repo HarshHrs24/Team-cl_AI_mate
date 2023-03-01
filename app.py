@@ -286,18 +286,9 @@ for index,row in df.iterrows():
     item = {"id": i, "content": str(row["heat_index"]), "start": str(index.strftime('%m-%d-%Y'))}
     items.append(item)
     i=i+1
-st.write(items)
 # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
 timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
 st.header(timeine_title)
-items = [
-    {"id": 1, "content": "2023-01-20", "start": "2023-03-01"},
-    {"id": 2, "content": "2023-10-09", "start": "2023-04-09"},
-    {"id": 3, "content": "2023-10-18", "start": "2023-05-18"},
-    {"id": 4, "content": "2023-10-16", "start": "2023-06-16"},
-    {"id": 5, "content": "2023-10-25", "start": "2023-07-25"},
-    {"id": 6, "content": "2023-10-27", "start": "2023-08-27"},
-]
 
 options = {
     "min": "2023-01-01",

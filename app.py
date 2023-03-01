@@ -342,7 +342,7 @@ with st.container():
 
     else:
          c1, c2, c3 = st.columns(3)
-         with c2:
+         with c1:
             """### Pollution trend over the decade"""
             gif1="images/AQI/{}_poln.gif".format(selected_city)
             file_ = open(gif1, "rb")

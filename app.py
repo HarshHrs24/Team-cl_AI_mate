@@ -56,6 +56,9 @@ st.sidebar.header('Team cl_AI_mate')
 st.sidebar.subheader('What you want to Predict?')
 selected_model = st.sidebar.selectbox('Choose:', ('Heat wave', 'AQI')) 
 
+image = Image.open('images/logo.png')
+st.sidebar.image(image)
+
 
 
 

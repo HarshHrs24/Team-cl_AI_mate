@@ -249,8 +249,6 @@ with st.container():
     forecast = load_prediction(selected_model,selected_city)
 
 
-# st.write(path)
-st.write(forecast.head())
 
 
 st.header("Graph")

@@ -561,7 +561,7 @@ st.write("---")
 info("Description", "It will give the details of relevant parameters in reference to respective date and selected city.")
 
 with st.container():
-    path="content/{}/{}.csv".format(selected_model,selected_city)
+    path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 
     if selected_model=='Heat wave':
 
@@ -574,24 +574,20 @@ with st.container():
         with left_column:
             st.write("<p style='color: #00C957; font-size: 20px;'>Temperature(°F) : </p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Humidity : </p>", unsafe_allow_html=True)
-            st.write("<p style='color: #00C957; font-size: 20px;'>Preciptation : </p>", unsafe_allow_html=True)
-            st.write("<p style='color: #00C957; font-size: 20px;'>Wind speed : </p>", unsafe_allow_html=True)
+            st.write("<p style='color: #00C957; font-size: 20px;'>Heat index : </p>", unsafe_allow_html=True)
         with middle_column1:
             st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'temp']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'humidity']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'precip']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True) 
+            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'heat_index']), unsafe_allow_html=True)
         with middle_column:   
             st.write("                 ")   
         with right_column:
             st.write("<p style='color: #00C957; font-size: 20px;'>Cloud cover : </p>", unsafe_allow_html=True)
-            st.write("<p style='color: #00C957; font-size: 20px;'>Solar Radiation : </p>", unsafe_allow_html=True)
-            st.write("<p style='color: #00C957; font-size: 20px;'>UV Index : </p>", unsafe_allow_html=True)
+            st.write("<p style='color: #00C957; font-size: 20px;'>Wind speed : </p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Condition : </p>", unsafe_allow_html=True)
         with middle_column2:
             st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'cloudcover']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'solarradiation']), unsafe_allow_html=True)
-            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'uvindex']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'windspeed']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'>{}</p>".format(df.loc[d, 'conditions']), unsafe_allow_html=True)
     else:
         df = pd.read_csv(path)

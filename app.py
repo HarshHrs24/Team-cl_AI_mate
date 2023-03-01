@@ -277,8 +277,8 @@ path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 df = pd.read_csv(path)
 st.write(df)
 df1 = heatwave_prepare(df)
-heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
-st.write(heatwave_ocurences)
+# heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
+st.write(df1)
 timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
 st.header(timeine_title)
 items = [

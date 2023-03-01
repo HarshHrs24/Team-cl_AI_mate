@@ -76,7 +76,6 @@ def weekly_update(city,model):
     print(df['last updated date'].iloc[-1]+ 7*24*60*60)
     while(new_value1>end):
       end=end+ 7*24*60*60
-
     end=end- 7*24*60*60
     new_value2 = end
     # df['last updated date'] = df['last updated date'].append(pd.Series([new_value2]))
@@ -186,7 +185,7 @@ def heatwave_train_model(city):
   #weekly update via api
 
   # df = pd.read_csv(CSV)
-  df = weekly_update(city,'Heat wave')
+  df = weekly_update(city,'Heat wave') #latest data
   print(df.head())
   
   df['datetime'] =  pd.to_datetime(df['datetime'], format='%Y%m%d %H:%M:%S')

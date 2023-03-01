@@ -276,9 +276,16 @@ path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 
 df = pd.read_csv(path)
 st.write(df)
-df1 = heatwave_prepare(df)
+df = heatwave_prepare(df)
+df_filtered = df.loc[df["occurrences in the year 2023"] == "yes", ["date", "heat_index"]]
+
+# Convert DataFrame to list of dictionaries with auto-incrementing ID
+items = []
+for i, row in df_filtered.iterrows():
+    item = {"id": i+1, "content": str(row["heat_index"]), "start": row["date"]}
+    items.append(item)
 # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
-st.write(df1)
+st.write(items)
 timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
 st.header(timeine_title)
 items = [

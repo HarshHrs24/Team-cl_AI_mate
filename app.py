@@ -127,7 +127,7 @@ def heatwave_prepare(df):
 #        df['occurence of heat wave']= 'yes'
 #    else:
 #        df['occurence of heat wave']= 'no'
-#    return df
+   return df
 
 def aqi_prepare(df):
    df['dt'] = pd.to_datetime(df['dt'])

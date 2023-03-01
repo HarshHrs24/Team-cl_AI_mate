@@ -123,6 +123,7 @@ def heatwave_prepare(df):
    R=df['humidity']
    hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
    df['heat_index'] = hi
+   df['occurence of heat wave']= 'yes' if df['heat_index']>100 else 'no'
    return df
 
 def aqi_prepare(df):
@@ -268,6 +269,14 @@ else:
 st.plotly_chart(fig1)
     
 # Heat wave timeline
+path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
+
+
+
+df = pd.read_csv(path)
+df = heatwave_prepare(df)
+heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
+st.write(heatwave_ocurences)
 timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
 st.header(timeine_title)
 items = [

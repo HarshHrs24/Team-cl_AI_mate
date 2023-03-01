@@ -280,11 +280,14 @@ df = heatwave_prepare(df)
 st.write(df)
 df = df[df["occurence of heat wave"] == "yes"]
 
+
 # Convert the dataframe to a list of dictionaries
 items = []
-for index, row in df.iterrows():
-    item = {"id": index+1, "content": str(row["heat_index"]), "start": str(row["date"].strftime('%m-%d-%Y'))}
+i=1
+for index,row in df.iterrows():
+    item = {"id": i, "content": str(row["heat_index"]), "start": str(row["date"].strftime('%m-%d-%Y'))}
     items.append(item)
+    i=i+1
 st.write(items)
 # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
 timeine_title=" Major {} occurrences in the year 2023".format(selected_model)

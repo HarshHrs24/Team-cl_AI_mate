@@ -55,6 +55,11 @@ st.sidebar.header('Team cl_AI_mate')
 
 st.sidebar.subheader('What you want to Predict?')
 selected_model = st.sidebar.selectbox('Choose:', ('Heat wave', 'AQI')) 
+st.sidebar.write('''
+
+''')
+cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+selected_city = st.sidebar.selectbox('Select a city for prediction', cities)
 
 image = Image.open('images/logo.png')
 st.sidebar.image(image)

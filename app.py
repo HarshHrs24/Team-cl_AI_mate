@@ -598,7 +598,7 @@ with st.container():
             st.write("<p style='color: #00C957; font-size: 20px;'>Nitrogen dioxide</p>", unsafe_allow_html=True)
             st.write("<p style='color: #00C957; font-size: 20px;'>Ozone</p>", unsafe_allow_html=True)
         with middle_column1:
-            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'co']), unsafe_allow_html=True)
+            st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'CO']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'no2']), unsafe_allow_html=True)
             st.write("<p style='color: #333333; font-size: 20px;'> : {}  μg/m3</p>".format(df.loc[d, 'o3']), unsafe_allow_html=True)   
         with right_column:

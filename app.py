@@ -277,6 +277,7 @@ path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 
 
 df = pd.read_csv(path)
+st.write(df)
 df = heatwave_prepare(df)
 # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
 st.write(df)

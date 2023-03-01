@@ -341,8 +341,9 @@ with st.container():
                 )
 
     else:
-         c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
          """### Pollution trend over the decade"""
+         c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
+         
 
          with c3:
             

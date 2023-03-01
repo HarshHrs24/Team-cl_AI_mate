@@ -341,17 +341,19 @@ with st.container():
                 )
 
     else:
-         """### Pollution trend over the decade"""
-         gif1="images/AQI/{}_poln.gif".format(selected_city)
-         file_ = open(gif1, "rb")
-         contents = file_.read()
-         data_url = base64.b64encode(contents).decode("utf-8")
-         file_.close()
+         c1, c2, c3 = st.columns(3)
+         with c2:
+            """### Pollution trend over the decade"""
+            gif1="images/AQI/{}_poln.gif".format(selected_city)
+            file_ = open(gif1, "rb")
+            contents = file_.read()
+            data_url = base64.b64encode(contents).decode("utf-8")
+            file_.close()
 
-         st.markdown(
-            f'<img src="data:image/gif;base64,{data_url}" width="50%" alt="poln gif">',
-            unsafe_allow_html=True,
-            )
+            st.markdown(
+                f'<img src="data:image/gif;base64,{data_url}" width="50%" alt="poln gif">',
+                unsafe_allow_html=True,
+                )
 
 
 

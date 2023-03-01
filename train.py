@@ -109,7 +109,8 @@ def weekly_update(city,model):
                     'dt' :dt.datetime.fromtimestamp(i['dt'])},
                       ignore_index=True)
               
-          df_new = pd.read_csv('1_Adilabad_data.csv')
+          data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
+          df_new = pd.read_csv(data_path)
           k=pd.concat([df_new, w])
           # k.to_csv('1_Adilabad_data.csv', index=False)
                       
@@ -135,7 +136,8 @@ def weekly_update(city,model):
                   }, ignore_index=True)
               start=start+60*60
           # w=w[['datetime','temp','humidity','windspeed','cloudcover','conditions']]
-          df_new = pd.read_csv('1_Adilabad_data.csv')
+          data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
+          df_new = pd.read_csv(data_path)
           df_new['datetime'] =  pd.to_datetime(df_new['datetime'])
           k=pd.concat([df_new, w])
           # k.to_csv('1_Adilabad_data.csv', index=False)

@@ -291,8 +291,8 @@ timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
 st.header(timeine_title)
 
 options = {
-    "min": str(df.index[0].strftime('%m-%d-%Y')),
-    "max": str(df.index[-1].strftime('%m-%d-%Y'))
+    "min": str(df['datetime'].iloc[0].strftime('%m-%d-%Y')),
+    "max": str(df['datetime'].iloc[-1].strftime('%m-%d-%Y'))
 }
 
 timeline = st_timeline(items, groups=[], options=options, height="300px")

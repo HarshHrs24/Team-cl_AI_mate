@@ -277,6 +277,7 @@ path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 df = pd.read_csv(path)
 st.write(df)
 df = heatwave_prepare(df)
+st.write(df)
 df_filtered = df.loc[df["occurence of heat wave"] == "yes", ["date", "heat_index"]]
 
 # Convert DataFrame to list of dictionaries with auto-incrementing ID

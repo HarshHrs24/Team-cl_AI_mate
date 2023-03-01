@@ -221,8 +221,8 @@ st.write("---")
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Our Model")
 
-cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
-selected_city = st.selectbox('Select a city for prediction', cities)
+# cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
+# selected_city = st.selectbox('Select a city for prediction', cities)
 
 
    

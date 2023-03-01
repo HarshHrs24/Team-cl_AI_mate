@@ -399,11 +399,11 @@ with st.container():
 
     left_column, middle_column, right_column = st.columns(3)
     with left_column:
-        path_ad='content/{}/Adilabad.csv'.format(selected_model)
-        path_ka='content/{}/Karimnagar.csv'.format(selected_model)
-        path_kh='content/{}/Khammam.csv'.format(selected_model)
-        path_ni='content/{}/Nizamabad.csv'.format(selected_model)
-        path_wa='content/{}/Warangal.csv'.format(selected_model)
+        path_ad='versioning/one/{}/1_Adilabad_data.csv'.format(selected_model)
+        path_ka='versioning/one/{}/1_Karimnagar_data.csv'.format(selected_model)
+        path_kh='versioning/one/{}/1_Khammam_data.csv'.format(selected_model)
+        path_ni='versioning/one/{}/1_Nizamabad_data.csv'.format(selected_model)
+        path_wa='versioning/one/{}/1_Warangal_data.csv'.format(selected_model)
         df_ad = pd.read_csv(path_ad)
         df_ka = pd.read_csv(path_ka)
         df_kh = pd.read_csv(path_kh)

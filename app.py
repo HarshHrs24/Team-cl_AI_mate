@@ -279,13 +279,11 @@ st.write(df)
 df = heatwave_prepare(df)
 st.write(df)
 df = df[df["occurence of heat wave"] == "yes"]
-
-
 # Convert the dataframe to a list of dictionaries
 items = []
 i=1
 for index,row in df.iterrows():
-    item = {"id": i, "content": str(row["heat_index"]), "start": str(row["date"].strftime('%m-%d-%Y'))}
+    item = {"id": i, "content": str(row["heat_index"]), "start": str(index.strftime('%m-%d-%Y'))}
     items.append(item)
     i=i+1
 st.write(items)

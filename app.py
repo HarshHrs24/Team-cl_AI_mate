@@ -342,6 +342,8 @@ with st.container():
 
     else:
          c1, c2, c3, c4, c5 = st.columns(5)
+         with c1:
+             st.write("     ")
          with c2:
             """### Pollution trend over the decade"""
             gif1="images/AQI/{}_poln.gif".format(selected_city)

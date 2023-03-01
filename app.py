@@ -278,7 +278,7 @@ df = pd.read_csv(path)
 st.write(df)
 df = heatwave_prepare(df)
 st.write(df)
-df = df[df["occurrences"] == "yes"]
+df = df[df["occurence of heat wave"] == "yes"]
 
 # Convert the dataframe to a list of dictionaries
 items = []

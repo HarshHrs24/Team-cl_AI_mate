@@ -131,7 +131,7 @@ def heatwave_prepare(df):
    R=df['humidity']
    hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
    df['heat_index'] = hi
-   df['occurence of heat wave']= df["heat_index"].apply(lambda x: "yes" if x > 100 else "no")
+   df['occurence of heat wave']= df["heat_index"].apply(lambda x: "yes" if x > 128 else "no")
 
    return df
 

@@ -45,3 +45,4 @@ st.write(forecast.tail())
 st.subheader('graph')
 fig1 = plot_plotly(m, forecast)
 st.plotly_chart(fig1)
+

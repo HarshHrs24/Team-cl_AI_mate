@@ -347,7 +347,6 @@ def aqi_train_model(city):
   # fcst , rmse = get_perf(m, train)
 
   # #updating log
-
   df_log = pd.read_csv('content/AQI/log.csv')
   df_log.loc[3, city] = ''
   df_log[city] = df_log[city].shift(1)

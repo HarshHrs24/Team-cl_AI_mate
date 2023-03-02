@@ -163,7 +163,7 @@ def heatwave_train_model(city):
 
   two_prediction_model_name="versioning/two/Heat wave/2_{}_model.json".format(city)
   two_prediction_file_name="versioning/two/Heat wave/2_{}_prediction.csv".format(city)
-  two_data_file_name="versioning/two/Heat wave/2_{}_prediction.csv".format(city)
+  two_data_file_name="versioning/two/Heat wave/2_{}_data.csv".format(city)
 
   three_prediction_model_name="versioning/three/Heat wave/3_{}_model.json".format(city)
   three_prediction_file_name="versioning/three/Heat wave/3_{}_prediction.csv".format(city)

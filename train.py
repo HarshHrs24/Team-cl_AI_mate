@@ -83,6 +83,7 @@ def weekly_update(city,model):
     df = df.append({'last updated date': new_value2 , 'retrain datetime' :new_value1}, ignore_index=True)
     # Save the updated DataFrame to the CSV file
     df.to_csv(retrain_log_path, index=False)
+    
 
 
     # Construct the API URL with the given parameters
@@ -111,7 +112,7 @@ def weekly_update(city,model):
              print("sleep")
              time.sleep(5)
               
-          data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
+          data_path='versioning/one/{}/2_{}_data.csv'.format(model,city)
           df_new = pd.read_csv(data_path)
           k=pd.concat([df_new, w])
           # k.to_csv('1_Adilabad_data.csv', index=False)
@@ -145,7 +146,7 @@ def weekly_update(city,model):
                  time.sleep(5)
                  start=start+60*60
           # w=w[['datetime','temp','humidity','windspeed','cloudcover','conditions']]
-          data_path='versioning/one/{}/1_{}_data.csv'.format(model,city)
+          data_path='versioning/one/{}/2_{}_data.csv'.format(model,city)
           df_new = pd.read_csv(data_path)
           df_new['datetime'] =  pd.to_datetime(df_new['datetime'])
           w['temp']=273.15-w['temp']

@@ -429,7 +429,7 @@ else:
 
 d = st.date_input(
 "Choose a date",
-datetime.date(2021, 7, 6),
+datetime.date(2023,01,01),
 min_value=min_date,
 max_value=max_date)
 with st.container():

@@ -149,7 +149,7 @@ def weekly_update(city,model):
           data_path='versioning/two/{}/2_{}_data.csv'.format(model,city)
           df_new = pd.read_csv(data_path)
           df_new['datetime'] =  pd.to_datetime(df_new['datetime'])
-          w['temp']=273.15-w['temp']
+          w['temp']=w['temp']-273.15
           k=pd.concat([df_new, w])
           # k.to_csv('1_Adilabad_data.csv', index=False)
     return k

@@ -22,7 +22,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
   <h3><a href="https://harshhrs24-team-cl-ai-mate-app-md7w7w.streamlit.app/"><strong>Deployed Website Link »</strong></a></h3>
     <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for Heat wave »</strong></a>
     <br />
-    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) AQI »</strong></a>
+    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for AQI »</strong></a>
     <br />
     <br />
     <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Complete Solution Architecture Documentation »</strong></a>

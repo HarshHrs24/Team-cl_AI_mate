@@ -144,7 +144,7 @@ def aqi_prepare(df):
    df.set_index('date', inplace=True)
    return df
 
-def line_plot_plotly(m, forecast):
+def line_plot_plotly(m, forecast, mode):
     past = m.history['y']
     future = forecast['yhat']
     timeline = forecast['ds']
@@ -152,14 +152,14 @@ def line_plot_plotly(m, forecast):
     trace1 = go.Scatter(
         x=timeline,
         y=past,
-        mode='lines',
+        mode=mode,
         name='Actual',
         line=dict(color='#777777')
     )
     trace2 = go.Scatter(
         x=timeline,
         y=future,
-        mode='lines',
+        mode=mode,
         name='Predicted',
         line=dict(color='#FF7F50')
     )
@@ -237,7 +237,7 @@ with st.container():
         print(path)
         df = pd.read_csv(path)
         return df
-    
+
     def load_model(selected_model,city):
         # path="winner/{}/winner_{}_model.json".format(selected_model,city)
         path="winner/{}/winner_{}_model.json".format(selected_model,city)
@@ -254,25 +254,34 @@ with st.container():
 
 
 st.header("Graph")
+if selected_model=='Heat wave':
 
-agree = st.checkbox('Line graph')
+    agree = st.checkbox('Line graph')
 
-if agree:
-    fig1 = line_plot_plotly(m, forecast)
+    if agree:
+        fig1 = line_plot_plotly(m, forecast,'lines')
 
-    fig1.update_layout(
-        plot_bgcolor='#7FFFD4',  # set the background color
-        paper_bgcolor='#F8F8F8', # set the background color of the plot area
-    )
-    
+        fig1.update_layout(
+            plot_bgcolor='#7FFFD4',  # set the background color
+            paper_bgcolor='#F8F8F8', # set the background color of the plot area
+        )
+        
 
+    else:
+        fig1 = plot_plotly(m, forecast)
+
+        fig1.update_layout(
+            plot_bgcolor='#7FFFD4',  # set the background color
+            paper_bgcolor='#F8F8F8', # set the background color of the plot area
+        )
 else:
-    fig1 = plot_plotly(m, forecast)
+        fig1 = line_plot_plotly(m, forecast,'markers')
 
-    fig1.update_layout(
-        plot_bgcolor='#7FFFD4',  # set the background color
-        paper_bgcolor='#F8F8F8', # set the background color of the plot area
-    )
+        fig1.update_layout(
+            plot_bgcolor='#7FFFD4',  # set the background color
+            paper_bgcolor='#F8F8F8', # set the background color of the plot area
+        )
+
 
 
 st.plotly_chart(fig1)

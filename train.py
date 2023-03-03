@@ -200,37 +200,45 @@ def heatwave_train_model(city):
   df.to_csv(one_data_file_name, index=False)
   print(df.head())
   
-  df['datetime'] =  pd.to_datetime(df['datetime'], format='%Y%m%d %H:%M:%S')
-  
-  T=(df['temp']*9/5)+32  
-  df['temp']=T
-  R=df['humidity']
-  hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
-  df['heat_index'] = hi
-  col='heat_index'
+  df['datetime'] =  pd.to_datetime(df['datetime'])
+  col = 'temp'
+
   df = df[[col , 'datetime']]
+  df['datetime'] =  pd.to_datetime(df['datetime'])
   #-------
+
   df = df.set_index('datetime')
   df = df.resample('d').max()
   df = df.reset_index()
   #---------
+
   df['ds'] = df['datetime']
   df = df.rename({col : 'y'}, axis = 'columns')
 
-  ## -possible conv 
-  train = df
-  ## --------- FULL df passed as train set
 
-  m = train_m(train)
+  m = Prophet(seasonality_mode='multiplicative',
+                  weekly_seasonality=True,
+                  daily_seasonality=False,
+              )
 
-  fcst , rmse = get_perf(m, train)
-  print(rmse)
+  m.add_seasonality(name='yearly', period=365, fourier_order=20)
 
-  with open(one_prediction_model_name, 'w') as fout:
-    fout.write(model_to_json(m))  # Save model
-  future = m.make_future_dataframe(periods = 365)
+  m.fit(df)
+
+  future = m.make_future_dataframe(periods=365)
+
+  future['yearly'] = future['ds'].apply(lambda x: x.year - 1)
+  fcst,rmse=get_perf(m , df)
+  print('rmse',rmse)
   forecast = m.predict(future)
+  # fig=line_plot_plotly(m,forecast)
+  # fig.show()
+  with open(one_prediction_file_name, 'w') as fout:
+    fout.write(model_to_json(m))  # Save model
+  print("model saved")
   forecast.to_csv(one_prediction_file_name, index=False)
+  print("prediction file saved")
+
 
   #updating log
 
@@ -319,30 +327,44 @@ def aqi_train_model(city):
   df = weekly_update(city,'AQI')
   df.to_csv(one_data_file_name, index=False)
   col='aqi'
-  df = df[[col , 'dt']]
-  df['dt'] =  pd.to_datetime(df['dt'], format='%Y%m%d %H:%M:%S')
-  #-------
+  df['dt'] =  pd.to_datetime(df['dt'])
   df = df.set_index('dt')
-  df = df.resample('d').max()
-  df = df.reset_index()
-  #---------
-  df['ds'] = df['dt']
-  df = df.rename({col : 'y'}, axis = 'columns')
-  #--------
-  ## - possible conv 
-  train = df
-  print( 'train shape', train.shape)
-  ## --------- FULL df passed as train set
 
-  m = Prophet()
-  m.fit(train)
+  df = df.resample('d').max()
+  df=df.dropna(axis=0)
+
+  df = df.rename({col : 'y'}, axis = 'columns')
+
+  df = df.reset_index()
+  df['ds'] = df['dt']
+  df = df[['y' ,'ds']]
+  df
+
+  m = Prophet(
+              seasonality_mode='multiplicative',
+              weekly_seasonality=True,
+              daily_seasonality=False
+              )
+  m.add_seasonality(
+                    name='yearly',
+                    period=365,
+                    fourier_order=20
+                    )
+  m.fit(df)
+  fcst,rmse=get_perf(m,df)
+  print(rmse)
+  future = m.make_future_dataframe(periods=365) # horizon
+
+  future['yearly'] = future['ds'].apply(lambda x: x.year - 1) # addition 
+  
+  forecast = m.predict(future)
   with open(one_prediction_model_name, 'w') as fout:
     fout.write(model_to_json(m))  # Save model
-  # return m
-  horizon = 365
-  future = m.make_future_dataframe(periods = horizon)
-  forecast = m.predict(future)
+  # fig=line_plot_plotly(m, forecast)
+  # fig.show()
+  print("model saved")
   forecast.to_csv(one_prediction_file_name, index=False)
+  print("prediction file saved")
 
   # fcst , rmse = get_perf(m, train)
 
@@ -350,7 +372,7 @@ def aqi_train_model(city):
   df_log = pd.read_csv('content/AQI/log.csv')
   df_log.loc[3, city] = ''
   df_log[city] = df_log[city].shift(1)
-  df_log.loc[0, city] = 0.684
+  df_log.loc[0, city] = rmse
   df_log.to_csv('content/AQI/log.csv', index=False)
 
 

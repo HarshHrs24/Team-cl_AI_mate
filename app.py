@@ -345,7 +345,7 @@ else:
     for index,row in df.iterrows():
         yhat=str(row["yhat"])
         content= "The predicted Aqi for {} on {} is {}".format(selected_city,str(row["ds"]),yhat)
-        item = {"id": i, "content": "◉", "start": str(row["ds"])}
+        item = {"id": i, "content": "◉","message":content, "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

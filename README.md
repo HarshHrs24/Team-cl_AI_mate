@@ -89,7 +89,7 @@ The solution should be able to accurately predict both heat wave occurrences and
 
 ### 5. Deploy the app in Streamlit.
 
-Note- If you want to run on a local environment like VS Code first install the necessary libraries and then write the python following command in your terminal. The site will be hosted on a local host.
+Note- If you want to run on a local environment like VS Code first install the necessary libraries and then write the following python command in your terminal. The site will be hosted on a local host.
 ```sh
 -m streamlit run app.py
 ```

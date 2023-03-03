@@ -384,7 +384,7 @@ with st.container():
         
         # forecast['ds'] = pd.to_datetime(df['ds'])
         # st.write(forecast)
-        yhat=float(forecast.loc[forecast['ds']==d, 'yhat'])
+        yhat=float(forecast.loc[forecast['ds']==d, 'yhat']).format("%2f")
         yhat_upper=float(forecast.loc[forecast['ds']==d, 'yhat_upper'])
         yhat_lower=float(forecast.loc[forecast['ds']==d, 'yhat_lower'])
         prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(d,yhat_upper,yhat_lower,yhat)

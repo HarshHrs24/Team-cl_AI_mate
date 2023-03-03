@@ -133,12 +133,15 @@ def heatwave_prepare(df):
    df['heat_index'] = hi
    df['occurence of heat wave']= df["temp"].apply(lambda x: "yes" if x > 128 else "no")
    return df
+def conv(x):
+  return round(x)
 def timeline_prepare(df,model):
     if model=="Heat wave":
         df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
         
     else:
-        df['Extreme AQI events']= df["yhat_upper"].apply(lambda x: "yes" if x>4 else "no")
+         df = df['yhat'].apply(conv)
+         df['Extreme AQI events']= df["yhat"].apply(lambda x: "yes" if x>4 else "no")
     return df
 
 def aqi_prepare(df):
@@ -151,8 +154,7 @@ def aqi_prepare(df):
    return df
 
 
-def conv(x):
-  return round(x)
+
 def line_plot_plotly(m, forecast, mode,model):
     past = m.history['y']
     future = forecast['yhat']
@@ -320,7 +322,7 @@ if selected_model=='Heat wave':
     st.header(timeine_title)
 
     options = {
-        "min": "2012-01-01",
+        "min": "2013-01-01",
         "max": "2023-12-31"
     }
 
@@ -340,7 +342,7 @@ else:
     items = []
     i=1
     for index,row in df.iterrows():
-        item = {"id": i, "content": str(row["yhat_upper"]), "start": str(row["ds"])}
+        item = {"id": i, "content": str(row["yhat"]), "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

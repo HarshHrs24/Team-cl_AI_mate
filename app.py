@@ -317,7 +317,7 @@ if selected_model=='Heat wave':
     for index,row in df.iterrows():
         yhat_upper=str(row["yhat_upper"])
         yhat_lower=str(row["yhat_lower"])
-        content= "{}, {} is expected to experience a maximum temperature of {} and a minimum temperature of {}.".format(str(row["ds"]),selected_city,yhat_upper,yhat_lower)
+        content= "On {}, {} is expected to experience a maximum temperature of {} and a minimum temperature of {}.".format(str(row["ds"]),selected_city,yhat_upper,yhat_lower)
         item = {"id": i, "content": "◉","message":content, "start": str(row["ds"])}
         items.append(item)
         i=i+1

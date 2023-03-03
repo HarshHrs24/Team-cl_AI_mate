@@ -390,3 +390,5 @@ aqi_train_model('Khammam')
 aqi_train_model('Karimnagar')
 aqi_train_model('Nizamabad')
 aqi_train_model('Warangal')
+
+

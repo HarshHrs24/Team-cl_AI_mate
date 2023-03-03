@@ -189,6 +189,7 @@ This is an example about our approach.
 * [GitHub Repository](https://github.com/iamneo-production/00aa9422-7c04-4b7c-975b-6ed887ff7d95)
 * [OpenWeather](https://openweathermap.org/)
 * [Visual Crossing](https://www.visualcrossing.com/)
+* [India Meteorological Department - FAQ Heat wave pdf](https://internal.imd.gov.in/section/nhac/dynamic/FAQ_heat_wave.pdf)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

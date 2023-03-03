@@ -384,7 +384,7 @@ with st.container():
         yhat_upper=str(forecast["yhat_upper"])
         yhat_lower=str(forecast["yhat_lower"])
         prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(str(forecast["ds"]),yhat_upper,yhat_lower,yhat)
-        st.write()
+        st.write(prediction_year_info)
 
 # Display value for selected date
 st.write("You selected:", selected_date.strftime("%B %d, %Y"))

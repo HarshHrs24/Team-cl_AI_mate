@@ -295,11 +295,11 @@ def heatwave_train_model(city):
 
 
 
-heatwave_train_model('Adilabad')
-heatwave_train_model('Khammam')
-heatwave_train_model('Karimnagar')
-heatwave_train_model('Nizamabad')
-heatwave_train_model('Warangal')
+# heatwave_train_model('Adilabad')
+# heatwave_train_model('Khammam')
+# heatwave_train_model('Karimnagar')
+# heatwave_train_model('Nizamabad')
+# heatwave_train_model('Warangal')
 
 
 def aqi_train_model(city):

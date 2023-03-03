@@ -137,8 +137,10 @@ def heatwave_prepare(df):
 def timeline_prepare(df,model):
     if model=="Heat wave":
         df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 45 else "no")
+        
     else:
         df['Extreme AQI events']= df["aqi"].apply(lambda x: "yes" if x>4 else "no")
+    return df
 
 def aqi_prepare(df):
    df['dt'] = pd.to_datetime(df['dt'])
@@ -302,26 +304,27 @@ if selected_model=='Heat wave':
 
     df = pd.read_csv(path)
     df = timeline_prepare(df,selected_model)
-    df = df[df["occurence of heat wave"] == "yes"]
-    # Convert the dataframe to a list of dictionaries
-    items = []
-    i=1
-    for index,row in df.iterrows():
-        item = {"id": i, "content": str(row["yhat_upper"]), "start": str(index.strftime('%m-%d-%Y'))}
-        items.append(item)
-        i=i+1
-    # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
-    timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
-    st.header(timeine_title)
+    st.write(df)
+    # df = df[df["occurence of heat wave"] == "yes"]
+    # # Convert the dataframe to a list of dictionaries
+    # items = []
+    # i=1
+    # for index,row in df.iterrows():
+    #     item = {"id": i, "content": str(row["yhat_upper"]), "start": str(index.strftime('%m-%d-%Y'))}
+    #     items.append(item)
+    #     i=i+1
+    # # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
+    # timeine_title=" Major {} occurrences in the year 2023".format(selected_model)
+    # st.header(timeine_title)
 
-    options = {
-        "min": "2023-01-01",
-        "max": "2023-12-31"
-    }
+    # options = {
+    #     "min": "2023-01-01",
+    #     "max": "2023-12-31"
+    # }
 
-    timeline = st_timeline(items, groups=[], options=options, height="300px")
-    st.subheader("Selected item")
-    st.write(timeline)
+    # timeline = st_timeline(items, groups=[], options=options, height="300px")
+    # st.subheader("Selected item")
+    # st.write(timeline)
 else:
     path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
 

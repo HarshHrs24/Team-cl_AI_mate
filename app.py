@@ -136,7 +136,7 @@ def heatwave_prepare(df):
    return df
 def timeline_prepare(df,model):
     if model=="Heat wave":
-        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 45 else "no")
+        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 40 else "no")
         
     else:
         df['Extreme AQI events']= df["aqi"].apply(lambda x: "yes" if x>4 else "no")
@@ -299,8 +299,6 @@ st.plotly_chart(fig1)
 
 if selected_model=='Heat wave':
     path="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
-
-
 
     df = pd.read_csv(path)
     df = timeline_prepare(df,selected_model)

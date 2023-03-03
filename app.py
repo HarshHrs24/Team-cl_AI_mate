@@ -140,7 +140,7 @@ def timeline_prepare(df,model):
         df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
         
     else:
-         df = df['yhat'].apply(conv)
+         df['yhat'] = df['yhat'].apply(conv)
          df['Extreme AQI events']= df["yhat"].apply(lambda x: "yes" if x>4 else "no")
     return df
 

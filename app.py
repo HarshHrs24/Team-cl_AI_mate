@@ -138,6 +138,7 @@ def conv(x):
 def timeline_prepare(df,model):
     if model=="Heat wave":
         df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
+        df=df.iloc[4017:]
         
     else:
          df['yhat'] = df['yhat'].apply(conv)

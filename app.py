@@ -157,7 +157,7 @@ def conv(x):
 def line_plot_plotly(m, forecast, mode):
     past = m.history['y']
     future = forecast['yhat']
-    if mode=='Heat wave':
+    if mode=='AQI':
         future = future.apply(conv)
     timeline = forecast['ds']
 

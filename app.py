@@ -329,7 +329,7 @@ if selected_model=='Heat wave':
     st.subheader("Selected item")
     st.write(timeline)
 else:
-    path="versioning/one/{}/1_{}_data.csv".format(selected_model,selected_city)
+    path="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
 
 
 

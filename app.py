@@ -384,10 +384,14 @@ with st.container():
         
         # forecast['ds'] = pd.to_datetime(df['ds'])
         # st.write(forecast)
+        
         yhat="{:.2f}".format(float(forecast.loc[forecast['ds']==d, 'yhat']))
         yhat_upper="{:.2f}".format(float(forecast.loc[forecast['ds']==d, 'yhat_upper']))
         yhat_lower="{:.2f}".format(float(forecast.loc[forecast['ds']==d, 'yhat_lower']))
-        prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(d,yhat_upper,yhat_lower,yhat)
+        if selected_model=='Heat wave':
+           prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(d,yhat_upper,yhat_lower,yhat)
+        else:
+            prediction_year_info="The predicted Aqi for {} on {} is {}".format(selected_city,d,yhat)
         st.write(prediction_year_info)
 
 # Display value for selected date

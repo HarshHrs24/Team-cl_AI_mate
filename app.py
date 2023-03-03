@@ -238,31 +238,28 @@ st.title("Our Model")
 # cities = ('Adilabad', 'Nizamabad', 'Karimnagar', 'Khammam', 'Warangal')
 # selected_city = st.selectbox('Select a city for prediction', cities)
 
+def load_prediction(selected_model,city):
+    # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+    
+    path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+        # winner/Heat wave/winner_Adilabad_prediction.csv
+    print(path)
+    df = pd.read_csv(path)
+    return df
 
+def load_model(selected_model,city):
+    path="winner/{}/winner_{}_model.json".format(selected_model,city)
+    with open(path, 'r') as fin:
+        m = model_from_json(fin.read())  # Load model
+    return m
    
 # ---- PROJECTS ----
 with st.container():
 
 
-    # @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
-    def load_prediction(selected_model,city):
-        # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-       
-        path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-            # winner/Heat wave/winner_Adilabad_prediction.csv
-        print(path)
-        df = pd.read_csv(path)
-        return df
-
-    def load_model(selected_model,city):
-        path="winner/{}/winner_{}_model.json".format(selected_model,city)
-        with open(path, 'r') as fin:
-            m = model_from_json(fin.read())  # Load model
-        return m
-
     with st.spinner('Loading Model Into Memory....'):
         m= load_model(selected_model,selected_city)
-
+         
     forecast = load_prediction(selected_model,selected_city)
 
 
@@ -382,6 +379,12 @@ with st.container():
             max_value=end_date,
             key="date_input"
         )
+        forecast=load_prediction(selected_model,selected_city)
+        yhat=str(forecast["yhat"])
+        yhat_upper=str(forecast["yhat_upper"])
+        yhat_lower=str(forecast["yhat_lower"])
+        prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(str(forecast["ds"]),yhat_upper,yhat_lower,yhat)
+        st.write()
 
 # Display value for selected date
 st.write("You selected:", selected_date.strftime("%B %d, %Y"))

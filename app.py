@@ -322,7 +322,7 @@ if selected_model=='Heat wave':
     st.header(timeine_title)
 
     options = {
-        "min": "2013-01-01",
+        "min": "2023-01-01",
         "max": "2023-12-31"
     }
 

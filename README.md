@@ -124,7 +124,7 @@ This is an example about our approach.
 * Polar Plot to analyse past year trends.
 * Map feature is also there on the site where the user can locate the selected city and get the details of all the necessary parameters related to Heat wave and AQI. 
 * The model follows CI/CD architecture to constatntly retrain and make new versions of our model.
-* Cost-effective and effiecient business scalibility.
+* Cost-effective and efficient business scalibility.
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

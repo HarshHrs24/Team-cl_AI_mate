@@ -380,7 +380,7 @@ with st.container():
             key="date_input"
         )
         forecast=load_prediction(selected_model,selected_city)
-        d=selected_date.strftime("%y-%m-%d")
+        d=selected_date.strftime("%Y-%m-%d")
         # forecast['ds'] = pd.to_datetime(df['ds'])
         # st.write(type(selected_date))
         yhat=forecast.loc[d, 'yhat']

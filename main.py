@@ -52,6 +52,7 @@ def heatwave_train_model(city):
   winner_prediction_file_name="winner/Heat wave/winner_{}_prediction.csv".format(city)
   one_prediction_model_name="versioning/one/Heat wave/1_{}_model.json".format(city)
   one_prediction_file_name="versioning/one/Heat wave/1_{}_prediction.csv".format(city)
+  # print(one_prediction_file_name)
 
   shutil.copy(one_prediction_model_name, winner_prediction_model_name)
   shutil.copy(one_prediction_file_name, winner_prediction_file_name) 
@@ -61,4 +62,4 @@ heatwave_train_model('Adilabad')
 heatwave_train_model('Khammam')
 heatwave_train_model('Karimnagar')
 heatwave_train_model('Nizamabad')
-# heatwave_train_model('Warangal')
+heatwave_train_model('Warangal')

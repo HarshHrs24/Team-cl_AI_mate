@@ -316,12 +316,12 @@ if selected_model=='Heat wave':
     st.header(timeine_title)
 
     options = {
-        "min": "2023-01-01",
+        "min": "2012-01-01",
         "max": "2023-12-31"
     }
 
-    # timeline = st_timeline(items, groups=[], options=options, height="300px")
-    timeline = st_timeline(items, groups=[], height="300px")
+    timeline = st_timeline(items, groups=[], options=options, height="300px")
+    # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 else:

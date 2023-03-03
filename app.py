@@ -347,7 +347,8 @@ else:
         "max": "2023-12-31"
     }
 
-    timeline = st_timeline(items, groups=[], options=options, height="300px")
+    # timeline = st_timeline(items, groups=[], options=options, height="300px")
+    timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 

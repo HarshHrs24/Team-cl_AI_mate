@@ -241,8 +241,7 @@ with st.container():
         return df
 
     def load_model(selected_model,city):
-        # path="winner/{}/winner_{}_model.json".format(selected_model,city)
-        path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+        path="winner/{}/winner_{}_model.json".format(selected_model,city)
         with open(path, 'r') as fin:
             m = model_from_json(fin.read())  # Load model
         return m

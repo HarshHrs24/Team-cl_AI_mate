@@ -321,7 +321,7 @@ if selected_model=='Heat wave':
     }
 
     # timeline = st_timeline(items, groups=[], options=options, height="300px")
-    timeline = st_timeline(items, groups=[], options=options, height="300px")
+    timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 else:

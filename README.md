@@ -41,15 +41,13 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-<!--       <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul> -->
     </li>
     <li>
       <a href="#how-to-run-the-project-in-5-simple-steps">How to run the project in 5 simple steps</a>
     </li>
     <li><a href="#our-approach">Our Approach</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#built-with">Built With</a></li>
     <li><a href="#our-team">Our Team</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>

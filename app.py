@@ -132,11 +132,10 @@ def heatwave_prepare(df):
    hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783*(10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3)*T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
    df['heat_index'] = hi
    df['occurence of heat wave']= df["temp"].apply(lambda x: "yes" if x > 128 else "no")
-
    return df
 def timeline_prepare(df,model):
     if model=="Heat wave":
-        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 40 else "no")
+        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
         
     else:
         df['Extreme AQI events']= df["aqi"].apply(lambda x: "yes" if x>4 else "no")
@@ -341,7 +340,7 @@ else:
     items = []
     i=1
     for index,row in df.iterrows():
-        item = {"id": i, "content": str(row["aqi"]), "start": str(index.strftime('%m-%d-%Y'))}
+        item = {"id": i, "content": str(row["aqi"]), "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

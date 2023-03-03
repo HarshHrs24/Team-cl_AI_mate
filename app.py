@@ -318,7 +318,7 @@ if selected_model=='Heat wave':
         yhat_upper=str(row["yhat_upper"])
         yhat_lower=str(row["yhat_lower"])
         content= "The maximum and minimum temperatures predicted for {} on {} are {}°C and {}°C respectively".format(selected_city,str(row["ds"]),yhat_upper,yhat_lower)
-        item = {"id": i, "content": str(row["yhat"]),"message":content, "start": str(row["ds"])}
+        item = {"id": i, "content": "⚠","message":content, "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
@@ -333,7 +333,7 @@ if selected_model=='Heat wave':
     timeline = st_timeline(items, groups=[], options=options, height="300px")
     # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
-    st.write(timeline['message'])
+    st.write(timeline)
 else:
     path="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
 

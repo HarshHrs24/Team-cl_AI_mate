@@ -317,7 +317,7 @@ if selected_model=='Heat wave':
     for index,row in df.iterrows():
         yhat_upper=str(row["yhat_upper"])
         yhat_lower=str(row["yhat_lower"])
-        content= "The maximum and minimum temperatures predicted for {} on {} are {}°C and {}°C respectively".format(selected_city,str(row["ds"]),yhat_upper,yhat_lower)
+        content= "{}, {} is expected to experience a maximum temperature of {} and a minimum temperature of {}.".format(str(row["ds"]),selected_city,yhat_upper,yhat_lower)
         item = {"id": i, "content": "◉","message":content, "start": str(row["ds"])}
         items.append(item)
         i=i+1
@@ -346,7 +346,9 @@ else:
     items = []
     i=1
     for index,row in df.iterrows():
-        item = {"id": i, "content": str(row["yhat"]), "start": str(row["ds"])}
+        yhat=str(row["yhat"])
+        content= "The predicted Aqi for {} on {} is {}".format(selected_city,str(row["ds"]),yhat)
+        item = {"id": i, "content": "◉", "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

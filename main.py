@@ -48,10 +48,10 @@
 import shutil
 
 def heatwave_train_model(city):
-  winner_prediction_model_name="winner/Heat wave/winner_{}_model.json".format(city)
-  winner_prediction_file_name="winner/Heat wave/winner_{}_prediction.csv".format(city)
-  one_prediction_model_name="versioning/one/Heat wave/1_{}_model.json".format(city)
-  one_prediction_file_name="versioning/one/Heat wave/1_{}_prediction.csv".format(city)
+  winner_prediction_model_name="winner/AQI/winner_{}_model.json".format(city)
+  winner_prediction_file_name="winner/AQI/winner_{}_prediction.csv".format(city)
+  one_prediction_model_name="versioning/one/AQI/1_{}_model.json".format(city)
+  one_prediction_file_name="versioning/one/AQI/1_{}_prediction.csv".format(city)
   # print(one_prediction_file_name)
 
   shutil.copy(one_prediction_model_name, winner_prediction_model_name)

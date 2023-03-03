@@ -154,10 +154,10 @@ def aqi_prepare(df):
 
 def conv(x):
   return round(x)
-def line_plot_plotly(m, forecast, mode):
+def line_plot_plotly(m, forecast, mode,model):
     past = m.history['y']
     future = forecast['yhat']
-    if mode=='AQI':
+    if model=='AQI':
         future = future.apply(conv)
     timeline = forecast['ds']
 
@@ -273,7 +273,7 @@ if selected_model=='Heat wave':
     agree = st.checkbox('Line graph')
 
     if agree:
-        fig1 = line_plot_plotly(m, forecast,'lines')
+        fig1 = line_plot_plotly(m, forecast,'lines',selected_model)
 
         fig1.update_layout(
             plot_bgcolor='#7FFFD4',  # set the background color
@@ -289,7 +289,7 @@ if selected_model=='Heat wave':
             paper_bgcolor='#F8F8F8', # set the background color of the plot area
         )
 else:
-        fig1 = line_plot_plotly(m, forecast,'markers')
+        fig1 = line_plot_plotly(m, forecast,'markers',selected_model)
 
         fig1.update_layout(
             plot_bgcolor='#7FFFD4',  # set the background color

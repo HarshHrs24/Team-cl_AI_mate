@@ -233,7 +233,7 @@ with st.container():
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(selected_model,city):
         # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-        # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
+       
         path="winner/Heat wave/winner_Adilabad_prediction.csv"
         print(path)
         df = pd.read_csv(path)
@@ -252,10 +252,11 @@ with st.container():
     forecast = load_prediction(selected_model,selected_city)
 
 
-
+path1="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
 
 st.header("Graph")
 if selected_model=='Heat wave':
+    st.write(path1)
 
     agree = st.checkbox('Line graph')
 

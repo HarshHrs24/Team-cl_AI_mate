@@ -137,7 +137,7 @@ def conv(x):
   return round(x)
 def timeline_prepare(df,model):
     if model=="Heat wave":
-        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
+        df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 44 else "no")
         
     else:
          df['yhat'] = df['yhat'].apply(conv)

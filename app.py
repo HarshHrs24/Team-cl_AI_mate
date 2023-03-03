@@ -315,6 +315,9 @@ if selected_model=='Heat wave':
     items = []
     i=1
     for index,row in df.iterrows():
+        yhat_upper=str(row["yhat_upper"])
+        yhat_lower=str(row["yhat_lower"])
+        content= "Maximum and Minimum possible temperature-{} & {} on {} at{}".format(yhat_upper,yhat_lower, str(row["ds"]),selected_city)
         item = {"id": i, "content": str(row["yhat"]), "start": str(row["ds"])}
         items.append(item)
         i=i+1

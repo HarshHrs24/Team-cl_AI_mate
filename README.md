@@ -44,7 +44,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
       <a href="#how-to-run-the-project-in-5-simple-steps">How to run the project in 5 simple steps</a>
     </li>
     <li><a href="#our-approach">Our Approach</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#our-team">Our Team</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -115,8 +115,8 @@ This is an example about our approach.
 
 
 
-<!-- ROADMAP -->
-## Roadmap
+<!-- Features -->
+## Features
 
 * Step 1
 * Step 2

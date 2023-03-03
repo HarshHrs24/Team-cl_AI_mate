@@ -178,7 +178,7 @@ def heatwave_train_model(city):
   winner_prediction_file_name="winner/Heat wave/winner_{}_prediction.csv".format(city)
   # winner_data_file_name="winner/Heat wave/winner_{}_data.csv".format(city)
 
-
+  
 
   #preprocessing   
   
@@ -194,12 +194,25 @@ def heatwave_train_model(city):
   os.rename(one_prediction_file_name, two_prediction_file_name)
   os.rename(one_data_file_name, two_data_file_name)
   #weekly update via api
-
+  
   # df = pd.read_csv(CSV)
   df = weekly_update(city,'Heat wave') #latest data
   df.to_csv(one_data_file_name, index=False)
   print(df.head())
-  
+  print(one_prediction_model_name)
+  print(two_prediction_model_name)
+  print(three_prediction_model_name)
+  print(four_prediction_model_name)
+  print(one_prediction_file_name)
+  print(two_prediction_file_name)
+  print(three_prediction_file_name)
+  print(four_prediction_file_name)
+  print(one_data_file_name)
+  print(two_data_file_name)
+  print(three_data_file_name)
+  print(four_data_file_name)
+  print(winner_prediction_model_name)
+  print(winner_prediction_file_name)
   df['datetime'] =  pd.to_datetime(df['datetime'])
   col = 'temp'
 
@@ -233,7 +246,7 @@ def heatwave_train_model(city):
   forecast = m.predict(future)
   # fig=line_plot_plotly(m,forecast)
   # fig.show()
-  with open(one_prediction_file_name, 'w') as fout:
+  with open(one_prediction_model_name, 'w') as fout:
     fout.write(model_to_json(m))  # Save model
   print("model saved")
   forecast.to_csv(one_prediction_file_name, index=False)

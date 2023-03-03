@@ -333,7 +333,7 @@ if selected_model=='Heat wave':
     timeline = st_timeline(items, groups=[], options=options, height="300px")
     # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
-    st.write(timeline[content])
+    st.write(timeline['message'])
 else:
     path="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
 

@@ -391,7 +391,7 @@ with st.container():
         if selected_model=='Heat wave':
            prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(d,yhat_upper,yhat_lower,yhat)
         else:
-            prediction_year_info="The predicted Aqi for {} on {} is {}".format(selected_city,d,yhat)
+            prediction_year_info="The predicted AQI for {} on {} is {}".format(selected_city,d,yhat)
         st.write(prediction_year_info)
 
 # Display value for selected date

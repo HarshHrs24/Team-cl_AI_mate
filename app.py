@@ -380,12 +380,13 @@ with st.container():
             key="date_input"
         )
         forecast=load_prediction(selected_model,selected_city)
-        forecast['ds'] = pd.to_datetime(df['ds'])
+        d=selected_date.strftime("%y-%m-%d")
+        # forecast['ds'] = pd.to_datetime(df['ds'])
         # st.write(type(selected_date))
-        yhat=forecast.loc[selected_date, 'yhat']
-        yhat_upper=forecast.loc[selected_date, 'yhat_upper']
-        yhat_lower=forecast.loc[selected_date, 'yhat_lower']
-        prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(selected_date,yhat_upper,yhat_lower,yhat)
+        yhat=forecast.loc[d, 'yhat']
+        yhat_upper=forecast.loc[d, 'yhat_upper']
+        yhat_lower=forecast.loc[d, 'yhat_lower']
+        prediction_year_info="On {} the predicted temperature range for Adilabad is between {} and {}, with a most likely temperature of {}.".format(d,yhat_upper,yhat_lower,yhat)
         st.write(prediction_year_info)
 
 # Display value for selected date

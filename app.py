@@ -304,7 +304,7 @@ if selected_model=='Heat wave':
 
     df = pd.read_csv(path)
     df = timeline_prepare(df,selected_model)
-    # st.write(df)
+    st.write(df)
     df = df[df["occurence of heat wave"] == "yes"]
     # Convert the dataframe to a list of dictionaries
     items = []

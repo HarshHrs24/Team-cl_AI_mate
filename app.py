@@ -271,6 +271,7 @@ path1="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
 st.header("Graph")
 if selected_model=='Heat wave':
 
+
     agree = st.checkbox('Line graph')
 
     if agree:
@@ -308,7 +309,7 @@ if selected_model=='Heat wave':
 
     df = pd.read_csv(path)
     df = timeline_prepare(df,selected_model)
-    # st.write(df)
+
     df = df[df["occurence of heat wave"] == "yes"]
     # Convert the dataframe to a list of dictionaries
     items = []

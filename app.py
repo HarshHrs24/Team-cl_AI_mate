@@ -270,7 +270,6 @@ path1="winner/{}/winner_{}_prediction.csv".format(selected_model,selected_city)
 
 st.header("Graph")
 if selected_model=='Heat wave':
-    st.write(path1)
 
     agree = st.checkbox('Line graph')
 

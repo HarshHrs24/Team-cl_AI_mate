@@ -1,12 +1,10 @@
 # Team cl_AI_mate - Heat wave and AQI Prediction
+# 00aa9422-7c04-4b7c-975b-6ed887ff7d95
+https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed887ff7d95
+
 
 <img src="https://drive.google.com/uc?export=view&id=1nFaRAWibLL1V4n13ATWZDanxMUr0b0Ba" alt=" " width="1010" height="100">
 
-
-<!-- Improved compatibility of back to top link: See: https://github.com/HarshHrs24/Team-cl_AI_mate/pull/73 -->
-<a name="readme-top"></a>
-<!--
-***  T-AIM Academic Grand Challenge on Climate Change. 
 
 
 <!-- PROJECT LOGO -->
@@ -21,10 +19,13 @@
 
   <p align="center">
   <h4>T-AIM Academic Grand Challenge on Climate Change</h4> 
-  <h5><a href="https://harshhrs24-team-cl-ai-mate-app-md7w7w.streamlit.app/"><strong>Deployed Link »</strong></a></h5>
+  <h3><a href="https://harshhrs24-team-cl-ai-mate-app-md7w7w.streamlit.app/"><strong>Deployed Website Link »</strong></a></h3>
+    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for Heat wave »</strong></a>
     <br />
-    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) »</strong></a>
+    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) AQI »</strong></a>
     <br />
+    <br />
+    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Complete Solution Architecture Documentation »</strong></a>
   </p>
 </div>
 
@@ -55,7 +56,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 The problem statement asks you to build a solution to predict two environmental factors in the Tier-2 cities of the Indian state of Telangana:
 
@@ -70,21 +70,6 @@ The solution should be able to accurately predict both heat wave occurrences and
 
 
 
-<!-- ### Built With
-
-* [![React][React.js]][React-url]
-* [![Express][Express.js]][Express-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-* WebRTC
-* Twilio
-* MongoDB
-* NodeJs
-* JavaScript
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
-
 <!-- GETTING STARTED -->
 ## How to run the project in 5 simple steps
 
@@ -92,15 +77,15 @@ The solution should be able to accurately predict both heat wave occurrences and
 
 ### 2. Give read and write permission to workflows in your repository from Settings-->Actions-->General.
 
-<img src="https://drive.google.com/uc?export=view&id=1DiVD8e6t15xltalqrYWa3072FRGwEB9O" alt="Logo" width="600" height="300">
+<img src="https://drive.google.com/uc?export=view&id=1DiVD8e6t15xltalqrYWa3072FRGwEB9O" alt="Click and Reload" width="600" height="300">
 
 ### 3. Generate your own personal Github Token from your profile settings-->Developer Settings-->Generate classic token--> fill the necessary requirements.
 
-<img src="https://drive.google.com/uc?export=view&id=18dcWvUPxwmtVG9hXbw-uTbvgyO_pYPnY" alt="Logo" width="1100" height="250">
+<img src="https://drive.google.com/uc?export=view&id=18dcWvUPxwmtVG9hXbw-uTbvgyO_pYPnY" alt="Click and Reload" width="1100" height="250">
 
 ### 4. Copy paste the Github token in the GitHub workflow folder-->weekly-run.yaml.
 
-<img src="https://drive.google.com/uc?export=view&id=1qyEO2FDDxNJEpA_hz6QWcR3aJMxXnPKG" alt="Logo" width="600" height="100">
+<img src="https://drive.google.com/uc?export=view&id=1qyEO2FDDxNJEpA_hz6QWcR3aJMxXnPKG" alt="Click and Reload" width="600" height="100">
 
 ### 5. Deploy the app in Streamlit.
 
@@ -113,6 +98,7 @@ To install all the libraries in the requirement.txt use the following command.
 pip install -r requirements.txt 
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- Screenshots -->
 
 
@@ -138,33 +124,41 @@ This is an example about our approach.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Built With
 
-<!-- CONTRIBUTING -->
-<!-- ## Contributing
+### Technology Used                                                                  
+* Python
+* Streamlit
+* Google Colab
+* JSON
+* GitHub
+* VS Code
+* Yaml
+* Postman API
+* CSS
+* Excel
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Libraries Used
+* streamlit
+* streamlit_lottie
+* requests
+* Pillow
+* protobuf
+* watchdog
+* pandas
+* numpy
+* prophet
+* matplotlib
+* scikit-learn
+* plotly
+* folium
+* geopandas
+* streamlit-vis-timeline
+* datetime
+* smtplib
+* shapely.geometry
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-<!-- ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
- --> 
-
 
 <!-- CONTACT -->
 ## Our Team
@@ -184,12 +178,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 * [T-AIM NASSCOM](https://taim-gc.in/climate-change)
 * [GitHub Repository](https://github.com/iamneo-production/00aa9422-7c04-4b7c-975b-6ed887ff7d95)
-<!-- * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search) -->
+* [OpenWeather](https://openweathermap.org/)
+* [Visual Crossing](https://www.visualcrossing.com/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

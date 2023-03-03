@@ -117,12 +117,14 @@ This is an example about our approach.
 
 <!-- Features -->
 ## Features
-
-* Step 1
-* Step 2
-* Step 3
-* Step 4
-* Step 5
+* Forecasting of Heat wave and AQI along with its relevant parameters for the year 2023.
+* Graph Visualization and Analysis
+* Timeline - Highlights the major events in the year 2023 regarding occurence of Heat wave and severe Air Quality conditions.
+* The user can also choose a specific date to get the details about Heat waves and AQI
+* Polar Plot to analyse past year trends.
+* Map feature is also there on the site where the user can locate the selected city and get the details of all the necessary parameters related to Heat wave and AQI 
+* The model follows CI/CD architecture to constatntly retrain and make new versions of our model.
+* Cost-effective and effiecient business scalibility
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

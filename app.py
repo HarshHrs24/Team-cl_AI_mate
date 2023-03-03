@@ -340,7 +340,7 @@ else:
     items = []
     i=1
     for index,row in df.iterrows():
-        item = {"id": i, "content": str(row["aqi"]), "start": str(row["ds"])}
+        item = {"id": i, "content": str(row["yhat_upper"]), "start": str(row["ds"])}
         items.append(item)
         i=i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']

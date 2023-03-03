@@ -326,8 +326,8 @@ if selected_model=='Heat wave':
     st.header(timeine_title)
 
     options = {
-        "min": "2023-01-01",
-        "max": "2023-12-31"
+        "min": "2022-06-01",
+        "max": "2024-06-31"
     }
 
     timeline = st_timeline(items, groups=[], options=options, height="300px")

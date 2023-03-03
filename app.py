@@ -23,18 +23,19 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # defining necessary functions
 
+#to load necessary assests
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
-
+# css
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-
+#dataset preperation heatwave
 def heatwave_prepare(df):
     df['datetime'] = pd.to_datetime(df['datetime'])
     df.set_index('datetime', inplace=True)
@@ -45,6 +46,7 @@ def heatwave_prepare(df):
     T = (df['temp']*9/5)+32
     df['temp'] = T
     R = df['humidity']
+    #Calculating Heat index using heat index chart formula
     hi = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 6.83783 * \
         (10**-3)*(T*T) - 5.481717*(10**-2)*R*R + 1.22874*(10**-3) * \
         T*T*R + 8.5282*(10**-4)*T*R*R - 1.99*(10**-6)*T*T*R*R
@@ -57,7 +59,7 @@ def heatwave_prepare(df):
 def conv(x):
     return round(x)
 
-
+#dataset preperation for timeleine 
 def timeline_prepare(df, model):
     if model == "Heat wave":
         df['occurence of heat wave'] = df["yhat_upper"].apply(
@@ -70,7 +72,7 @@ def timeline_prepare(df, model):
             lambda x: "yes" if x > 4 else "no")
     return df
 
-
+#dataset preperation for AQI
 def aqi_prepare(df):
     df['dt'] = pd.to_datetime(df['dt'])
     df.set_index('dt', inplace=True)
@@ -80,7 +82,7 @@ def aqi_prepare(df):
     df.set_index('date', inplace=True)
     return df
 
-
+#Graph visualizations
 def line_plot_plotly(m, forecast, mode, model):
     past = m.history['y']
     future = forecast['yhat']
@@ -124,17 +126,14 @@ def line_plot_plotly(m, forecast, mode, model):
 
     return fig
 
-
+# to load next year prediction
 def load_prediction(selected_model, city):
-    # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-
     path = "winner/{}/winner_{}_prediction.csv".format(selected_model, city)
-    # winner/Heat wave/winner_Adilabad_prediction.csv
     print(path)
     df = pd.read_csv(path)
     return df
 
-
+# to load model
 def load_model(selected_model, city):
     path = "winner/{}/winner_{}_model.json".format(selected_model, city)
     with open(path, 'r') as fin:
@@ -142,13 +141,11 @@ def load_model(selected_model, city):
     return m
 
 # Description
-
-
 def info(title, text):
     with st.expander(f"{title}"):
         st.write(text)
 
-
+#mail
 def send_email(name, email, message):
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()

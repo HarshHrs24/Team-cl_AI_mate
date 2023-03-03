@@ -138,7 +138,7 @@ def timeline_prepare(df,model):
         df['occurence of heat wave']= df["yhat_upper"].apply(lambda x: "yes" if x > 43 else "no")
         
     else:
-        df['Extreme AQI events']= df["aqi"].apply(lambda x: "yes" if x>4 else "no")
+        df['Extreme AQI events']= df["yhat_upper"].apply(lambda x: "yes" if x>4 else "no")
     return df
 
 def aqi_prepare(df):

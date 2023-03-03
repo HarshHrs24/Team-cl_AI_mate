@@ -135,14 +135,15 @@ This is an example about our approach.
 * Python
 * Streamlit
 * Google Colab
-* JSON
 * GitHub
 * VS Code
-* Yaml
-* Postman API
+* JSON
+* yaml
 * CSS
 * Excel
+* Postman API
 * Sonarcloud
+
 
 ### Libraries Used
 * streamlit
@@ -154,6 +155,8 @@ This is an example about our approach.
 * pandas
 * numpy
 * prophet
+* neuralprophet
+* tensorflow
 * matplotlib
 * scikit-learn
 * plotly

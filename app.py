@@ -233,14 +233,14 @@ with st.container():
     @st.cache(allow_output_mutation=True)  #if running on vscode write only @st.cache_data
     def load_prediction(selected_model,city):
         # path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
-        path="versioning/one/{}/1_{}_prediction.csv".format(selected_model,city)
+        path="winner/{}/winner_{}_prediction.csv".format(selected_model,city)
         print(path)
         df = pd.read_csv(path)
         return df
     
     def load_model(selected_model,city):
         # path="winner/{}/winner_{}_model.json".format(selected_model,city)
-        path="versioning/one/{}/1_{}_model.json".format(selected_model,city)
+        path="winner/{}/winner_{}_model.json".format(selected_model,city)
         with open(path, 'r') as fin:
             m = model_from_json(fin.read())  # Load model
         return m

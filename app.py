@@ -151,9 +151,14 @@ def aqi_prepare(df):
    df.set_index('date', inplace=True)
    return df
 
+
+def conv(x):
+  return round(x)
 def line_plot_plotly(m, forecast, mode):
     past = m.history['y']
     future = forecast['yhat']
+    if mode=='Heat wave':
+        future = future.apply(conv)
     timeline = forecast['ds']
 
     trace1 = go.Scatter(

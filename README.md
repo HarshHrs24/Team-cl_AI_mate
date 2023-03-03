@@ -137,6 +137,7 @@ This is an example about our approach.
 * Postman API
 * CSS
 * Excel
+* Sonarcloud
 
 ### Libraries Used
 * streamlit

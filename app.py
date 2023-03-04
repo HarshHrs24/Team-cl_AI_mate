@@ -246,6 +246,7 @@ st.write("---")
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Our Model")
+st.write("Select the desired criteries from the sidebar")
 
 # ---- Forecast ----
 with st.container():
@@ -263,7 +264,7 @@ st.header("Graph")
 if selected_model == 'Heat wave':
     info("Info", '''The Graph displays the forecasted values and their associated uncertainty intervals over time. 
     Shaded areas above and below the line represent the uncertainty interval.
-    The blue line represents the forecast prediction''')
+    The blue line represents the forecast prediction.''')
 
     agree = st.checkbox('Line graph')
 

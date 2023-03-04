@@ -130,8 +130,7 @@ This is an example about our approach.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## File Structure
-<img src="https://drive.google.com/uc?export=view&id=d/1Fa0TcCt5sCeEgOQJzUy6bZ1Z_jgi2wdn" alt="Click and Reload" width="600" height="100">
-<!-- https://drive.google.com/file/d/1Fa0TcCt5sCeEgOQJzUy6bZ1Z_jgi2wdn/view?usp=share_link -->
+
 
 ## Built With
 

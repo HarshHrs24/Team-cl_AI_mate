@@ -136,7 +136,6 @@ def heatwave_train_model(city):
 
   winner_prediction_model_name="winner/Heat wave/winner_{}_model.json".format(city)
   winner_prediction_file_name="winner/Heat wave/winner_{}_prediction.csv".format(city)
-  # winner_data_file_name="winner/Heat wave/winner_{}_data.csv".format(city)
 
   
 

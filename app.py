@@ -201,7 +201,7 @@ with st.container():
         st.write("Stay ahead of the heat and breathe easy with Team cl_AI_mate")
         name = "{} Prediction".format(selected_model)
         st.title(name)
-        st.subheader(
+        st.write(
             "Telangana Tier-2 cities - Alidabad, Nizamabad, Karimnagar, Khammam and Warangal."
         )
         if selected_model == "Heat wave":

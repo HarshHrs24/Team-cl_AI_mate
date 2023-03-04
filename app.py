@@ -315,7 +315,7 @@ if selected_model == 'Heat wave':
         content = "On {}, {} is expected to experience a maximum temperature of {} and a minimum temperature of {}.".format(
             str(row["ds"]), selected_city, yhat_upper, yhat_lower)
         item = {"id": i, "content": "⚠",
-                "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
+                "message": content, "start": str(row["ds"])}
         items.append(item)
         i = i+1
 
@@ -344,10 +344,10 @@ else:
     i = 1
     for index, row in df.iterrows():
         yhat = str(row["yhat"])
-        content = "The predicted Aqi for {} on {} is {}".format(
+        content = "The predicted AQI for {} on {} is {}".format(
             selected_city, str(row["ds"]), yhat)
         item = {"id": i, "content": "⚠",
-                "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
+                "message": content, "start": str(row["ds"])}
         items.append(item)
         i = i+1
 

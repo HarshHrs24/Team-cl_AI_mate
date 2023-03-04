@@ -1,4 +1,3 @@
-
 # importing necessary libraries
 import plotly.graph_objects as go
 from streamlit_timeline import st_timeline

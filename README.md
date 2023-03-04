@@ -45,6 +45,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
     </li>
     <li><a href="#our-approach">Our Approach</a></li>
     <li><a href="#features">Features</a></li>
+    <li><a href="#file-structure">File Structure</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#our-team">Our Team</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -127,6 +128,9 @@ This is an example about our approach.
 * Cost-effective and efficient business scalibility.
     
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## File Structure
+<img src="https://drive.google.com/uc?export=view&id=d/1Fa0TcCt5sCeEgOQJzUy6bZ1Z_jgi2wdn" alt="Click and Reload" width="600" height="100">
 
 
 ## Built With

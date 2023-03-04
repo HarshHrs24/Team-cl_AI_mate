@@ -320,8 +320,7 @@ if selected_model == 'Heat wave':
         item = {"id": i, "content": "⚠",
                 "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
-        i = i+1
-    # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
+        i = i+1 
     timeine_title = " Major {} occurrences in the year 2023".format(
         selected_model)
     st.header(timeine_title)
@@ -333,7 +332,6 @@ if selected_model == 'Heat wave':
     }
 
     timeline = st_timeline(items, groups=[], options=options, height="300px")
-    # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 else:
@@ -354,7 +352,6 @@ else:
                 "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
         i = i+1
-    # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
     timeine_title = " Major {} occurrences in the year 2023".format(
         selected_model)
     st.header(timeine_title)
@@ -367,7 +364,6 @@ else:
     }
 
     timeline = st_timeline(items, groups=[], options=options, height="300px")
-    # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 
@@ -551,14 +547,11 @@ with st.container():
 
             # Save the GeoDataFrame to a GeoJSON file
             cities_gdf.to_file('heatwave_cities.geojson', driver='GeoJSON')
-
-            # Load the city data
             cities = gpd.read_file("heatwave_cities.geojson")
 
             # Create a folium map centered on the India
             m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
 
-            # Create a GeoJson layer for the city data
             geojson = folium.GeoJson(
                 cities,
                 name='City Data',
@@ -609,13 +602,10 @@ with st.container():
             # Save the GeoDataFrame to a GeoJSON file
             cities_gdf.to_file('aqi_cities.geojson', driver='GeoJSON')
 
-            # Load the city data
             cities = gpd.read_file("aqi_cities.geojson")
 
             # Create a folium map centered on the India
             m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
-
-            # Create a GeoJson layer for the city data
             geojson = folium.GeoJson(
                 cities,
                 name='City Data',

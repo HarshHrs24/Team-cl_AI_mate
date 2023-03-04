@@ -105,11 +105,11 @@ pip install -r requirements.txt
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Screenshots 
-<img src="https://drive.google.com/uc?export=view&id=1Wd50dA61aPPAf-NPgV8uvy1FNeNPWyHo" alt="Click and Reload" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1Wd50dA61aPPAf-NPgV8uvy1FNeNPWyHo" alt="Click and Reload" width="475" height="275">
+<img src="https://drive.google.com/uc?export=view&id=1Wd50dA61aPPAf-NPgV8uvy1FNeNPWyHo" alt="Click and Reload" width="450" height="250"><img src="https://drive.google.com/uc?export=view&id=1sy6NAVGXdjpKdj2uE9OQ1wg36R-GCH_O" alt="Click and Reload" width="475" height="275">
 
-<img src="https://drive.google.com/uc?export=view&id=1Akpxl7G-Eudbl8pknCu2gR-cIr52xAal" alt="Click and Reload" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1Akpxl7G-Eudbl8pknCu2gR-cIr52xAal" alt="Click and Reload" width="475" height="275">
+<img src="https://drive.google.com/uc?export=view&id=1Kc31AMO-BzO_2V54ijFriwjiu0PzEmR0" alt="Click and Reload" width="450" height="250"><img src="https://drive.google.com/uc?export=view&id=1Akpxl7G-Eudbl8pknCu2gR-cIr52xAal" alt="Click and Reload" width="450" height="250">
 
-<img src="https://drive.google.com/uc?export=view&id=1EsX3SRT0wLf49k6W4yah3kNjNExtMvGs" alt="Click and Reload" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1-2g9sKgI5lm6rteBaQFUF-VZfL5lima2" alt="Click and Reload" width="475" height="275">
+<img src="https://drive.google.com/uc?export=view&id=1EsX3SRT0wLf49k6W4yah3kNjNExtMvGs" alt="Click and Reload" width="450" height="250"><img src="https://drive.google.com/uc?export=view&id=1-2g9sKgI5lm6rteBaQFUF-VZfL5lima2" alt="Click and Reload" width="450" height="250">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

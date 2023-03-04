@@ -245,7 +245,7 @@ st.write("---")
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Our Model")
-st.write("Select the desired criteries from the sidebar")
+st.write("Select the desired criterias from the sidebar")
 
 # ---- Forecast ----
 with st.container():

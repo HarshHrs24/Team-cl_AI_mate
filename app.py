@@ -159,7 +159,7 @@ def send_email(name, email, message):
 # ---- LOAD ASSETS ----
 
 lottie_coding_1 = load_lottieurl(
-    "https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+    "https://assets5.lottiefiles.com/packages/lf20_2cwDXD.json")
 
 lottie_coding_2 = load_lottieurl(
     "https://assets9.lottiefiles.com/packages/lf20_dXP5CGL9ik.json")
@@ -206,11 +206,11 @@ with st.container():
         )
         if selected_model == "Heat wave":
             st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1xH77_KLE3gpmTxGk9-X36Pj6lHee0iBc?usp=sharing#scrollTo=nybHfIsygGzp)")
-            st.write("[Solution Architecture]()")
+            st.write("[Solution Architecture](https://www.craft.do/s/1eTduABsPuFIDX)")
 
         else:
             st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1WgV57xtbG05shrxy47Fw59oOmzTZ2yJv?usp=sharing)")
-            st.write("[Solution Architecture]()")
+            st.write("[Solution Architecture](https://www.craft.do/s/1eTduABsPuFIDX)")
 
     with right_column:
         i = 'images/{}_hw2.jpg'.format(selected_model)
@@ -223,21 +223,14 @@ with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
     with left_column:
-        st.header("Our Approach")
-        st.write("##")
+        st.header("Our Vision and Approach")
         st.write(
             """
-            The problem statement asks you to build a solution to predict two environmental factors in the Tier-2 cities of the Indian state of Telangana: 
+            Welcome to Team cl_AI_mate a home of Heatwave and AQI Prediction Platform! We are here to help you prepare for extreme weather conditions and make informed decisions to protect yourself and your loved ones.
 
+            Our platform offers a seamless user journey, starting with the homepage where you can select the criteria you want to predict and the city you are interested in. Once you make your selection, our platform provides you with a graphical representation of the selected criteria for the chosen city, giving you a quick overview of the situation.
 
-            1. Heat Wave Occurrences: Heat waves are prolonged periods of excessively high temperatures, which can have severe impacts on public health and local ecosystems. The task is to develop a solution that can predict when heat waves will occur in the Tier-2 cities of Telangana, to make people aware of the future occurrence of the Heat wave. 
-
- 
-
-            2. Air Quality Index (AQI): AQI is a measure of the air quality in a given location. It takes into account various pollutants in the air and provides a single numerical value that represents the overall air quality. The goal is to predict the AQI in the Tier-2 cities of Telangana to help residents and local authorities make informed decisions about air quality and health. 
-
-  
-            The solution should be able to accurately predict both heat wave occurrences and AQI for the time frame January 2023 - December 2023 on a monthly basis, which can help to mitigate their impacts on public health and the environment. 
+            The platform also includes polar plots and maps for analyzing trends and a map feature for visualizing data for selected cities. Our proposed solution architecture is scalable, adaptable, cost-effective, and dynamic due to retraining and versioning, and CI/CD implementation. Our platform offers a smooth and interactive user experience, providing all necessary information and insights about heatwave and AQI prediction for selected cities.
             """
         )
 
@@ -253,8 +246,6 @@ st.write("---")
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Our Model")
-info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
-
 
 # ---- Forecast ----
 with st.container():
@@ -270,6 +261,9 @@ path1 = "winner/{}/winner_{}_prediction.csv".format(
 
 st.header("Graph")
 if selected_model == 'Heat wave':
+    info("Info", '''The Graph displays the forecasted values and their associated uncertainty intervals over time. 
+    Shaded areas above and below the line represent the uncertainty interval.
+    The blue line represents the forecast prediction''')
 
     agree = st.checkbox('Line graph')
 
@@ -289,6 +283,8 @@ if selected_model == 'Heat wave':
             paper_bgcolor='#F8F8F8',  # set the background color of the plot area
         )
 else:
+    info("Info", '''The Graph displays the prediction and actual AQI Reading for the range of the full dataset and for year 2023
+    The orange points shows the predicted value and the grey points shows the actual value of AQI.''')
     fig1 = line_plot_plotly(m, forecast, 'markers', selected_model)
 
     fig1.update_layout(
@@ -320,11 +316,11 @@ if selected_model == 'Heat wave':
         item = {"id": i, "content": "⚠",
                 "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
-        i = i+1 
-    timeine_title = " Major {} occurrences in the year 2023".format(
-        selected_model)
+        i = i+1
+
+    timeine_title = "Major Heat wave occurrences in the year 2023"
     st.header(timeine_title)
-    info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
+    info("Info", "The timeline highlights the major events in the year 2023 regarding the occurrence of Heat waves.")
 
     options = {
         "min": "2023-01-01",
@@ -332,6 +328,7 @@ if selected_model == 'Heat wave':
     }
 
     timeline = st_timeline(items, groups=[], options=options, height="300px")
+    # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 else:
@@ -341,6 +338,7 @@ else:
     df = pd.read_csv(path)
     df = timeline_prepare(df, selected_model)
     df = df[df["Extreme AQI events"] == "yes"]
+
     # Convert the dataframe to a list of dictionaries
     items = []
     i = 1
@@ -352,11 +350,11 @@ else:
                 "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
         i = i+1
-    timeine_title = " Major {} occurrences in the year 2023".format(
-        selected_model)
+
+    timeine_title = "Major events in the year 2023 regarding severe Air Quality conditions."
     st.header(timeine_title)
 
-    info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
+    info("Info", "The timeline highlights the major events in the year 2023 regarding severe Air Quality conditions")
 
     options = {
         "min": "2023-01-01",
@@ -364,6 +362,7 @@ else:
     }
 
     timeline = st_timeline(items, groups=[], options=options, height="300px")
+    # timeline = st_timeline(items, groups=[], height="300px")
     st.subheader("Selected item")
     st.write(timeline)
 
@@ -402,10 +401,10 @@ with st.container():
 
 # Polar Plots
 st.write("---")
-st.header("Polar Plot")
+st.header("Polar Graph")
 with st.container():
     if selected_model == 'Heat wave':
-        info("Info", "City wise temperature data on polar plot with the distance from the center of the plot representing the temperature value at that point of time, each rotation account for a full year ")
+        info("Info", "City-wise temperature and Humidity data on a polar graph with the distance from the centre of the graph representing the value at that point in time, each rotation accounts for a full year.")
         c1, c2 = st.columns(2)
         with c1:
 
@@ -435,7 +434,7 @@ with st.container():
 
     else:
         """### Pollution trend over the past years"""
-        info("Info", "City wise temperature data on polar plot with the distance from the center of the plot representing the temperature value at that point of time, each rotation account for a full year ")
+        info("Info", "City-wise AQI reading on a polar graph with the distance from the centre of the graph representing the value at that point of time, each rotation accounts for a full year ")
         c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 
         with c3:
@@ -547,11 +546,14 @@ with st.container():
 
             # Save the GeoDataFrame to a GeoJSON file
             cities_gdf.to_file('heatwave_cities.geojson', driver='GeoJSON')
+
+            # Load the city data
             cities = gpd.read_file("heatwave_cities.geojson")
 
             # Create a folium map centered on the India
             m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
 
+            # Create a GeoJson layer for the city data
             geojson = folium.GeoJson(
                 cities,
                 name='City Data',
@@ -584,6 +586,7 @@ with st.container():
             aqi_kh = df_kh.loc[d, 'aqi']
             aqi_ni = df_ni.loc[d, 'aqi']
             aqi_wa = df_wa.loc[d, 'aqi']
+
         # Select the temperature and heat index value for a particular date and store it in a variable
 
             cities = {
@@ -602,10 +605,13 @@ with st.container():
             # Save the GeoDataFrame to a GeoJSON file
             cities_gdf.to_file('aqi_cities.geojson', driver='GeoJSON')
 
+            # Load the city data
             cities = gpd.read_file("aqi_cities.geojson")
 
             # Create a folium map centered on the India
             m = folium.Map(location=[17.9774221, 79.52881], zoom_start=6)
+
+            # Create a GeoJson layer for the city data
             geojson = folium.GeoJson(
                 cities,
                 name='City Data',
@@ -625,7 +631,7 @@ with st.container():
                 search_label='city'
             ).add_to(m)
 
-            folium_static(m, width=500, height=500)
+            folium_static(m, width=520, height=520)
 
     with middle_column:
         st.write("                 ")

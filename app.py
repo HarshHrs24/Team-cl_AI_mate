@@ -188,7 +188,7 @@ st.sidebar.image(image)
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ by [Team cl_AI_mate](https://github.com/HarshHrs24/Team-cl_AI_mate).
+Created with ❤️ by [Team cl_AI_mate](https://github.com/iamneo-production/00aa9422-7c04-4b7c-975b-6ed887ff7d95).
 
 ''')
 
@@ -198,12 +198,19 @@ with st.container():
     left_column, right_column = st.columns(2)
     with left_column:
         st.title("Team cl_AI_mate")
+        st.write("Stay ahead of the heat and breathe easy with Team cl_AI_mate")
         name = "{} Prediction".format(selected_model)
         st.title(name)
         st.write(
             "Telangana Tier-2 cities - Alidabad, Nizamabad, Karimnagar, Khammam and Warangal."
         )
-        st.write("[Learn More >](https://github.com/HarshHrs24/Team-cl_AI_mate)")
+        if selected_model == "Heat wave":
+            st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1xH77_KLE3gpmTxGk9-X36Pj6lHee0iBc?usp=sharing#scrollTo=nybHfIsygGzp)")
+            st.write("[Solution Architecture]()")
+
+        else:
+            st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1WgV57xtbG05shrxy47Fw59oOmzTZ2yJv?usp=sharing)")
+            st.write("[Solution Architecture]()")
 
     with right_column:
         i = 'images/{}_hw2.jpg'.format(selected_model)
@@ -246,6 +253,7 @@ st.write("---")
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Our Model")
+info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
 
 
 # ---- Forecast ----
@@ -309,14 +317,15 @@ if selected_model == 'Heat wave':
         yhat_lower = str(row["yhat_lower"])
         content = "On {}, {} is expected to experience a maximum temperature of {} and a minimum temperature of {}.".format(
             str(row["ds"]), selected_city, yhat_upper, yhat_lower)
-        item = {"id": i, "content": "◉",
-                "message": content, "start": str(row["ds"])}
+        item = {"id": i, "content": "⚠",
+                "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
         i = i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
     timeine_title = " Major {} occurrences in the year 2023".format(
         selected_model)
     st.header(timeine_title)
+    info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
 
     options = {
         "min": "2023-01-01",
@@ -341,14 +350,16 @@ else:
         yhat = str(row["yhat"])
         content = "The predicted Aqi for {} on {} is {}".format(
             selected_city, str(row["ds"]), yhat)
-        item = {"id": i, "content": "◉",
-                "message": content, "start": str(row["ds"])}
+        item = {"id": i, "content": "⚠",
+                "message": content, "start": str(row["ds"]), "style": "color: black; background-color: red;"}
         items.append(item)
         i = i+1
     # heatwave_ocurences= df.loc['yes', 'occurence of heat wave']
     timeine_title = " Major {} occurrences in the year 2023".format(
         selected_model)
     st.header(timeine_title)
+
+    info("Info", "It will give the details of relevant parameters in reference to respective date and selected city.")
 
     options = {
         "min": "2023-01-01",
@@ -395,8 +406,10 @@ with st.container():
 
 # Polar Plots
 st.write("---")
+st.header("Polar Plot")
 with st.container():
     if selected_model == 'Heat wave':
+        info("Info", "City wise temperature data on polar plot with the distance from the center of the plot representing the temperature value at that point of time, each rotation account for a full year ")
         c1, c2 = st.columns(2)
         with c1:
 
@@ -425,7 +438,8 @@ with st.container():
             )
 
     else:
-        """### Pollution trend over the decade"""
+        """### Pollution trend over the past years"""
+        info("Info", "City wise temperature data on polar plot with the distance from the center of the plot representing the temperature value at that point of time, each rotation account for a full year ")
         c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 
         with c3:
@@ -445,6 +459,12 @@ with st.container():
 # -----Map--------
 st.write("---")
 st.header("Map")
+info("Info", '''The map feature allows users to easily locate their desired city and access detailed information on important parameters related to Heat waves and AQI (Air Quality Index) respectively. 
+
+It provides users with real-time data and visual representations of the values for each parameter, allowing for easy analysis and understanding of the current situation. 
+
+''')
+
 st.write("")
 retrain_log_path = "retrain/{}/{}_retrain_log.csv".format(
     selected_model, selected_city)

@@ -43,6 +43,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
     <li>
       <a href="#how-to-run-the-project-in-5-simple-steps">How to run the project in 5 simple steps</a>
     </li>
+     <li><a href="#screenshots">Screenshots</a></li>
     <li><a href="#our-approach">Our Approach</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#file-structure">File Structure</a></li>
@@ -103,7 +104,14 @@ pip install -r requirements.txt
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Screenshots -->
+## Screenshots 
+<img src="https://drive.google.com/uc?export=view&id=1Wd50dA61aPPAf-NPgV8uvy1FNeNPWyHo" alt="Logo" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1Wd50dA61aPPAf-NPgV8uvy1FNeNPWyHo" alt="Logo" width="475" height="275">
+
+<img src="https://drive.google.com/uc?export=view&id=1Akpxl7G-Eudbl8pknCu2gR-cIr52xAal" alt="Logo" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1Akpxl7G-Eudbl8pknCu2gR-cIr52xAal" alt="Logo" width="475" height="275">
+
+<img src="https://drive.google.com/uc?export=view&id=1EsX3SRT0wLf49k6W4yah3kNjNExtMvGs" alt="Logo" width="475" height="275"><img src="https://drive.google.com/uc?export=view&id=1-2g9sKgI5lm6rteBaQFUF-VZfL5lima2" alt="Logo" width="475" height="275">
+
+
 
 
 <!-- Approach -->

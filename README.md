@@ -22,9 +22,9 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
   <p align="center">
   <h4>T-AIM Academic Grand Challenge on Climate Change</h4> 
   <h3><a href="https://harshhrs24-team-cl-ai-mate-app-md7w7w.streamlit.app/"><strong>Deployed Website Link »</strong></a></h3>
-    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for Heat wave »</strong></a>
+    <a href="https://colab.research.google.com/drive/1xH77_KLE3gpmTxGk9-X36Pj6lHee0iBc?usp=sharing#scrollTo=1ExcTb2-2C29"><strong>Exploratory Data Analysis (EDA) for Heat wave »</strong></a>
     <br />
-    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for AQI »</strong></a>
+    <a href="https://colab.research.google.com/drive/1WgV57xtbG05shrxy47Fw59oOmzTZ2yJv?usp=sharing"><strong>Exploratory Data Analysis (EDA) for AQI »</strong></a>
     <br />
     <br />
     <a href="https://www.craft.do/s/1eTduABsPuFIDX"><strong>Complete Solution Architecture Documentation »</strong></a>

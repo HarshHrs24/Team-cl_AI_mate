@@ -636,6 +636,7 @@ with st.container():
 
     with right_column:
         if selected_model == 'Heat wave':
+            st.write("     ")
             image = Image.open('images/hic1.jpeg')
             st.image(image)
         else:

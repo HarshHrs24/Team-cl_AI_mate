@@ -9,7 +9,7 @@ import smtplib
 import geopandas as gpd
 import pandas as pd
 from streamlit_folium import folium_static
-from folium.plugins import Search, MarkerCluster
+from folium.plugins import Search
 import folium
 from PIL import Image
 from streamlit_lottie import st_lottie

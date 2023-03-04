@@ -27,7 +27,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_00aa9422-7c04-4b7c-975b-6ed
     <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Exploratory Data Analysis (EDA) for AQI »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/HarshHrs24/Team-cl_AI_mate"><strong>Complete Solution Architecture Documentation »</strong></a>
+    <a href="https://www.craft.do/s/1eTduABsPuFIDX"><strong>Complete Solution Architecture Documentation »</strong></a>
   </p>
 </div>
 

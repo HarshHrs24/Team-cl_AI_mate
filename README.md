@@ -109,7 +109,13 @@ pip install -r requirements.txt
 <!-- Approach -->
 ## Our Approach
 
-This is an example about our approach.
+The sliding window approach used in this system involves dividing the latest month's data into four weekly windows, labeled "one" to "four". Each window contains two subfolders, "Heat wave" and "AQI," which contain the relevant raw dataset, ML model, and prediction/forecast dataset for that specific week. This approach enables the system to keep track of the latest available data and update the ML models accordingly.
+
+To ensure that the ML models remain current, the system regularly retrains them with the latest available data. Whenever a new dataset becomes available, the raw dataset is updated, and the ML model is retrained. The content of the folder labeled "four" is then replaced by the content of the folder labeled "three," which is in turn replaced by the content of the folder labeled "two," and so on. The most recent raw dataset, ML model, and prediction/forecast dataset are then placed in the folder labeled "one". This versioning process occurs weekly, ensuring that the models are always based on the latest available data.
+
+The system maintains a log file for these four different versions, which contains key performance indicators (KPIs) such as RMSE. These KPIs are used to compare the different versions of the ML models, and the best-performing model and prediction/forecast dataset are stored in the "winner" folder. This folder is used for forecasting heatwave and AQI, and it ensures that the system always uses the best-performing model for forecasting.
+
+The system also implements CI/CD using Retraining and Versioning and streamlit for deployment. This allows the system to deploy the ML models without relying on expensive cloud services, making it a cost-effective way of improving the accuracy of the predictions.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

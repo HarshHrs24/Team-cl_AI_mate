@@ -141,7 +141,7 @@ The system also implements CI/CD using Retraining and Versioning and streamlit f
 
 ## File Structure
  <img src="https://drive.google.com/uc?export=view&id=1BvXYscxxBb7qNzeHKNAostTqjh4ym_Os" alt="Logo" width="900" height="600">
-<!-- https://drive.google.com/file/d/1BvXYscxxBb7qNzeHKNAostTqjh4ym_Os/view?usp=sharing -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
 

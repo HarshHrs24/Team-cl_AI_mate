@@ -187,7 +187,7 @@ st.sidebar.image(image)
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ by [Team cl_AI_mate](https://github.com/iamneo-production/00aa9422-7c04-4b7c-975b-6ed887ff7d95).
+Created with ❤️ by [Team cl_AI_mate]().
 
 ''')
 

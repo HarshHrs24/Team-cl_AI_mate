@@ -355,10 +355,10 @@ def aqi_train_model(city):
 
 
 
-# aqi_train_model('Adilabad')
-# aqi_train_model('Khammam')
-# aqi_train_model('Karimnagar')
-# aqi_train_model('Nizamabad')
-# aqi_train_model('Warangal')
+aqi_train_model('Adilabad')
+aqi_train_model('Khammam')
+aqi_train_model('Karimnagar')
+aqi_train_model('Nizamabad')
+aqi_train_model('Warangal')
 
 

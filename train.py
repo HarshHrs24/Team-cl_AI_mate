@@ -44,7 +44,8 @@ def weekly_update(city,model):
     lat, lon = cord(city)
     retrain_log_path="retrain/{}/{}_retrain_log.csv".format(model,city)
     df = pd.read_csv(retrain_log_path)
-    new_value1 = int(time.time())
+#     new_value1 = int(time.time())
+    new_value1 =  1679011200
     print(new_value1)
     start = df['last updated date'].iloc[-1] + 60 * 60
     end=df['last updated date'].iloc[-1]
@@ -234,11 +235,11 @@ def heatwave_train_model(city):
 
 
 
-heatwave_train_model('Adilabad')
-heatwave_train_model('Khammam')
-heatwave_train_model('Karimnagar')
-heatwave_train_model('Nizamabad')
-heatwave_train_model('Warangal')
+# heatwave_train_model('Adilabad')
+# heatwave_train_model('Khammam')
+# heatwave_train_model('Karimnagar')
+# heatwave_train_model('Nizamabad')
+# heatwave_train_model('Warangal')
 
 
 def aqi_train_model(city):

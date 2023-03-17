@@ -187,7 +187,7 @@ st.sidebar.image(image)
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ by [Team cl_AI_mate]().
+Created with ❤️ by [Team cl_AI_mate](https://github.com/iamneo-production/00aa9422-7c04-4b7c-975b-6ed887ff7d95).
 
 ''')
 
@@ -204,12 +204,12 @@ with st.container():
             "Telangana Tier-2 cities - Alidabad, Nizamabad, Karimnagar, Khammam and Warangal."
         )
         if selected_model == "Heat wave":
-            st.write("[Exploratory Data Analysis(EDA)]()")
-            st.write("[Solution Architecture]()")
+            st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1xH77_KLE3gpmTxGk9-X36Pj6lHee0iBc?usp=sharing#scrollTo=nybHfIsygGzp)")
+            st.write("[Solution Architecture](https://www.craft.do/s/1eTduABsPuFIDX)")
 
         else:
-            st.write("[Exploratory Data Analysis(EDA)]()")
-            st.write("[Solution Architecture]()")
+            st.write("[Exploratory Data Analysis(EDA)](https://colab.research.google.com/drive/1WgV57xtbG05shrxy47Fw59oOmzTZ2yJv?usp=sharing)")
+            st.write("[Solution Architecture](https://www.craft.do/s/1eTduABsPuFIDX)")
 
     with right_column:
         i = 'images/{}_hw2.jpg'.format(selected_model)

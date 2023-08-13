@@ -7,7 +7,7 @@ watchdog==2.1.8
 seaborn
 pandas==1.5.3
 numpy==1.22.3
-prophet
+prophet==1.1.2
 matplotlib==3.7.0
 scikit-learn
 plotly==5.13.0
@@ -15,7 +15,7 @@ streamlit_folium
 folium==0.14.0
 geopandas==0.12.2
 PyMuPDF
-python-holidays
+python-holidays==0.11.1
 streamlit-vis-timeline==0.3.0
 # streamlit-timeline
 # smtplib

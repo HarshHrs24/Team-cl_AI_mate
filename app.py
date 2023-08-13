@@ -15,6 +15,7 @@ from streamlit_lottie import st_lottie
 import streamlit as st
 import requests
 from prophet.serialize import model_from_json
+from holidays.countries import india
 from prophet.plot import plot_plotly
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)

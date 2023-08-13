@@ -15,6 +15,7 @@ streamlit_folium
 folium==0.14.0
 geopandas==0.12.2
 PyMuPDF
+python-holidays
 streamlit-vis-timeline==0.3.0
 # streamlit-timeline
 # smtplib

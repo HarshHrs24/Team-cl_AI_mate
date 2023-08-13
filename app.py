@@ -14,7 +14,7 @@ from PIL import Image
 from streamlit_lottie import st_lottie
 import streamlit as st
 import requests
-from prophet.serialize import model_from_json
+# from prophet.serialize import model_from_json
 from prophet.plot import plot_plotly
 from prophet.holidays import Turkey
 import warnings
@@ -22,6 +22,17 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # defining necessary functions
+
+
+
+def model_from_json(path):
+    with open(path, 'r') as f:
+        model_json = json.load(f)
+
+    model = Prophet()
+    model._initialize_from_json(model_json)
+
+    return model
 
 #to load necessary assests
 def load_lottieurl(url):
@@ -136,8 +147,9 @@ def load_prediction(selected_model, city):
 # to load model
 def load_model(selected_model, city):
     path = "winner/{}/winner_{}_model.json".format(selected_model, city)
-    with open(path, 'r') as fin:
-        m = model_from_json(fin.read())  # Load model
+    # with open(path, 'r') as fin:
+    #     m = model_from_json(fin.read())  # Load model
+    m=model_from_json(path)
     return m
 
 # Description

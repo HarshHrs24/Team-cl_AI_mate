@@ -20,26 +20,4 @@ streamlit-vis-timeline==0.3.0
 # smtplib
 
 
-#Run this file with - pip3 install -r requirements.txtstreamlit_lottie==0.0.3
-streamlit
-requests==2.24.0
-Pillow==9.1.0
-protobuf~=3.19.0
-watchdog==2.1.8
-seaborn
-pandas==1.5.3
-numpy==1.22.3
-prophet==1.1.2
-matplotlib==3.7.0
-scikit-learn
-plotly==5.13.0
-streamlit_folium
-folium==0.14.0
-geopandas==0.12.2
-PyMuPDF
-streamlit-vis-timeline==0.3.0
-# streamlit-timeline
-# smtplib
-
-
 #Run this file with - pip3 install -r requirements.txt

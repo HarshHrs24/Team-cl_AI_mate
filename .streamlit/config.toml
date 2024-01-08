@@ -1,3 +1,10 @@
+[global]
+dataFrameSerialization = "legacy"
+
+[cache]
+persist = true
+
+
 [theme]
 
 # Primary accent for interactive elements

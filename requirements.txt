@@ -1,5 +1,5 @@
-holidays==0.14.2
-prophet==1.1.1
+holidays==0.15
+prophet==1.1.2
 streamlit_lottie>=0.0.3
 streamlit
 requests>=2.24.0

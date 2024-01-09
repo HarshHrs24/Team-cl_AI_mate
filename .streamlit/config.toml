@@ -1,8 +1,3 @@
-[global]
-dataFrameSerialization = "legacy"
-
-[cache]
-persist = true
 
 
 [theme]

@@ -16,9 +16,7 @@ streamlit_folium
 folium>=0.14.0
 geopandas>=0.12.2
 PyMuPDF
-streamlit-vis-timeline>=0.3.0
+# streamlit-vis-timeline>=0.3.0
 # streamlit-timeline
 # smtplib
-
-
 #Run this file with - pip3 install -r requirements.txt

@@ -1,6 +1,6 @@
 # importing necessary libraries
 import plotly.graph_objects as go
-from streamlit_timeline import st_timeline
+from sttime import st_timeline
 import base64
 from shapely.geometry import Point
 import datetime
